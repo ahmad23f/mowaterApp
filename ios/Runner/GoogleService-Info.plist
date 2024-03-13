@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>972851614495-3nam6jm2h0tl4j46t1cvki0vto4ai5fp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.972851614495-3nam6jm2h0tl4j46t1cvki0vto4ai5fp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>972851614495-pav40utjljd69u72k3r8de2jqqm5tiv6.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA4-ZHOrk5gncBSDMmWLeUBH9RXbt8uSaI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>972851614495</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mowater</string>
+	<key>PROJECT_ID</key>
+	<string>mowaterappnew</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mowaterappnew.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:972851614495:ios:2deecbff8fa5d02693162a</string>
+</dict>
+</plist>

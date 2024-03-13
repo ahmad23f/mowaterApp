@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "972851614495",
+    "project_id": "mowaterappnew",
+    "storage_bucket": "mowaterappnew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972851614495:android:9cfac1c5fed2a3b493162a",
+        "android_client_info": {
+          "package_name": "com.example.mowater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972851614495-2i0laq8bu9jje0rid4phehj69i1pphsm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mowater",
+            "certificate_hash": "4905aa02a9c6c2975336b646278a169fcdced422"
+          }
+        },
+        {
+          "client_id": "972851614495-57gvu4c09qtqemk4v5fcag7hhdhif65l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_T-M-LwOm68xhEbHe9HgDx3tS3t1evvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972851614495-57gvu4c09qtqemk4v5fcag7hhdhif65l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "972851614495-3nam6jm2h0tl4j46t1cvki0vto4ai5fp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mowater"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972851614495:android:f295c51f2602107293162a",
+        "android_client_info": {
+          "package_name": "com.example.mowaterApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972851614495-57gvu4c09qtqemk4v5fcag7hhdhif65l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_T-M-LwOm68xhEbHe9HgDx3tS3t1evvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972851614495-57gvu4c09qtqemk4v5fcag7hhdhif65l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "972851614495-3nam6jm2h0tl4j46t1cvki0vto4ai5fp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mowater"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
