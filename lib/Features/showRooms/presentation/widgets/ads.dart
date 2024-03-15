@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/Features/showRooms/data/ads/showRoomsAds/show_rooms_ads_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/showRooms/data/ads/showRoomsAds/show_rooms_ads_cubit.dart';
 
 class ShowroomsAds extends StatelessWidget {
   const ShowroomsAds({
@@ -21,7 +22,7 @@ class ShowroomsAds extends StatelessWidget {
                   TrendingWidget(image: ads[index].image),
               options: CarouselOptions(viewportFraction: 1, autoPlay: true)),
           faliure: () {
-            return const Text('No Ads Yet!');
+            return Text('No Ads Yet!'.tr());
           },
           loading: () => const Center(
             child: CircularProgressIndicator.adaptive(),

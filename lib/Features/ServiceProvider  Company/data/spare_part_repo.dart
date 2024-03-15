@@ -1,12 +1,12 @@
 // import 'dart:convert';
 
 // import 'package:dio/dio.dart';
-// import 'package:mowaterApp/Features/ServiceProvider%20%20Company/model/service_account.dart';
-// import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-// import 'package:mowaterApp/core/helper/get_city_name_by_lat_long_tude.dart';
-// import 'package:mowaterApp/core/networking/api/api_result.dart';
-// import 'package:mowaterApp/core/networking/api/api_service.dart';
-// import 'package:mowaterApp/core/services/user_state.dart';
+// import 'package:Mowater/Features/ServiceProvider%20%20Company/model/service_account.dart';
+// import 'package:Mowater/Features/signUp/data/models/user_response.dart';
+// import 'package:Mowater/core/helper/get_city_name_by_lat_long_tude.dart';
+// import 'package:Mowater/core/networking/api/api_result.dart';
+// import 'package:Mowater/core/networking/api/api_service.dart';
+// import 'package:Mowater/core/services/user_state.dart';
 
 // class ServiceProviderShowRoomRepo {
 //   final ApiService _apiService;

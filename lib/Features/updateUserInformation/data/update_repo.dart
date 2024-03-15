@@ -1,10 +1,10 @@
 import 'dart:io';
 
+import 'package:Mowater/core/models/user_model.dart';
 import 'package:dio/dio.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/services/user_state.dart';
 
 class UpdateUserInformationRepositeory {
   final ApiService _apiService;
@@ -14,10 +14,10 @@ class UpdateUserInformationRepositeory {
     FormData formData = FormData.fromMap({
       'id': user.id,
       "name": user.name,
-      'nickname': user.nickname,
+      'nickname': user.nickName,
       'phone_number': user.phoneNumber,
-      'whatsappNumber': user.whatsappNumber,
-      'password': user.passwrod
+      'whatsappNumber': user.whatsAppNumber,
+      'password': user.password
     });
 
     if (file != null) {
@@ -30,17 +30,17 @@ class UpdateUserInformationRepositeory {
     try {
       final response = await _apiService.updateUserInfo(formData);
       if (response.status == 'success') {
-        UserServices.updateUserInfo(
-            emailState: response.user.emailState,
-            whatsState: response.user.whatsappVerified,
-            email: response.user.email,
-            phoneNumber: response.user.phoneNumber,
-            image: response.user.image,
-            nickName: response.user.nickname,
-            lastUpdatePhoneNumber: response.user.lastUpdatePhoneNumber,
-            whatsappNumber: response.user.whatsappNumber,
-            lastUpdateWhatsAppNumber: response.user.lastUpdateWhatsAppNumber,
-            username: response.user.name);
+        // UserServices.updateUserInfo(
+        //     emailState: response.user.emailState,
+        //     whatsState: response.user.whatsAppNumber,
+        //     email: response.user.email,
+        //     phoneNumber: response.user.phoneNumber,
+        //     image: response.user.image,
+        //     nickName: response.user.nickname,
+        //     lastUpdatePhoneNumber: response.user.lastUpdatePhoneNumber,
+        //     whatsappNumber: response.user.whatsappNumber,
+        //     lastUpdateWhatsAppNumber: response.user.lastUpdateWhatsAppNumber,
+        //     username: response.user.name);
 
         return ApiResult.success(response);
       } else {

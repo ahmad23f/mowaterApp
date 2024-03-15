@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final String hintText;
@@ -86,7 +86,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
             ),
             filled: true,
-            fillColor: ColorApp.secunderyColorDark,
+            fillColor: Theme.of(context).colorScheme.secondary,
             suffixIcon: widget.isPasswordField
                 ? IconButton(
                     icon: _isObscured

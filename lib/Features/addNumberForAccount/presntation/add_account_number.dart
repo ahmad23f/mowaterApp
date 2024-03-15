@@ -1,21 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/addNumberForAccount/presntation/cubit/account_number_cubit.dart';
-import 'package:mowaterApp/Features/addNumberForAccount/presntation/phone_text_field.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/cubit/update_user_info_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
+import 'package:Mowater/Features/addNumberForAccount/presntation/cubit/account_number_cubit.dart';
+import 'package:Mowater/Features/addNumberForAccount/presntation/phone_text_field.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
 
 class AddAccountNumberScreen extends StatelessWidget {
   String userToken;
-  String? numberType = 'phone';
+  String? numberType = 'phone'.tr();
   AddAccountNumberScreen({super.key, required this.userToken, this.numberType});
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController numberController = TextEditingController();
@@ -32,7 +31,7 @@ class AddAccountNumberScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(8.0.dg),
                 child: Text(
-                  'Skip',
+                  'Skip'.tr(),
                   style: TextStyles.text_16,
                 ),
               ),
@@ -56,13 +55,15 @@ class AddAccountNumberScreen extends StatelessWidget {
                   child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
                 height: 2,
-                decoration: BoxDecoration(color: ColorApp.secunderyColorDark),
+                decoration: BoxDecoration(
+                    color: Theme.of(mContext).colorScheme.secondary),
               )),
               Expanded(
                   child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
                 height: 2,
-                decoration: BoxDecoration(color: ColorApp.secunderyColorDark),
+                decoration: BoxDecoration(
+                    color: Theme.of(mContext).colorScheme.secondary),
               )),
             ],
           )),
@@ -73,13 +74,14 @@ class AddAccountNumberScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Enter Your Number",
+              "Enter Your Number".tr(),
               style:
                   TextStyles.text_30.copyWith(color: ColorApp.primeryColorDark),
             ),
             verticalSpace(13.h),
             Text(
-              'Register And Confirm Your Number To Get Additional Benefits',
+              'Register And Confirm Your Number To Get Additional Benefits'
+                  .tr(),
               style: TextStyles.text_16,
             ),
             verticalSpace(35.h),
@@ -95,7 +97,7 @@ class AddAccountNumberScreen extends StatelessWidget {
                 ),
                 horizontalSpace(18.w),
                 Text(
-                  "United Arab Emirates ",
+                  "United Arab Emirates ".tr(),
                   style: TextStyles.text_14,
                 )
               ],
@@ -118,9 +120,10 @@ class AddAccountNumberScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text("Confirm Number"),
+                            title: Text("Confirm Number".tr()),
                             content: Text(
-                                "Is this your number: ${numberController.text} ?"),
+                                "Is this your number: ${numberController.text} ?"
+                                    .tr()),
                             actionsPadding:
                                 EdgeInsets.symmetric(horizontal: 20.w),
                             actions: [
@@ -133,56 +136,57 @@ class AddAccountNumberScreen extends StatelessWidget {
                                       Navigator.pop(
                                           context); // Close the dialog
                                     },
-                                    child: const Text("No"),
+                                    child: Text("No".tr()),
                                   ),
-                                  TextButton(
-                                    onPressed: () async {
-                                      if (numberType == 'Phone Number') {
-                                        print('update');
-                                        print('number type: $numberType');
-                                        UserServices.updateUserInfo(
-                                            phoneNumber: '0');
-                                        mContext
-                                            .read<UpdateUserInfoCubit>()
-                                            .update(
-                                              user: UserModel(
-                                                  phoneNumber: '0',
-                                                  userType: UserServices
-                                                          .getUserInformation()
-                                                      .userType),
-                                            );
-                                      } else {
-                                        print('update');
-                                        print('number type: $numberType');
-                                        UserServices.updateUserInfo(
-                                            whatsappNumber: '0');
-                                        mContext
-                                            .read<UpdateUserInfoCubit>()
-                                            .update(
-                                              user: UserModel(
-                                                  userType: UserServices
-                                                          .getUserInformation()
-                                                      .userType,
-                                                  whatsappNumber: '0'),
-                                            );
-                                      }
+                                  // TextButton(
+                                  //   onPressed: () async {
+                                  //     if (numberType == 'Phone Number'.tr()) {
+                                  //       print('update'.tr());
+                                  //       print('number type: $numberType'.tr());
+                                  //       UserServices.updateUserInfo(
+                                  //           phoneNumber: '0');
+                                  //       mContext
+                                  //           .read<UpdateUserInfoCubit>()
+                                  //           .update(
+                                  //             user: UserModel(
+                                  //                 phoneNumber: '0',
+                                  //                 userType: UserServices
+                                  //                         .getUserInformation()
+                                  //                     .userType),
+                                  //           );
+                                  //     } else {
+                                  //       print('update'.tr());
+                                  //       print('number type: $numberType'.tr());
+                                  //       UserServices.updateUserInfo(
+                                  //           whatsappNumber: '0');
+                                  //       mContext
+                                  //           .read<UpdateUserInfoCubit>()
+                                  //           .update(
+                                  //             user: UserModel(
+                                  //                 userType: UserServices
+                                  //                         .getUserInformation()
+                                  //                     .userType,
+                                  //                 whatsappNumber: '0'),
+                                  //           );
+                                  //     }
 
-                                      await mContext
-                                          .read<AccountNumberCubit>()
-                                          .updateUserNumber(
-                                              userToken: userToken,
-                                              number: numberController.text,
-                                              numberType: numberType);
+                                  //     await mContext
+                                  //         .read<AccountNumberCubit>()
+                                  //         .updateUserNumber(
+                                  //             userToken: userToken,
+                                  //             number: numberController.text,
+                                  //             numberType: numberType);
 
-                                      await mContext.push(
-                                          RouteName.verificationCodeScreen,
-                                          extra: {
-                                            'number': numberController.text,
-                                            'numberType': numberType
-                                          });
-                                    },
-                                    child: const Text("Yes"),
-                                  ),
+                                  //     await mContext.push(
+                                  //         RouteName.verificationCodeScreen,
+                                  //         extra: {
+                                  //           'number'.tr():
+                                  //               numberController.text,
+                                  //           'numberType'.tr(): numberType
+                                  //         });
+                                  //   },
+                                  //   child: Text("Yes".tr()),
+                                  // ),
                                 ],
                               ),
                             ],
@@ -193,7 +197,7 @@ class AddAccountNumberScreen extends StatelessWidget {
                   },
                   color: ColorApp.primeryColorDark,
                   textStyle: TextStyles.text_18.copyWith(color: Colors.white),
-                  text: 'Continue',
+                  text: 'Continue'.tr(),
                 );
               },
             ),

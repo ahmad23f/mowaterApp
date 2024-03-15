@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ContactIconWithName extends StatelessWidget {
   String name;

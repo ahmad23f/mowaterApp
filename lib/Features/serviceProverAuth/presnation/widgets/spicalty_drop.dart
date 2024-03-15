@@ -1,13 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
+import 'package:Mowater/core/constants/color.dart';
 
 class SignInCategoryDropDown extends StatefulWidget {
-  final ValueChanged<String>? onCategoryChanged;
+  final ValueChanged<int>? onCategoryIndexChanged; // Change the callback type
 
   const SignInCategoryDropDown({
     Key? key,
-    this.onCategoryChanged,
+    this.onCategoryIndexChanged,
   }) : super(key: key);
 
   @override
@@ -19,20 +20,18 @@ class _SignInCategoryDropDownState extends State<SignInCategoryDropDown> {
 
   // List of main categories
   List<String> mainCategories = [
-    'Maintenance',
-    'showRooms',
-    'insurance',
-    'rentalCars',
-    'warranty',
-    'spareParts',
-    'inspection',
-    'Evaluation',
-    'carCare',
-    'mobileService',
+    'Maintenance'.tr(),
+    'showRooms'.tr(),
+    'insurance'.tr(),
+    'rentalCars'.tr(),
+    'warranty'.tr(),
+    'spareParts'.tr(),
+    'inspection'.tr(),
+    'Evaluation'.tr(),
+    'carCare'.tr(),
+    'mobileService'.tr(),
     // Add more main categories as needed
   ];
-
-  int? selectedCategoryIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +40,12 @@ class _SignInCategoryDropDownState extends State<SignInCategoryDropDown> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          DropdownButtonFormField<String>(
+          DropdownButtonFormField<int>(
+            // Change to int type
             isExpanded: true,
             decoration: InputDecoration(
               filled: true,
-              fillColor: ColorApp.secunderyColorDark,
+              fillColor: Theme.of(context).colorScheme.secondary,
               contentPadding: const EdgeInsets.symmetric(vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -54,35 +54,34 @@ class _SignInCategoryDropDownState extends State<SignInCategoryDropDown> {
             ),
             hint: Padding(
               padding: EdgeInsets.only(left: 12.0.w),
-              child: const Text(
-                'Select Provider Type',
-                style: TextStyle(fontSize: 14),
+              child: Text(
+                'Select Provider Type'.tr(),
+                style: const TextStyle(fontSize: 14),
               ),
             ),
-            value: selectedCategoryIndex != null
-                ? mainCategories[selectedCategoryIndex!]
-                : null,
-            items: mainCategories
-                .map((item) => DropdownMenuItem<String>(
-                      value: item,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 8.0.w),
-                        child: Text(
-                          item,
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ))
-                .toList(),
+            value: null,
+            items: mainCategories.asMap().entries.map((entry) {
+              // Map with index
+              int index = entry.key;
+              String item = entry.value;
+              return DropdownMenuItem<int>(
+                value: index,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 8.0.w),
+                  child: Text(
+                    item,
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
             onChanged: (value) {
-              setState(() {
-                selectedCategoryIndex = mainCategories.indexOf(value!);
-                if (widget.onCategoryChanged != null) {
-                  widget.onCategoryChanged!(value); // Pass the category name
-                }
-              });
+              if (widget.onCategoryIndexChanged != null) {
+                widget.onCategoryIndexChanged!(
+                    value! + 1); // Pass the index value
+              }
             },
           ),
         ],

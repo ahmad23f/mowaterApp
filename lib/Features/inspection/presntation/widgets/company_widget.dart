@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/inspection/models/inspection_company_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/inspection/models/inspection_company_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class InspectionCompanyWidget extends StatelessWidget {
   final InspectionCompanyModel companyModel;
@@ -23,7 +23,7 @@ class InspectionCompanyWidget extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         height: 298,

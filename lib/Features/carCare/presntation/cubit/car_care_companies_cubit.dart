@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/carCare/data/companies.dart';
-import 'package:mowaterApp/Features/carCare/models/car_car_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/carCare/data/companies.dart';
+import 'package:Mowater/Features/carCare/models/car_car_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'car_care_companies_state.dart';
 part 'car_care_companies_cubit.freezed.dart';

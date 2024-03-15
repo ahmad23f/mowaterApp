@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
+import 'package:Mowater/core/constants/color.dart';
 
 class InsuranceCategoryWidget extends StatelessWidget {
   final String image;
@@ -30,7 +30,7 @@ class InsuranceCategoryWidget extends StatelessWidget {
       height: 208.h,
       width: 166.w,
       decoration: BoxDecoration(
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [],
       ),
@@ -38,7 +38,7 @@ class InsuranceCategoryWidget extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: ColorApp.secunderyColorDark,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(

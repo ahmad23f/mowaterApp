@@ -1,6 +1,6 @@
-import 'package:mowaterApp/Features/CareForSaleBrand/data/models/carBrands/cars_model.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/CareForSaleBrand/data/models/carBrands/cars_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class CarBrandsRepositeory {
   final ApiService _apiService;

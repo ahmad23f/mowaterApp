@@ -1,3 +1,4 @@
+import 'package:Mowater/core/models/user_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -5,24 +6,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/maintenanceAds/maintenance_ads_cubit.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/maintenanceAds/maintenance_ads_cubit.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 // Add your import statements here...
 
@@ -221,14 +222,14 @@ class _MaintenaceServicesMotorScreenState
 }
 
 class CompanyMaintenanceCompanyWidget extends StatelessWidget {
-  final MaintenanceCompanyModel companyModel;
+  final UserModel companyModel;
 
   const CompanyMaintenanceCompanyWidget({Key? key, required this.companyModel})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<String> day = companyModel.weekdayWork!.split(',');
+    List<String> day = companyModel.workDays!.split(',');
     return InkWell(
       onTap: () {
         context.push(RouteName.MaintenanceDetailsScreen, extra: companyModel);
@@ -236,7 +237,7 @@ class CompanyMaintenanceCompanyWidget extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         height: 298,
@@ -289,7 +290,7 @@ class CompanyMaintenanceCompanyWidget extends StatelessWidget {
                       const SizedBox(width: 5),
                       Text(
                         toBeginningOfSentenceCase(
-                              companyModel.categoryName ?? '',
+                              companyModel.type ?? '',
                             ) ??
                             '',
                         style: const TextStyle(fontSize: 14),
@@ -318,7 +319,7 @@ class CompanyMaintenanceCompanyWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ContactWhatsAndCall(
                 callNumber: companyModel.phoneNumber ?? '',
-                whatsAppNumber: companyModel.whatsappNumber ?? '',
+                whatsAppNumber: companyModel.whatsAppNumber ?? '',
               ),
             ),
           ],

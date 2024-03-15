@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CompanyWidget extends StatelessWidget {
   const CompanyWidget({
@@ -49,7 +49,7 @@ class CompanyWidget extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         height: 310.h,
@@ -91,8 +91,12 @@ class CompanyWidget extends StatelessWidget {
                                   fontSize: 14.sp,
                                   color: ColorApp.primeryColorDark,
                                   shadows: [
-                                    const Shadow(
-                                        color: Colors.black, blurRadius: 10)
+                                    Shadow(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .color!,
+                                        blurRadius: 10)
                                   ])),
                         ],
                       ),

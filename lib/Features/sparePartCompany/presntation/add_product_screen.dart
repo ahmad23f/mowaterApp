@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/widgets/get_specialty_by_main_categoyr.dart';
+import 'package:Mowater/Features/serviceProverAuth/presnation/widgets/get_specialty_by_main_categoyr.dart';
 
 class AddNewProductSparePartScreem extends StatelessWidget {
   const AddNewProductSparePartScreem({super.key});
@@ -12,7 +13,7 @@ class AddNewProductSparePartScreem extends StatelessWidget {
       body: Column(
         children: [
           SpecialtyDropDownByMainCategory(
-            mainCategory: 'spareParts',
+            mainCategory: 'spareParts'.tr(),
             onSpecialtiesChanged: (value) {},
           ),
         ],

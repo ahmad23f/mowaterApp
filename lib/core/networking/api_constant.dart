@@ -4,7 +4,7 @@ class ApiConstans {
   static const String mainCategorys = 'categorys/get_all_category.php';
   static const String types = "categorys/get_types.php";
 
-//mowaterApp mart
+//Mowater mart
 
   static const String fuelPrice = 'FuelPrice/price.php';
   static const String mobileServiceCompanies =
@@ -118,7 +118,9 @@ class ApiConstans {
   static const String plateMainAds = "plateNumbers/main_ads.php";
 
   //
-
+  static const String signUp = 'authentication/sign_up.php';
+  static const String signIn = 'authentication/sign_in.php';
+  static const String updateProfile = 'authentication/update.php';
   //ads
   static const String showRoomsAds = 'showRooms/get_ads.php';
   static const String inspectionAds = 'inspection/ads.php';

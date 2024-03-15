@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/call_form.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/whatsapp_form.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/persntation/addCar/add_new_car_insurance_cubit.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/persntation/widgets/email_form.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/persntation/widgets/insurance_typ_drop_down.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/form_field_.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/call_form.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/whatsapp_form.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/persntation/addCar/add_new_car_insurance_cubit.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/persntation/widgets/email_form.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/persntation/widgets/insurance_typ_drop_down.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/form_field_.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 import 'package:intl/intl.dart';
 
 class RequestAquateScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _RequestAquateScreenState extends State<RequestAquateScreen> {
   TextEditingController priceController = TextEditingController();
   TextEditingController birthdayController = TextEditingController();
   TextEditingController nameController =
-      TextEditingController(text: UserServices.getUserInformation().username);
+      TextEditingController(text: UserServices.getUserInformation().name);
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +148,7 @@ class _RequestAquateScreenState extends State<RequestAquateScreen> {
                         .copyWith(fontWeight: FontWeight.bold),
                     content: _buildEmptyFieldsMessage(emptyFields),
                     subtitleTextStyle: TextStyles.text_16,
-                    backGroundColor: ColorApp.secunderyColorDark,
+                    backGroundColor: Theme.of(context).colorScheme.secondary,
                   );
                 }
               },

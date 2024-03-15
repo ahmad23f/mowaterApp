@@ -1,5 +1,5 @@
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
 
 class GoogleSignInRepositeory {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -11,7 +11,6 @@ class GoogleSignInRepositeory {
       if (googleSignInAccount != null) {
         return ApiResult.success(googleSignInAccount);
       }
-
       return const ApiResult.failure('You have not selected the account');
     } catch (error) {
       print('=======================');

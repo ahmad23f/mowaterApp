@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_mart_body.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_mart_body.dart';
 
 class MowaterMartScreen extends StatefulWidget {
   const MowaterMartScreen({Key? key}) : super(key: key);

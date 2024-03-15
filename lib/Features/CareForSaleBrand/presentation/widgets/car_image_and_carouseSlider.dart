@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_image_model.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_image_model.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
 
 class CarImageCarouselSlider extends StatefulWidget {
   const CarImageCarouselSlider({

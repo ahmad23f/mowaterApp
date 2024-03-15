@@ -1,25 +1,26 @@
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_state_product.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/cubits/mowaterMartAds/cubit/mowater_mart_ads_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/cubits/mowaterMartCubit/mowater_market_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_success_body.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/product_loading_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_state_product.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/cubits/mowaterMartAds/cubit/mowater_mart_ads_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/cubits/mowaterMartCubit/mowater_market_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_success_body.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/product_loading_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
 
 class MowaterMartBody extends StatefulWidget {
   const MowaterMartBody({Key? key}) : super(key: key);
@@ -136,7 +137,7 @@ class _MowaterMartBodyState extends State<MowaterMartBody> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(spreadRadius: 2, blurRadius: 20),
         ],

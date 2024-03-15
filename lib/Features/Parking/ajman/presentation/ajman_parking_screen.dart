@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/Parking/data/image_principality.dart';
-import 'package:mowaterApp/Features/Parking/data/plateService/plate_service.dart';
-import 'package:mowaterApp/Features/Parking/models/plate_model.dart';
-import 'package:mowaterApp/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
-import 'package:mowaterApp/Features/Parking/presentation/plate_screen.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/Parking/data/image_principality.dart';
+import 'package:Mowater/Features/Parking/data/plateService/plate_service.dart';
+import 'package:Mowater/Features/Parking/models/plate_model.dart';
+import 'package:Mowater/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
+import 'package:Mowater/Features/Parking/presentation/plate_screen.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AjmanParkingScreen extends StatefulWidget {
@@ -205,7 +205,7 @@ class _AjmanParkingScreenState extends State<AjmanParkingScreen> {
                       TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
                   content: 'There Was Unkown Error Well Fix It Soon!',
                   subtitleTextStyle: TextStyles.text_16,
-                  backGroundColor: ColorApp.secunderyColorDark,
+                  backGroundColor: Theme.of(context).colorScheme.secondary,
                 );
               }
             },

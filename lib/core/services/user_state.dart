@@ -1,43 +1,52 @@
 // user_services.dart
 
+import 'package:Mowater/core/helper/generate_token.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
 import 'package:hive/hive.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/core/helper/generate_token.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_type.dart';
 
 class UserServices {
   static Future<void> saveLoginState(UserModel? userData) async {
-    final box = Hive.box<User>('userBox');
-    final user = User(
-      userType: userData?.userType ?? 'ghost',
+    final box = Hive.box<UserHiveModel>('userBox');
+    print('user save sucess  withe id ${userData?.id}');
+    final user = UserHiveModel(
+      type: userData?.type ?? '0',
       email: userData?.email ?? '',
-      whatsState: userData?.whatsappVerified,
-      verify: userData?.verified,
-      nickName: userData?.nickname ?? 'Ghost',
-      username: userData?.name ?? '',
+      whatsAppNumber: userData?.whatsAppNumber,
+      nickName: userData?.nickName ?? 'Ghost',
+      name: userData?.name ?? '',
       phoneNumber: userData?.phoneNumber ?? '0',
-      token: userData?.userToken ?? generateToken(),
+      token: userData?.token ?? generateToken(),
       id: userData?.id ?? 0,
       image: userData?.image ?? "",
-      whatsappNumber: userData?.whatsappNumber ?? '',
-      lastUpdatePhoneNumber: userData?.lastUpdatePhoneNumber,
-      lastUpdateWhatsAppNumber: userData?.lastUpdatePhoneNumber,
+      lastUpdatePhone: userData?.lastUpdatePhone,
+      availableProducts: userData?.availableProducts,
+      workDays: userData?.workDays,
+      endTime: userData?.endTime,
+      latitude: userData?.latitude,
+      location: userData?.location,
+      description: userData?.description,
+      longitude: userData?.longitude,
+      mowaterDiscount: userData?.mowaterDiscount,
+      specialtyCategorys: userData?.specialtyCategorys,
+      startTime: userData?.startTime,
+      subscriptionState: userData?.subscriptionState,
+      carMakes: userData?.carMakes,
+      lastUpdateWhatsAppNumber: userData?.lastUpdateWhatsAppNumber,
       emailState: userData?.emailState ?? 0,
     );
     await box.put('user', user);
   }
 
   static Future<void> logout() async {
-    final box = Hive.box<User>('userBox');
+    final box = Hive.box<UserHiveModel>('userBox');
     box.delete('user');
     box.clear();
-    box.values.map((element) => element.delete());
     print(box.values.map((element) => element.email));
   }
 
   static bool checkToken() {
-    final box = Hive.box<User>('userBox');
+    final box = Hive.box<UserHiveModel>('userBox');
     if (box.isNotEmpty) {
       final boxUser = box.get('user');
       if (boxUser != null &&
@@ -52,31 +61,24 @@ class UserServices {
     }
   }
 
-  static User getUserInformation() {
-    final box = Hive.box<User>('userBox');
+  static UserHiveModel getUserInformation() {
+    final box = Hive.box<UserHiveModel>('userBox');
     if (box.isNotEmpty) {
       final boxUser = box.get('user');
-      print(boxUser?.whatsState);
-
+      print(boxUser?.id);
       if (boxUser != null) {
-        print(boxUser.email);
         return boxUser;
       }
     }
-    return User(
-      userType: 'ghost',
+    return UserHiveModel(
       email: '',
       nickName: '',
-      username: 'Ghost',
+      name: 'Ghost',
       phoneNumber: '0',
-      verify: 0,
       token: generateToken(),
       id: -1,
       image: '',
-      whatsappNumber: '',
-      lastUpdatePhoneNumber: DateTime(0),
-      lastUpdateWhatsAppNumber: DateTime(0),
-      whatsState: 0,
+      whatsAppNumber: '',
       emailState: 0,
     );
   }
@@ -96,109 +98,61 @@ class UserServices {
       int emailState,
       String emailVerificationCode,
       int verify) async {
-    final box = Hive.box<User>('userBox');
-    final user = User(
-      userType: 'ghost',
+    final box = Hive.box<UserModel>('userBox');
+    final user = UserModel(
+      type: '0',
       email: email,
       nickName: nickName,
       image: image,
-      username: username,
+      name: username,
       phoneNumber: phoneNumber,
       token: token,
       id: id,
-      whatsappNumber: whatsappNumber,
-      lastUpdatePhoneNumber: lastUpdatePhoneNumber,
+      whatsAppNumber: whatsappNumber,
+      lastUpdatePhone: lastUpdatePhoneNumber,
       lastUpdateWhatsAppNumber: lastUpdateWhatsAppNumber,
-      whatsState: whatsState,
-      verify: verify,
       emailState: emailState,
     );
     await box.put('user', user);
   }
 
-  static Future<void> updateUserInfo({
-    int? verify,
-    String? username,
-    String? phoneNumber,
-    String? image,
-    String? nickName,
-    String? email,
-    String? whatsappNumber,
-    DateTime? lastUpdatePhoneNumber,
-    DateTime? lastUpdateWhatsAppNumber,
-    int? whatsState,
-    int? emailState,
-    String? usersType,
-  }) async {
-    final box = Hive.box<User>('userBox');
+  static Future<void> updateUserInfo(UserHiveModel updatedUser) async {
+    final box = Hive.box<UserHiveModel>('userBox');
     if (box.isNotEmpty) {
-      final user = box.values.first;
-      print(user.email);
-      if (username != null && username.isNotEmpty) {
-        print('username: $username');
-        user.username = username;
-      }
-      if (email != null && email.isNotEmpty) {
-        user.email = email;
-        print('email: $email');
-      }
-      if (phoneNumber != null && phoneNumber.isNotEmpty) {
-        print('phone: $phoneNumber');
-        user.phoneNumber = phoneNumber;
-      }
-      if (image != null && image.isNotEmpty) {
-        print('image: $image');
-        user.image = image;
-      }
-      if (nickName != null && nickName.isNotEmpty) {
-        print('nickname: $nickName');
-        user.nickName = nickName;
-      }
-      if (whatsappNumber != null && whatsappNumber.isNotEmpty) {
-        print('whatsappNumber: $whatsappNumber');
-        user.whatsappNumber = whatsappNumber;
-      }
-      if (lastUpdatePhoneNumber != null &&
-          lastUpdatePhoneNumber != DateTime(0)) {
-        print('lastUpdatePhoneNumber: $lastUpdatePhoneNumber');
-        user.lastUpdatePhoneNumber = lastUpdatePhoneNumber;
-      }
-      if (lastUpdateWhatsAppNumber != null &&
-          lastUpdateWhatsAppNumber != DateTime(0)) {
-        print('lastUpdateWhatsAppNumber: $lastUpdateWhatsAppNumber');
-        user.lastUpdateWhatsAppNumber = lastUpdateWhatsAppNumber;
-      }
+      final user = box.get('user');
+      if (user != null) {
+        user.type = updatedUser.type ?? user.type;
+        user.email = updatedUser.email ?? user.email;
+        user.whatsAppNumber = updatedUser.whatsAppNumber ?? user.whatsAppNumber;
+        user.nickName = updatedUser.nickName ?? user.nickName;
+        user.name = updatedUser.name ?? user.name;
+        user.phoneNumber = updatedUser.phoneNumber ?? user.phoneNumber;
+        user.token = updatedUser.token ?? user.token;
+        user.image = updatedUser.image ?? user.image;
+        user.lastUpdatePhone =
+            updatedUser.lastUpdatePhone ?? user.lastUpdatePhone;
+        user.availableProducts =
+            updatedUser.availableProducts ?? user.availableProducts;
+        user.workDays = updatedUser.workDays ?? user.workDays;
+        user.endTime = updatedUser.endTime ?? user.endTime;
+        user.latitude = updatedUser.latitude ?? user.latitude;
+        user.location = updatedUser.location ?? user.location;
+        user.description = updatedUser.description ?? user.description;
+        user.longitude = updatedUser.longitude ?? user.longitude;
+        user.mowaterDiscount =
+            updatedUser.mowaterDiscount ?? user.mowaterDiscount;
+        user.specialtyCategorys =
+            updatedUser.specialtyCategorys ?? user.specialtyCategorys;
+        user.startTime = updatedUser.startTime ?? user.startTime;
+        user.subscriptionState =
+            updatedUser.subscriptionState ?? user.subscriptionState;
+        user.carMakes = updatedUser.carMakes ?? user.carMakes;
+        user.lastUpdateWhatsAppNumber = updatedUser.lastUpdateWhatsAppNumber ??
+            user.lastUpdateWhatsAppNumber;
+        user.emailState = updatedUser.emailState ?? user.emailState;
 
-      if (whatsState != null) {
-        user.whatsState = whatsState;
+        await box.put('user', user);
       }
-      if (emailState != null) {
-        user.emailState = emailState;
-      }
-      if (verify != null) {
-        user.verify = emailState;
-      }
-      if (usersType != null) {
-        user.userType = usersType;
-      }
-
-      await box.put(
-          'user',
-          User(
-              userType: usersType!,
-              email: user.email,
-              username: user.username,
-              phoneNumber: user.phoneNumber,
-              image: user.image,
-              nickName: user.nickName,
-              token: user.token,
-              id: user.id,
-              whatsappNumber: user.whatsappNumber,
-              lastUpdatePhoneNumber: user.lastUpdatePhoneNumber,
-              lastUpdateWhatsAppNumber: user.lastUpdateWhatsAppNumber,
-              whatsState: user.whatsState,
-              emailState: user.emailState,
-              verify: user.verify));
     }
   }
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/Parking/data/plateService/plate_service.dart';
-import 'package:mowaterApp/Features/Parking/models/plate_model.dart';
-import 'package:mowaterApp/Features/Parking/presentation/widgets/add_new_plate_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
+import 'package:Mowater/Features/Parking/data/plateService/plate_service.dart';
+import 'package:Mowater/Features/Parking/models/plate_model.dart';
+import 'package:Mowater/Features/Parking/presentation/widgets/add_new_plate_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
 
 class AddNewPlateScreen extends StatefulWidget {
   const AddNewPlateScreen({Key? key}) : super(key: key);
@@ -48,10 +48,9 @@ class _AddNewPlateScreenState extends State<AddNewPlateScreen> {
                 plateNumberController: plateNumberController,
                 selectedValue: selectedValue,
                 onPlateCodeChanged: (p0) {
-                  print(selectedValue);
                   plateCodeController.text = p0!;
                 },
-              ),
+              ), // Using the extracted widget function
               verticalSpace(50.h),
               CustomButton(
                 padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 10),
@@ -92,7 +91,7 @@ class _AddNewPlateScreenState extends State<AddNewPlateScreen> {
               TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
           content: "New Plate Added Successfuly!",
           subtitleTextStyle: TextStyles.text_16,
-          backGroundColor: ColorApp.secunderyColorDark,
+          backGroundColor: Theme.of(context).colorScheme.secondary,
         );
         plateCodeController.clear();
         plateNumberController.clear();
@@ -109,7 +108,7 @@ class _AddNewPlateScreenState extends State<AddNewPlateScreen> {
               TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
           content: 'There Was Unkown Error Well Fix It Soon!',
           subtitleTextStyle: TextStyles.text_16,
-          backGroundColor: ColorApp.secunderyColorDark,
+          backGroundColor: Theme.of(context).colorScheme.secondary,
         );
       }
     } else {
@@ -121,7 +120,7 @@ class _AddNewPlateScreenState extends State<AddNewPlateScreen> {
             TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
         content: 'Please Add Plate Information!',
         subtitleTextStyle: TextStyles.text_16,
-        backGroundColor: ColorApp.secunderyColorDark,
+        backGroundColor: Theme.of(context).colorScheme.secondary,
       );
     }
   }

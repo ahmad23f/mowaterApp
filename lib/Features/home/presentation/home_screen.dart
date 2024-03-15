@@ -1,22 +1,24 @@
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
-import 'package:mowaterApp/Features/Trending/presntation/trending_screen.dart';
-import 'package:mowaterApp/Features/drawer/drawer.dart';
-import 'package:mowaterApp/Features/favorite/presentation/favorite_screen.dart';
-import 'package:mowaterApp/Features/fuel/presentation/fuelPrice/fuel_price_cubit.dart';
-import 'package:mowaterApp/Features/fuel/presentation/fuel_screen.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/home_body.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
+import 'package:Mowater/Features/Trending/presntation/trending_screen.dart';
+import 'package:Mowater/Features/drawer/drawer.dart';
+import 'package:Mowater/Features/favorite/presentation/favorite_screen.dart';
+import 'package:Mowater/Features/fuel/presentation/fuelPrice/fuel_price_cubit.dart';
+import 'package:Mowater/Features/fuel/presentation/fuel_screen.dart';
+import 'package:Mowater/Features/home/presentation/widgets/home_body.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -91,17 +93,18 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: ListTile(
           subtitle: Text(
-            "Welcome to mowaterApp",
+            "Welcome to Mowater".tr(),
             style: TextStyles.text_14.copyWith(fontSize: 14.sp),
           ),
           title: UserServices.checkToken()
               ? Text(
-                  Hive.box<User>('userBox').values.first.nickName ?? '',
+                  Hive.box<UserHiveModel>('userBox').values.first.nickName ??
+                      '',
                   style: TextStyles.text_18
                       .copyWith(fontWeight: FontWeight.bold, fontSize: 18.sp),
                 )
               : Text(
-                  'user',
+                  'user'.tr(),
                   style: TextStyles.text_18
                       .copyWith(fontWeight: FontWeight.bold, fontSize: 18.sp),
                 ),

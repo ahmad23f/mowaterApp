@@ -3,20 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarForSale/car_for_sale_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_widet.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/top_car_brands_list_view.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/price_slider.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarForSale/car_for_sale_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_widet.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/top_car_brands_list_view.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/price_slider.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class CarBrandsBody extends StatefulWidget {
   const CarBrandsBody({
@@ -143,7 +143,7 @@ class _CarBrandsBodyState extends State<CarBrandsBody> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(spreadRadius: 2, blurRadius: 20),
         ],

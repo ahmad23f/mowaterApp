@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mowaterApp/Features/choseAccountType/presentation/widgets/chose_buttns.dart';
-import 'package:mowaterApp/Features/choseAccountType/presentation/widgets/skip.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
+import 'package:Mowater/Features/choseAccountType/presentation/widgets/chose_buttns.dart';
+import 'package:Mowater/Features/choseAccountType/presentation/widgets/skip.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
 
 class ChoseAccountTypeScreen extends StatefulWidget {
   const ChoseAccountTypeScreen({Key? key}) : super(key: key);
@@ -42,11 +42,9 @@ class _ChoseAccountTypeScreenState extends State<ChoseAccountTypeScreen> {
                   child: Image.asset('assets/images/logo.png',
                       height: 250.h, color: ColorApp.primeryColorDark),
                 ),
-                const Expanded(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ChoseAccountTypeButtons(),
-                  ),
+                const Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ChoseAccountTypeButtons(),
                 ),
               ],
             ),

@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:mowaterApp/core/services/company_model.dart';
+import 'package:Mowater/core/services/company_model.dart';
 
 class NormalCompanyService {
   static Box<NormalCompanyModelHive>? _box;
@@ -38,11 +38,9 @@ class NormalCompanyService {
       companyType: companyData.companyType,
     );
     await box.put('company', company);
-    print('companu data updated from copany service');
-    print(company);
   }
 
-  static Future<void> logOut() async {
+  static Future<void> deleteCompanyData() async {
     final box = await _openBox();
     await box.delete('company');
   }
@@ -50,7 +48,7 @@ class NormalCompanyService {
   static NormalCompanyModelHive getCompanyData() {
     final box = Hive.box<NormalCompanyModelHive>('NormalCompany');
     final company = box.get('company');
-    return company ?? NormalCompanyModelHive();
+    return company!;
   }
 
   static bool hasCompanyData() {
@@ -60,8 +58,6 @@ class NormalCompanyService {
 
   static Future<void> updateCompanyData(
       NormalCompanyModelHive updatedData) async {
-    print('update start from company servie');
-
     final box = await _openBox();
     final storedData = box.get('company');
 
@@ -125,7 +121,6 @@ class NormalCompanyService {
       if (updatedData.longitude != null && updatedData.longitude!.isNotEmpty) {
         storedData.longitude = updatedData.longitude;
       }
-      print('update done from company servie');
 
       await box.put('company', storedData);
     }

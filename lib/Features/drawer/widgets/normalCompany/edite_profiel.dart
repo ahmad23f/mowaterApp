@@ -1,27 +1,23 @@
 import 'dart:io';
 
+import 'package:Mowater/Features/ServiceProvider%20%20Company/presntation/widgets/day_week_dialgo.dart';
+import 'package:Mowater/Features/carNumbers/presntation/sell_your_plate_screen.dart';
+import 'package:Mowater/Features/drawer/widgets/car_make_chip_chose.dart';
+import 'package:Mowater/Features/serviceProverAuth/presnation/widgets/get_specialty_by_main_categoyr.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/get_city_name_by_lat_long_tude.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/editNormalCompany/edite_normal_company_cubit.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/widgets/day_week_dialgo.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sell_your_plate_screen.dart';
-import 'package:mowaterApp/Features/drawer/widgets/car_make_chip_chose.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/widgets/get_specialty_by_main_categoyr.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/get_city_name_by_lat_long_tude.dart';
-import 'package:mowaterApp/core/helper/get_day_time_by_string.dart';
-import 'package:mowaterApp/core/services/company_model.dart';
-import 'package:mowaterApp/core/services/company_service.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
 
 class EditNormalCompanyProfile extends StatefulWidget {
   const EditNormalCompanyProfile({
@@ -52,23 +48,16 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
   List<int> selectedCarsMake = [];
   @override
   void initState() {
-    NormalCompanyModelHive company = NormalCompanyService.getCompanyData();
     super.initState();
-    tradeNameController = TextEditingController(text: company.name);
-    carNameController = TextEditingController(text: company.carMakes);
-    numberController = TextEditingController(text: company.phoneNumber);
-    whatsappNumberController =
-        TextEditingController(text: company.whatsappNumber);
-    descriptionController = TextEditingController(
-        text: company.description); // Initialize new field controller
-    selectedDays = company.weekdayWork!.split(',');
-    selectedServiceSpecialty =
-        company.specialty!.split(',').map((e) => int.parse(e)).toList();
-    _image = File(company.image ?? '');
-    latitude = double.parse(company.latitude!);
-    longitude = double.parse(company.longitude!);
-    startTime = stringToTimeOfDay(company.startTime!);
-    endTime = stringToTimeOfDay(company.endTime!);
+    tradeNameController =
+        TextEditingController(text: UserServices.getUserInformation().nickName);
+    carNameController = TextEditingController();
+    numberController = TextEditingController(
+        text: UserServices.getUserInformation().phoneNumber);
+    whatsappNumberController = TextEditingController(
+        text: UserServices.getUserInformation().whatsAppNumber);
+    descriptionController =
+        TextEditingController(); // Initialize new field controller
   }
 
   @override
@@ -76,9 +65,9 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text(
-          'Company Information',
-          style: TextStyle(
+        title: Text(
+          'Company Information'.tr(),
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -137,7 +126,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                                   padding: EdgeInsets.all(5.dg),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
-                                    color: ColorApp.secunderyColorDark,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
                                   child: const Icon(
                                     Icons.add,
@@ -153,7 +143,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             ),
             SizedBox(height: 12.h), // Add spacing
             Text(
-              'Trade Name',
+              'Trade Name'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -161,17 +151,17 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             ),
             CustomTextFormField(
               controller: tradeNameController,
-              hintText: 'Trade Name',
+              hintText: 'Trade Name'.tr(),
             ),
             SizedBox(height: 12.h),
 
             CustomTextFormField(
-              hintText: 'number phone',
+              hintText: 'number phone'.tr(),
               controller: numberController,
             ),
             SizedBox(height: 12.h),
             Text(
-              'WhatsApp Number',
+              'WhatsApp Number'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -179,11 +169,11 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             ),
             CustomTextFormField(
               controller: whatsappNumberController,
-              hintText: 'whatsapp number',
+              hintText: 'whatsapp number'.tr(),
             ),
             SizedBox(height: 12.h),
             Text(
-              'Description', // New field
+              'Description'.tr(), // New field
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -193,21 +183,23 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
               maxLine: 7,
               controller: descriptionController,
               inputType: TextInputType.multiline,
-              hintText: 'Description',
+              hintText: 'Description'.tr(),
             ),
             SizedBox(height: 12.h),
-            const Text(
-              'Mowater Discount',
-              style: TextStyle(color: Colors.white), // Black text color
+            Text(
+              'Mowater Discount'.tr(),
+              style: const TextStyle(color: Colors.white), // Black text color
             ),
             Container(
               decoration: BoxDecoration(
-                color: ColorApp.secunderyColorDark, // Grey background color
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary, // Grey background color
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: CheckboxListTile(
                 title: Text(
-                  'Enable Mowater Discount',
+                  'Enable Mowater Discount'.tr(),
                   style: TextStyle(
                       color: Colors.white.withOpacity(0.6)), // Black text color
                 ),
@@ -226,7 +218,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             ),
             SizedBox(height: 12.h),
             Text(
-              'Service Specialty',
+              'Service Specialty'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -235,12 +227,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             SizedBox(
               child: SizedBox(
                 child: SpecialtyDropDownByMainCategory(
-                  mainCategory: 'Maintenance',
-                  initialSelectedSpecialties:
-                      NormalCompanyService.getCompanyData()
-                          .specialty!
-                          .split(',')
-                          .toList(),
+                  mainCategory: 'Maintenance'.tr(),
                   onSpecialtiesChanged: (value) {
                     selectedServiceSpecialty = value;
                   },
@@ -252,7 +239,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             ),
             verticalSpace(12.h),
             Text(
-              'Cars Specialty',
+              'Cars Specialty'.tr(),
               style: TextStyles.text_14,
             ),
 
@@ -262,8 +249,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
               child: SingleChildScrollView(
                 child: CarNameDropChipChoseWidget(
                     onChanged: (p0) {
-                      print(p0);
-                      selectedCarsMake = p0;
+                      selectedServiceSpecialty = p0;
                     },
                     carNameController: carNameController),
               ),
@@ -273,7 +259,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
             Row(
               children: [
                 Text(
-                  'work days',
+                  'work days'.tr(),
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w500,
@@ -288,12 +274,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                     onTap: () async {
                       List<String>? result = await showDialog(
                         context: context,
-                        builder: (context) => DayWeekDialog(
-                            initialSelectedDays:
-                                NormalCompanyService.getCompanyData()
-                                    .weekdayWork!
-                                    .split(',')
-                                    .toList()),
+                        builder: (context) => const DayWeekDialog(),
                       );
                       if (result != null) {
                         setState(() {
@@ -306,11 +287,11 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                           vertical: 15.0.dg, horizontal: 5.dg),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: ColorApp.secunderyColorDark,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                       child: Text(
                         selectedDays.isEmpty
-                            ? 'Days work'
+                            ? 'Days work'.tr()
                             : selectedDays.join(', '),
                         textAlign: TextAlign.center,
                         style: const TextStyle(fontSize: 16.0),
@@ -328,7 +309,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Start Time',
+                        'Start Time'.tr(),
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
@@ -351,7 +332,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                               vertical: 15.h, horizontal: 10.w),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: ColorApp.secunderyColorDark,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -359,7 +340,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                               Text(
                                 endTime != null
                                     ? _formatTime(endTime!)
-                                    : 'Select',
+                                    : 'Select'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16.sp),
                               ),
@@ -380,7 +361,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                 ),
                 SizedBox(width: 10.w),
                 Text(
-                  'To',
+                  'To'.tr(),
                   style: TextStyle(
                     fontSize: 18.sp,
                   ),
@@ -391,7 +372,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'End Time',
+                        'End Time'.tr(),
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
@@ -414,7 +395,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                               vertical: 15.h, horizontal: 10.w),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: ColorApp.secunderyColorDark,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -422,7 +403,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                               Text(
                                 startTime != null
                                     ? _formatTime(startTime!)
-                                    : 'Select',
+                                    : 'Select'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16.sp),
                               ),
@@ -462,7 +443,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                     child: Container(
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
-                          color: ColorApp.secunderyColorDark,
+                          color: Theme.of(context).colorScheme.secondary,
                           borderRadius: BorderRadius.circular(12.dg)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -470,8 +451,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                           const Icon(Icons.map_outlined),
                           Text(
                             latitude != null && longitude != null
-                                ? 'Location Selected'
-                                : 'Select Location on Map',
+                                ? 'Location Selected'.tr()
+                                : 'Select Location on Map'.tr(),
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 16.0.sp),
                           ),
@@ -491,7 +472,7 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
                   child: CustomButton(
                     color: ColorApp.primeryColorDark,
                     textStyle: TextStyles.text_16.copyWith(color: Colors.white),
-                    text: 'Update Account',
+                    text: 'Update Account'.tr(),
                     onPressed: () async {
                       setState(() {});
 
@@ -548,24 +529,24 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
   }
 
   updateAcocunt() async {
-    print(phoneNumber.text);
-    await context.read<EditeNormalCompanyCubit>().editMaintenanceProfile(
-          MaintenanceCompanyModel(
-              name: tradeNameController.text,
-              carMakes: selectedCarsMake.join(','),
-              phoneNumber: phoneNumber.text,
-              whatsappNumber: whatsappNumberController.text,
-              description: descriptionController.text,
-              image: _image?.path ?? UserServices.getUserInformation().image,
-              specialty: selectedServiceSpecialty.join(','),
-              weekdayWork: selectedDays.join(','),
-              startTime: _formatTime(startTime!),
-              endTime: _formatTime(endTime!),
-              latitude: latitude.toString(),
-              longitude: longitude.toString(),
-              location: await getCityName(latitude!, longitude!),
-              mowaterDiscount: mowaterDiscount == true ? 1 : 0),
-        );
+    // print(phoneNumber.text);
+    // await context.read<EditeNormalCompanyCubit>().editMaintenanceProfile(
+    //       MaintenanceCompanyModel(
+    //           name: tradeNameController.text,
+    //           carMakes: selectedCarsMake.join(','),
+    //           phoneNumber: phoneNumber.text,
+    //           whatsappNumber: whatsappNumberController.text,
+    //           description: descriptionController.text,
+    //           image: _image?.path ?? UserServices.getUserInformation().image,
+    //           specialty: selectedServiceSpecialty.join(','),
+    //           weekdayWork: selectedDays.join(','),
+    //           startTime: _formatTime(startTime!),
+    //           endTime: _formatTime(endTime!),
+    //           latitude: latitude.toString(),
+    //           longitude: longitude.toString(),
+    //           location: await getCityName(latitude!, longitude!),
+    //           mowaterDiscount: mowaterDiscount == true ? 1 : 0),
+    //     );
   }
 
   void _selectFile(FileType fileType, {List<String>? allowedExtensions}) async {
@@ -595,8 +576,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
     if (_image == null) {
       ShowSnakBar(
         context,
-        content: 'Please select an image',
-        title: 'Failure',
+        content: 'Please select an image'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -605,8 +586,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
     if (selectedDays.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Please select work days',
-        title: 'Failure',
+        content: 'Please select work days'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -614,8 +595,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
     if (startTime == null || endTime == null) {
       ShowSnakBar(
         context,
-        content: 'Please select working hours',
-        title: 'Failure',
+        content: 'Please select working hours'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -623,8 +604,8 @@ class _EditNormalCompanyProfileState extends State<EditNormalCompanyProfile> {
     if (latitude == null || longitude == null) {
       ShowSnakBar(
         context,
-        content: 'Please select your location on map',
-        title: 'Failure',
+        content: 'Please select your location on map'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -686,7 +667,7 @@ class _MapPickerDialogState extends State<MapPickerDialog> {
                 Navigator.of(context).pop();
               },
               child: Text(
-                'Save',
+                'Save'.tr(),
                 style: TextStyles.text_16.copyWith(color: Colors.white),
               ),
             ),

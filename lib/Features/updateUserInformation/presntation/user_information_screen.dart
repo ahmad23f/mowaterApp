@@ -1,15 +1,17 @@
 import 'dart:io';
 
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/widgets/add_basic_info_form_user.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/widgets/edite_profile_form.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
+import 'package:Mowater/Features/updateUserInformation/presntation/widgets/add_basic_info_form_user.dart';
+import 'package:Mowater/Features/updateUserInformation/presntation/widgets/edite_profile_form.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/services/user_state.dart';
 
 class UserInformationScreen extends StatefulWidget {
   bool? isEditMode = false;
@@ -23,7 +25,7 @@ class UserInformationScreen extends StatefulWidget {
 class _UserInformationScreenState extends State<UserInformationScreen> {
   late TextEditingController nameController;
   late TextEditingController nickName;
-  late User user;
+  late UserHiveModel user;
   File? _image;
 
   @override
@@ -39,9 +41,9 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
-          title: const Text(
-            'User Information',
-            style: TextStyle(
+          title: Text(
+            'User Information'.tr(),
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -107,8 +109,9 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              color:
-                                                  ColorApp.secunderyColorDark,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
                                             ),
                                             child: const Icon(
                                               Icons.add,

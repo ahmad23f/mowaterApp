@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/carNumbers/data/repositeory/sell_your_plate.dart';
-import 'package:mowaterApp/Features/carNumbers/models/plate_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/carNumbers/data/repositeory/sell_your_plate.dart';
+import 'package:Mowater/Features/carNumbers/models/plate_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 
 part 'sell_you_plate_state.dart';
 part 'sell_you_plate_cubit.freezed.dart';
@@ -39,7 +39,7 @@ class SellYouPlateCubit extends Cubit<SellYouPlateState> {
                 TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
             content: dataDeoded['message'],
             subtitleTextStyle: TextStyles.text_16,
-            backGroundColor: ColorApp.secunderyColorDark,
+            backGroundColor: Theme.of(context).colorScheme.secondary,
           );
         } else {
           emit(SellYouPlateState.faliure(dataDeoded['message']));
@@ -51,7 +51,7 @@ class SellYouPlateCubit extends Cubit<SellYouPlateState> {
                 TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
             content: dataDeoded['message'],
             subtitleTextStyle: TextStyles.text_16,
-            backGroundColor: ColorApp.secunderyColorDark,
+            backGroundColor: Theme.of(context).colorScheme.secondary,
           );
         }
       },

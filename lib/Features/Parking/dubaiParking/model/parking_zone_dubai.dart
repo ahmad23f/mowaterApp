@@ -1,4 +1,4 @@
-import 'package:mowaterApp/Features/Parking/dubaiParking/model/parking_zone_model.dart';
+import 'package:Mowater/Features/Parking/dubaiParking/model/parking_zone_model.dart';
 
 List<DubaiParkingAreaZoneModel> dubaiParkingZone = [
   DubaiParkingAreaZoneModel(

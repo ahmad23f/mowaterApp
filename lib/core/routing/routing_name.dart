@@ -8,7 +8,7 @@ class RouteName {
   //Types
   static String types = '/types';
 
-  //mowaterApp mart
+  //Mowater mart
 
   /// categoryes
   static String userInformationScreen = '/UserInformationScreen';

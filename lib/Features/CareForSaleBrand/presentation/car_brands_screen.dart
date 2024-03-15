@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_brands_widget.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_brands_widget.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarAllBrandsScreen extends StatelessWidget {
   const CarAllBrandsScreen({
@@ -14,7 +15,7 @@ class CarAllBrandsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "All Car Brands",
+          "All Car Brands".tr(),
           style: TextStyles.text_18,
         ),
       ),
@@ -33,10 +34,10 @@ class CarAllBrandsScreen extends StatelessWidget {
                   child: CarBrandWidget(brand: carBrand[index], index: index)),
             ),
             faliure: (error) {
-              return const Column(
+              return Column(
                 children: [
                   Center(
-                    child: Text("Ther is unkouwn error well fix it soon!"),
+                    child: Text("Ther is unkouwn error well fix it soon!".tr()),
                   )
                 ],
               );

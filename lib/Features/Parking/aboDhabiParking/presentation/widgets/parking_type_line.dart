@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
 
 class ParkingTypeLine extends StatelessWidget {
   const ParkingTypeLine({
@@ -24,7 +24,7 @@ class ParkingTypeLine extends StatelessWidget {
           )
         ],
         border: Border.all(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           width: 2.5,
         ),
       ),

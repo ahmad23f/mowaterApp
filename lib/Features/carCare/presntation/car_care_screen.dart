@@ -1,20 +1,21 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/carCare/presntation/cubit/car_care_companies_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/services/ads_category.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/company_widget.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/carCare/presntation/cubit/car_care_companies_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/services/ads_category.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/company_widget.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class CarCarScreen extends StatelessWidget {
   final String categoryName;
@@ -24,7 +25,7 @@ class CarCarScreen extends StatelessWidget {
       : super(key: key);
 
   TextEditingController searchController = TextEditingController();
-  String selectedEmara = 'dubai';
+  String selectedEmara = 'dubai'.tr();
   @override
   Widget build(BuildContext mcontext) {
     return Scaffold(
@@ -41,7 +42,7 @@ class CarCarScreen extends StatelessWidget {
                 width: 200.w,
                 child: ModernSearchContainer(
                   controller: searchController,
-                  hintText: 'Search',
+                  hintText: 'Search'.tr(),
                   onChange: (p0) {
                     mcontext.read<CarCareCompaniesCubit>().search(
                           id: id,
@@ -59,7 +60,7 @@ class CarCarScreen extends StatelessWidget {
                           builder: (context) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
-                              color: ColorApp.secunderyColorDark,
+                              color: Theme.of(context).colorScheme.secondary,
                               boxShadow: const [
                                 BoxShadow(
                                   spreadRadius: 2,
@@ -95,14 +96,17 @@ class CarCarScreen extends StatelessWidget {
                                                 );
                                           },
                                           child: Text(
-                                            'Reset',
+                                            'Reset'.tr(),
                                             style: TextStyles.text_14.copyWith(
                                                 fontSize: 14.sp,
                                                 color:
                                                     ColorApp.primeryColorDark,
                                                 shadows: [
-                                                  const Shadow(
-                                                      color: Colors.black,
+                                                  Shadow(
+                                                      color: Theme.of(context)
+                                                          .textTheme
+                                                          .titleSmall!
+                                                          .color!,
                                                       blurRadius: 10)
                                                 ]),
                                           ),
@@ -124,7 +128,7 @@ class CarCarScreen extends StatelessWidget {
                                       textStyle: TextStyles.text_18.copyWith(
                                           color: Colors.white, fontSize: 18.sp),
                                       color: ColorApp.primeryColorDark,
-                                      text: 'Apply',
+                                      text: 'Apply'.tr(),
                                       onPressed: () async {
                                         Navigator.pop(context);
                                         // await _applyFilters(mcontext);
@@ -204,7 +208,7 @@ class CarCareCompaniesWidget extends StatelessWidget {
                 ),
             faliuer: () => Center(
                   child: Text(
-                    'No Company',
+                    'No Company'.tr(),
                     style: TextStyles.text_12,
                   ),
                 ));

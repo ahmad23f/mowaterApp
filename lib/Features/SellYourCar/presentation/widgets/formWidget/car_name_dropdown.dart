@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class CarNameDropDownWidget extends StatefulWidget {
   TextEditingController carNameController;
@@ -37,7 +37,7 @@ class _CarNameDropDownWidgetState extends State<CarNameDropDownWidget> {
                         menuMaxHeight: 350.h,
                         isExpanded: false,
                         decoration: InputDecoration(
-                          fillColor: ColorApp.secunderyColorDark,
+                          fillColor: Theme.of(context).colorScheme.secondary,
                           filled: true,
                           prefixIcon: const Icon(Icons.directions_car_outlined),
                           floatingLabelAlignment: FloatingLabelAlignment.start,

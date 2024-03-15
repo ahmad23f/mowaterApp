@@ -20,7 +20,7 @@ mixin _$SignUpState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserResponse user) success,
+    required TResult Function(AuthenticatinResponse user) success,
     required TResult Function(String faliure) faliure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$SignUpState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserResponse user)? success,
+    TResult? Function(AuthenticatinResponse user)? success,
     TResult? Function(String faliure)? faliure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$SignUpState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserResponse user)? success,
+    TResult Function(AuthenticatinResponse user)? success,
     TResult Function(String faliure)? faliure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserResponse user) success,
+    required TResult Function(AuthenticatinResponse user) success,
     required TResult Function(String faliure) faliure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserResponse user)? success,
+    TResult? Function(AuthenticatinResponse user)? success,
     TResult? Function(String faliure)? faliure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserResponse user)? success,
+    TResult Function(AuthenticatinResponse user)? success,
     TResult Function(String faliure)? faliure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserResponse user) success,
+    required TResult Function(AuthenticatinResponse user) success,
     required TResult Function(String faliure) faliure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserResponse user)? success,
+    TResult? Function(AuthenticatinResponse user)? success,
     TResult? Function(String faliure)? faliure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserResponse user)? success,
+    TResult Function(AuthenticatinResponse user)? success,
     TResult Function(String faliure)? faliure,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserResponse user});
+  $Res call({AuthenticatinResponse user});
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserResponse,
+              as AuthenticatinResponse,
     ));
   }
 }
@@ -351,7 +351,7 @@ class _$SuccessImpl implements _Success {
   const _$SuccessImpl(this.user);
 
   @override
-  final UserResponse user;
+  final AuthenticatinResponse user;
 
   @override
   String toString() {
@@ -380,7 +380,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserResponse user) success,
+    required TResult Function(AuthenticatinResponse user) success,
     required TResult Function(String faliure) faliure,
   }) {
     return success(user);
@@ -391,7 +391,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserResponse user)? success,
+    TResult? Function(AuthenticatinResponse user)? success,
     TResult? Function(String faliure)? faliure,
   }) {
     return success?.call(user);
@@ -402,7 +402,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserResponse user)? success,
+    TResult Function(AuthenticatinResponse user)? success,
     TResult Function(String faliure)? faliure,
     required TResult orElse(),
   }) {
@@ -451,9 +451,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements SignUpState {
-  const factory _Success(final UserResponse user) = _$SuccessImpl;
+  const factory _Success(final AuthenticatinResponse user) = _$SuccessImpl;
 
-  UserResponse get user;
+  AuthenticatinResponse get user;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -525,7 +525,7 @@ class _$FaliureImpl implements _Faliure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserResponse user) success,
+    required TResult Function(AuthenticatinResponse user) success,
     required TResult Function(String faliure) faliure,
   }) {
     return faliure(this.faliure);
@@ -536,7 +536,7 @@ class _$FaliureImpl implements _Faliure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserResponse user)? success,
+    TResult? Function(AuthenticatinResponse user)? success,
     TResult? Function(String faliure)? faliure,
   }) {
     return faliure?.call(this.faliure);
@@ -547,7 +547,7 @@ class _$FaliureImpl implements _Faliure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserResponse user)? success,
+    TResult Function(AuthenticatinResponse user)? success,
     TResult Function(String faliure)? faliure,
     required TResult orElse(),
   }) {

@@ -1,96 +1,97 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/categorys_image.dart';
-import 'package:mowaterApp/core/widgets/category_widget.dart';
+import 'package:Mowater/core/constants/categorys_image.dart';
+import 'package:Mowater/core/widgets/category_widget.dart';
 
 List<Widget> categorysList = [
   CategoryWidget(
     height: 80.h,
     image: CategoryesImageName.mart,
-    categoryName: 'mowaterApp Mart',
+    categoryName: 'Mowater Mart'.tr(),
     paddingBottom: 20.h,
     id: 1,
   ),
   CategoryWidget(
     image: CategoryesImageName.maintenance,
-    categoryName: 'Maintenance',
+    categoryName: 'Maintenance'.tr(),
     height: 80.h,
     id: 2,
   ),
   CategoryWidget(
     image: CategoryesImageName.parking,
-    categoryName: 'Parking',
+    categoryName: 'Parking'.tr(),
     height: 80.h,
     paddingBottom: 40.dg,
     id: 3,
   ),
   CategoryWidget(
     image: CategoryesImageName.carEvaluation,
-    categoryName: 'Evaluation',
+    categoryName: 'Evaluation'.tr(),
     height: 80.h,
     id: 4,
   ),
   CategoryWidget(
     image: CategoryesImageName.showYourCar,
-    categoryName: 'Sell Your Car',
+    categoryName: 'Sell Your Car'.tr(),
     height: 55.h,
     paddingTop: 10.h,
     id: 5,
   ),
   CategoryWidget(
     image: CategoryesImageName.forSale,
-    categoryName: 'For Sale',
+    categoryName: 'For Sale'.tr(),
     height: 70.h,
     paddingTop: 10.h,
     id: 6,
   ),
   CategoryWidget(
     image: CategoryesImageName.showRoom,
-    categoryName: 'Showrooms',
+    categoryName: 'Showrooms'.tr(),
     height: 70.h,
     id: 7,
   ),
   CategoryWidget(
     image: CategoryesImageName.inurance,
-    categoryName: 'Insurance',
+    categoryName: 'Insurance'.tr(),
     height: 80.h,
     id: 8,
   ),
   CategoryWidget(
     image: CategoryesImageName.forRend,
-    categoryName: 'Rental Cars',
+    categoryName: 'Rental Cars'.tr(),
     height: 80.h,
     id: 9,
   ),
   CategoryWidget(
     image: CategoryesImageName.warrantry,
-    categoryName: 'Warranty',
+    categoryName: 'Warranty'.tr(),
     height: 80.h,
     paddingRight: 10.w,
     id: 10,
   ),
   CategoryWidget(
     image: CategoryesImageName.spareParts,
-    categoryName: 'Spare Parts',
+    categoryName: 'Spare Parts'.tr(),
     height: 50.h,
     paddingTop: 10.h,
     id: 11,
   ),
   CategoryWidget(
     image: CategoryesImageName.rating,
-    categoryName: 'Inspection',
+    categoryName: 'Inspection'.tr(),
     height: 80.h,
     id: 12,
   ),
   CategoryWidget(
     image: CategoryesImageName.carCare,
-    categoryName: 'Car Care',
+    categoryName: 'Car Care'.tr(),
     height: 80.h.h,
     id: 13,
   ),
   CategoryWidget(
     image: CategoryesImageName.carNumber,
-    categoryName: 'Car Numbers',
+    categoryName: 'Car Numbers'.tr(),
     height: 80.h,
     paddingTop: 10.h,
     paddingLeft: 5.w,
@@ -99,7 +100,7 @@ List<Widget> categorysList = [
   ),
   CategoryWidget(
     image: CategoryesImageName.mobileService,
-    categoryName: 'Mobile Service',
+    categoryName: 'Mobile Service'.tr(),
     height: 80.h,
     id: 15,
   ),

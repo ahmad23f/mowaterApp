@@ -1,12 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/Features/MobileService/data/repositeory/companies.dart';
-import 'package:mowaterApp/Features/MobileService/model/mobile_service_mode.dart';
-import 'package:mowaterApp/Features/carCare/models/car_car_model.dart';
-import 'package:mowaterApp/Features/warranty/models/company.dart';
-import 'package:mowaterApp/Features/warranty/presntation/cubit/warranty_companies_cubit.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/MobileService/data/repositeory/companies.dart';
+import 'package:Mowater/Features/carCare/models/car_car_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'mobile_service_companeis_cubit.freezed.dart';
 part 'mobile_service_companeis_state.dart';

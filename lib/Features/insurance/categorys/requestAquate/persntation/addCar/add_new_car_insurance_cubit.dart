@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/data/repositeory/add_new_car_insurance.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/data/repositeory/add_new_car_insurance.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 
 part 'add_new_car_insurance_state.dart';
 part 'add_new_car_insurance_cubit.freezed.dart';
@@ -32,7 +32,7 @@ class AddNewCarInsuranceCubit extends Cubit<AddNewCarInsuranceState> {
               TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
           content: "Car Send Successfuly",
           subtitleTextStyle: TextStyles.text_16,
-          backGroundColor: ColorApp.secunderyColorDark,
+          backGroundColor: Theme.of(context).colorScheme.secondary,
         );
       },
       failure: (error) {

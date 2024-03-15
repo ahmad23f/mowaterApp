@@ -1,10 +1,10 @@
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class MowaterMartAdsProductWidget extends StatelessWidget {
   const MowaterMartAdsProductWidget({
@@ -43,7 +43,11 @@ class MowaterMartAdsProductWidget extends StatelessWidget {
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
                           colors: [
-                            Colors.black.withOpacity(0.7),
+                            Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .color!
+                                .withOpacity(0.7),
                             Colors.transparent
                           ]),
                       borderRadius: BorderRadius.circular(12)),
@@ -63,8 +67,12 @@ class MowaterMartAdsProductWidget extends StatelessWidget {
                               style: TextStyles.text_18.copyWith(
                                   fontSize: 18.sp,
                                   shadows: [
-                                    const Shadow(
-                                        color: Colors.black, blurRadius: 20)
+                                    Shadow(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .color!,
+                                        blurRadius: 20)
                                   ]),
                             ),
                             Text(
@@ -72,18 +80,28 @@ class MowaterMartAdsProductWidget extends StatelessWidget {
                               style: TextStyles.text_18.copyWith(
                                   fontSize: 18.sp,
                                   shadows: [
-                                    const Shadow(
-                                        color: Colors.black, blurRadius: 20)
+                                    Shadow(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .color!,
+                                        blurRadius: 20)
                                   ]),
                             ),
                           ],
                         ),
                         Text(
                           "${product.prodectPrice!} AED",
-                          style: TextStyles.text_14
-                              .copyWith(fontSize: 14.sp, shadows: [
-                            const Shadow(color: Colors.black, blurRadius: 20)
-                          ]),
+                          style: TextStyles.text_14.copyWith(
+                              fontSize: 14.sp,
+                              shadows: [
+                                Shadow(
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall!
+                                        .color!,
+                                    blurRadius: 20)
+                              ]),
                         ),
                       ],
                     ),

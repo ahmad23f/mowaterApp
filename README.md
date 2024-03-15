@@ -1,4 +1,4 @@
-# mowaterApp
+# Mowater
 
 A new Flutter project.
 

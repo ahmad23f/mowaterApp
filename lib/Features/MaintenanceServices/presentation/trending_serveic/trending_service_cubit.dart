@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/trending_service.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/repositeory/trending_service_repositeory.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/trending_service.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/repositeory/trending_service_repositeory.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'trending_service_state.dart';
 part 'trending_service_cubit.freezed.dart';

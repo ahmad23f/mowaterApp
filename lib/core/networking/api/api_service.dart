@@ -2,34 +2,33 @@
 
 import 'dart:async';
 
+import 'package:Mowater/core/models/authenticationResponse/authentication_response.dart';
 import 'package:dio/dio.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/data/models/carBrands/cars_model.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/data/models/car_model_brands_model.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/ads/maintenance_ads_model.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/trending_service.dart';
-import 'package:mowaterApp/Features/MobileService/model/mobile_service_mode.dart';
-import 'package:mowaterApp/Features/Service24/models/recovery_model.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/models/spare_part_company.dart';
-import 'package:mowaterApp/Features/addNumberForAccount/models/update_number_response_model.dart';
-import 'package:mowaterApp/Features/carCare/models/car_car_model.dart';
-import 'package:mowaterApp/Features/carNumbers/models/plate_model.dart';
-import 'package:mowaterApp/Features/forgetPassword/models/reset_password_response.dart';
-import 'package:mowaterApp/Features/fuel/models/fuel_model.dart';
-import 'package:mowaterApp/Features/home/models/mainCategorys/main_categorys_model.dart';
-import 'package:mowaterApp/Features/home/models/trendingModel/trend_model.dart';
-import 'package:mowaterApp/Features/inspection/models/inspection_company_model.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/rentalCars/models/company_rental_car.dart';
-import 'package:mowaterApp/Features/showRooms/models/show_room.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/updateUserInformation/models/response_update_user.dart';
-import 'package:mowaterApp/Features/warranty/models/company.dart';
-import 'package:mowaterApp/core/helper/ads_model.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/networking/models/api_status.dart';
+import 'package:Mowater/Features/CareForSaleBrand/data/models/carBrands/cars_model.dart';
+import 'package:Mowater/Features/CareForSaleBrand/data/models/car_model_brands_model.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/ads/maintenance_ads_model.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/trending_service.dart';
+import 'package:Mowater/Features/MobileService/model/mobile_service_mode.dart';
+import 'package:Mowater/Features/Service24/models/recovery_model.dart';
+import 'package:Mowater/Features/UsedSpareParts/models/spare_part_company.dart';
+import 'package:Mowater/Features/addNumberForAccount/models/update_number_response_model.dart';
+import 'package:Mowater/Features/carCare/models/car_car_model.dart';
+import 'package:Mowater/Features/carNumbers/models/plate_model.dart';
+import 'package:Mowater/Features/forgetPassword/models/reset_password_response.dart';
+import 'package:Mowater/Features/fuel/models/fuel_model.dart';
+import 'package:Mowater/Features/home/models/mainCategorys/main_categorys_model.dart';
+import 'package:Mowater/Features/home/models/trendingModel/trend_model.dart';
+import 'package:Mowater/Features/inspection/models/inspection_company_model.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/rentalCars/models/company_rental_car.dart';
+import 'package:Mowater/Features/showRooms/models/show_room.dart';
+import 'package:Mowater/Features/warranty/models/company.dart';
+import 'package:Mowater/core/helper/ads_model.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/networking/models/api_status.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
@@ -53,7 +52,7 @@ abstract class ApiService {
   Future<List<AdsModel>> getMobileServiceCateogyAds(
       @Query('categoryId') int id);
 
-//  mowaterApp mart
+//  Mowater mart
 
   @GET(ApiConstans.mowaterMarket)
   Future<List<MowaterMartProductModel>> getMowaterMarket(
@@ -67,7 +66,7 @@ abstract class ApiService {
   @GET(ApiConstans.mowaterMartAds)
   Future<List<AdsModel>> getMowaterMartAds();
 
-  // Search in mowaterApp Mart
+  // Search in Mowater Mart
   @GET(ApiConstans.mowaterMartSearch)
   Future<List<MowaterMartProductModel>> searchInMowaterMarket(
     @Query('state') int? state,
@@ -78,7 +77,7 @@ abstract class ApiService {
 
 //Maintenance Service
   @GET(ApiConstans.maintenanceServicesById)
-  Future<List<MaintenanceCompanyModel>> getMaintenanceServiceBySpecialty(
+  Future<List<AuthenticatinResponse>> getMaintenanceServiceBySpecialty(
     @Query('id') int id,
     @Query('location') String? location,
     @Query('carMake') int? carMake,
@@ -256,7 +255,8 @@ abstract class ApiService {
   //Aut
 
   @POST(ApiConstans.signUpUser)
-  Future<UserResponse> signUpUser(@Body() Map<String, dynamic> userData);
+  Future<AuthenticatinResponse> signUpUser(
+      @Body() Map<String, dynamic> userData);
 
   @POST(ApiConstans.updatePhoneNumberUser)
   Future<UpdateNumberRsponse> updatePhoneNumber(
@@ -264,15 +264,15 @@ abstract class ApiService {
   );
 
   @POST(ApiConstans.verifyCode)
-  Future<UserResponse> verifyCode(
+  Future<AuthenticatinResponse> verifyCode(
     @Body() Map<String, dynamic> data,
   );
   @POST(ApiConstans.updateUserInfo)
-  Future<UpdateUserInformationResponse> updateUserInfo(
+  Future<AuthenticatinResponse> updateUserInfo(
     @Body() FormData data,
   );
   @POST(ApiConstans.signInUser)
-  Future<UserResponse> signInUser(
+  Future<AuthenticatinResponse> signInUser(
     @Body() FormData data,
   );
   @POST(ApiConstans.resendCode)
@@ -331,4 +331,11 @@ abstract class ApiService {
 
   @POST(ApiConstans.editProfileNormalCompany)
   Future editProfileNormalCompany(@Body() FormData data);
+
+  @POST(ApiConstans.signUp)
+  Future<AuthenticatinResponse> signUp(@Body() FormData data);
+  @POST(ApiConstans.signIn)
+  Future<AuthenticatinResponse> signIn(@Body() FormData data);
+  @POST(ApiConstans.updateProfile)
+  Future updateProfile(@Body() FormData data);
 }

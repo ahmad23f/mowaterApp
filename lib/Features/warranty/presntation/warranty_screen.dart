@@ -1,27 +1,28 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/inspection/presntation/inspection_screen.dart';
-import 'package:mowaterApp/Features/warranty/presntation/cubit/warranty_companies_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/services/ads_widget.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/company_widget.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/inspection/presntation/inspection_screen.dart';
+import 'package:Mowater/Features/warranty/presntation/cubit/warranty_companies_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/services/ads_widget.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/company_widget.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class WarrantyScreen extends StatelessWidget {
   WarrantyScreen({super.key});
 
   TextEditingController searchController = TextEditingController();
-  String selectedEmirates = 'dubai';
+  String selectedEmirates = 'dubai'.tr();
   int? mowaterDiscount;
   @override
   Widget build(BuildContext mcontext) {
@@ -30,7 +31,7 @@ class WarrantyScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'Warranty',
+              'Warranty'.tr(),
               style: TextStyles.text_14,
             ),
             actions: [
@@ -39,7 +40,7 @@ class WarrantyScreen extends StatelessWidget {
                 width: 200.w,
                 child: ModernSearchContainer(
                   controller: searchController,
-                  hintText: 'Search',
+                  hintText: 'Search'.tr(),
                   onChange: (p0) {
                     context.read<WarrantyCompaniesCubit>().filter(search: p0);
                   },
@@ -54,7 +55,7 @@ class WarrantyScreen extends StatelessWidget {
                           builder: (context) => Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
-                              color: ColorApp.secunderyColorDark,
+                              color: Theme.of(context).colorScheme.secondary,
                               boxShadow: const [
                                 BoxShadow(spreadRadius: 2, blurRadius: 20),
                               ],
@@ -89,7 +90,7 @@ class WarrantyScreen extends StatelessWidget {
                                                     .filter();
                                               },
                                               child: Text(
-                                                "Reset",
+                                                "Reset".tr(),
                                                 style: TextStyles.text_16
                                                     .copyWith(
                                                         fontWeight:
@@ -123,7 +124,7 @@ class WarrantyScreen extends StatelessWidget {
                                             textStyle: TextStyles.text_18
                                                 .copyWith(color: Colors.white),
                                             color: ColorApp.primeryColorDark,
-                                            text: 'Apply',
+                                            text: 'Apply'.tr(),
                                             onPressed: () async {
                                               context.pop();
                                               mcontext
@@ -195,7 +196,7 @@ class WarrantyScreen extends StatelessWidget {
                           const CompanyLoadingList(),
                     ),
                     faliure: () => Text(
-                      'No Companies',
+                      'No Companies'.tr(),
                       style: TextStyles.text_18,
                     ),
                   ),

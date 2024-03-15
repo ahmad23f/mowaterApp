@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ShowConfirmDialog {
   static void show(

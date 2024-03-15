@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({
@@ -27,7 +27,7 @@ class ProductWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           boxShadow: const [
             BoxShadow(
               color: Color.fromARGB(98, 0, 0, 0),

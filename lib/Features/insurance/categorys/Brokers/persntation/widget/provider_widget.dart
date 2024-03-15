@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ServicesProviderWidget extends StatelessWidget {
   InsuranceProvidersModel provider;
@@ -17,7 +17,7 @@ class ServicesProviderWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: mainPadding),
       decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12)),
       height: 280.h,
       child: Column(

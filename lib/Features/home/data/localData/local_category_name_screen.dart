@@ -1,4 +1,4 @@
-import 'package:mowaterApp/core/routing/routing_name.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
 
 List<String> categorysNamesScreen = [
   RouteName.motorMart,

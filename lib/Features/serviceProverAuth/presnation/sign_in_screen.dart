@@ -1,28 +1,39 @@
+import 'package:Mowater/Features/carNumbers/presntation/sell_your_plate_screen.dart';
+import 'package:Mowater/Features/serviceProverAuth/presnation/widgets/spicalty_drop.dart';
+import 'package:Mowater/Features/signIn/presntation/cubit/sign_in_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/validator.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sell_your_plate_screen.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/signIn/sign_in_company_cubit.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/widgets/specialty_drop_down.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/widgets/spicalty_drop.dart';
-import 'package:mowaterApp/Features/signUp/presentation/widget/register_link.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/validator.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
 
-class LoginServiceProvider extends StatelessWidget {
-  LoginServiceProvider({Key? key}) : super(key: key);
+class LoginServiceProvider extends StatefulWidget {
+  const LoginServiceProvider({Key? key}) : super(key: key);
+
+  @override
+  State<LoginServiceProvider> createState() => _LoginServiceProviderState();
+}
+
+class _LoginServiceProviderState extends State<LoginServiceProvider> {
   final TextEditingController email = TextEditingController();
+
   final TextEditingController password = TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey();
+
   String image = '';
-  String tabelName = '';
+
+  String type = '1';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,14 +60,14 @@ class LoginServiceProvider extends StatelessWidget {
               ),
               verticalSpace(20.h),
               Text(
-                'Welcome Back!',
+                'Welcome Back!'.tr(),
                 style: TextStyles.text_30
                     .copyWith(color: ColorApp.primeryColorDark),
               ),
               verticalSpace(30.h),
               SignInCategoryDropDown(
-                onCategoryChanged: (value) {
-                  tabelName = value;
+                onCategoryIndexChanged: (value) {
+                  type = value.toString();
                 },
               ),
               Form(
@@ -66,7 +77,7 @@ class LoginServiceProvider extends StatelessWidget {
                   children: [
                     CustomTextFormField(
                       controller: phoneNumber,
-                      hintText: 'Phone Number',
+                      hintText: 'Phone Number'.tr(),
                       inputType: TextInputType.text,
                       validator: (value) {
                         return phoneNumberValidator(value!);
@@ -75,30 +86,24 @@ class LoginServiceProvider extends StatelessWidget {
                     CustomTextFormField(
                       isPasswordField: true,
                       controller: password,
-                      hintText: 'Password',
+                      hintText: 'Password'.tr(),
                       validator: (value) {
                         return passwordValidator(value!);
                       },
                     ),
                     const SizedBox(height: 20),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomButton(
-                              onPressed: () async {
-                                await context.read<SignInCompanyCubit>().signIn(
-                                    phoneNumber: phoneNumber.text,
-                                    password: password.text,
-                                    tableName: tabelName);
-                              },
-                              padding: EdgeInsets.symmetric(vertical: 10.h),
-                              color: ColorApp.primeryColorDark,
-                              textStyle: TextStyles.text_18
-                                  .copyWith(color: Colors.white),
-                              text: 'Login'),
-                        ),
-                      ],
-                    ),
+                    LoadingButton(
+                        isLoading: context.read<SignInCubit>().isLoading,
+                        onPressed: () async {
+                          setState(() {});
+                          await context.read<SignInCubit>().singIn(
+                              loginType: 'phone',
+                              contact: phoneNumber.text,
+                              password: password.text,
+                              userType: type); //todo
+                          setState(() {});
+                        },
+                        buttonText: 'Login'.tr()),
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -107,7 +112,7 @@ class LoginServiceProvider extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account? ",
+                    "Don't have an account? ".tr(),
                     style: TextStyles.text_16,
                   ),
                   InkWell(
@@ -116,7 +121,7 @@ class LoginServiceProvider extends StatelessWidget {
                           RouteName.serviceProviderChoseTypeAccountScreen);
                     },
                     child: Text(
-                      "Sign up!",
+                      "Sign up!".tr(),
                       style: TextStyles.text_16.copyWith(
                           color: ColorApp.primeryColorDark,
                           fontWeight: FontWeight.bold),
@@ -128,20 +133,20 @@ class LoginServiceProvider extends StatelessWidget {
               const SizedBox(
                   height:
                       20), // Added some space between the form and "or" text
-              BlocBuilder<SignInCompanyCubit, SignInCompanyState>(
+              BlocBuilder<SignInCubit, SignInState>(
                 builder: (context, state) {
                   return state.when(
                     initial: () => const SizedBox(),
                     success: (messsage) {
+                      UserServices.saveLoginState(messsage.user);
+
                       Future.delayed(
                         Duration.zero,
                         () {
-                          ShowSnakBar(context,
-                              content: messsage.message,
-                              title: 'Success',
-                              backGroundColor: Colors.green);
+                          context.pushReplacement(RouteName.home);
                         },
                       );
+
                       return const SizedBox();
                     },
                     failure: (errorMessage) {
@@ -150,13 +155,14 @@ class LoginServiceProvider extends StatelessWidget {
                         () {
                           ShowSnakBar(context,
                               content: errorMessage,
-                              title: 'Failur',
-                              backGroundColor: Colors.red);
+                              title: 'Failur'.tr(),
+                              backGroundColor:
+                                  Theme.of(context).colorScheme.primary);
                         },
                       );
                       return const SizedBox();
                     },
-                    loading: () => const CircularProgressIndicator.adaptive(),
+                    loading: () => const SizedBox(),
                   );
                 },
               )

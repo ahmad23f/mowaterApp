@@ -1,12 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/models/spare_part_company.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/UsedSpareParts/models/spare_part_company.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class SparePartCompanyWidget extends StatelessWidget {
   final SpatepartsCompanyModel company;
@@ -19,7 +18,7 @@ class SparePartCompanyWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 6.h),
       decoration: BoxDecoration(
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(12),
       ),
       height: 298.h,
@@ -32,7 +31,7 @@ class SparePartCompanyWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildCompanyNameAndLocation(),
+                _buildCompanyNameAndLocation(context),
                 verticalSpace(6.dg),
                 _buildCompanyDays(),
                 verticalSpace(6.dg),
@@ -46,11 +45,11 @@ class SparePartCompanyWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildCompanyImage(context) {
+  Widget _buildCompanyImage(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: CachedNetworkImage(
-        imageUrl: "${ApiConstans.companyImage}${company.companyImage}",
+        imageUrl: company.companyImage,
         fit: BoxFit.cover,
         width: mediasize(context).width,
         height: 160.h,
@@ -58,7 +57,7 @@ class SparePartCompanyWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildCompanyNameAndLocation() {
+  Widget _buildCompanyNameAndLocation(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -101,13 +100,9 @@ class SparePartCompanyWidget extends StatelessWidget {
               style: TextStyles.text_12,
             ),
             Text(
-              ' - ',
+              " - ${company.daysWeek.last}",
               style: TextStyles.text_12,
             ),
-            Text(
-              company.daysWeek.last,
-              style: TextStyles.text_12,
-            )
           ],
         )
       ],

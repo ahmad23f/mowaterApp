@@ -1,19 +1,20 @@
 import 'dart:io';
 
+import 'package:Mowater/Features/drawer/data/updateProfile/update_profile_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/cubit/update_user_info_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/animation_loading_button.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
 
 class EditProfileForm extends StatefulWidget {
   File? image;
@@ -24,7 +25,7 @@ class EditProfileForm extends StatefulWidget {
 }
 
 class _EditProfileFormState extends State<EditProfileForm> {
-  late User user;
+  late UserHiveModel user;
   late TextEditingController nickName,
       userName,
       email,
@@ -36,11 +37,11 @@ class _EditProfileFormState extends State<EditProfileForm> {
   void initState() {
     user = UserServices.getUserInformation();
     nickName = TextEditingController(text: user.nickName);
-    userName = TextEditingController(text: user.username);
+    userName = TextEditingController(text: user.name);
     email = TextEditingController(text: user.email);
     phoneNumber = TextEditingController(text: user.phoneNumber);
     password = TextEditingController(text: user.password);
-    whatsAppNumber = TextEditingController(text: user.whatsappNumber);
+    whatsAppNumber = TextEditingController(text: user.whatsAppNumber);
     confirmPassword = TextEditingController();
     super.initState();
   }
@@ -68,12 +69,12 @@ class _EditProfileFormState extends State<EditProfileForm> {
                   Padding(
                     padding: EdgeInsets.only(left: 8.0.w),
                     child: Text(
-                      'Nick Name',
+                      'Nick Name'.tr(),
                       style: TextStyles.text_12,
                     ),
                   ),
                   CustomTextFormField(
-                    hintText: 'Nick Name',
+                    hintText: 'Nick Name'.tr(),
                     controller: nickName,
                     label: '',
                   ),
@@ -88,14 +89,14 @@ class _EditProfileFormState extends State<EditProfileForm> {
                   Padding(
                     padding: EdgeInsets.only(left: 8.0.w),
                     child: Text(
-                      'Full Name',
+                      'Full Name'.tr(),
                       style: TextStyles.text_12,
                     ),
                   ),
                   CustomTextFormField(
-                    hintText: 'Full Name',
+                    hintText: 'Full Name'.tr(),
                     controller: userName,
-                    label: 'name',
+                    label: 'name'.tr(),
                   ),
                 ],
               ),
@@ -105,47 +106,47 @@ class _EditProfileFormState extends State<EditProfileForm> {
         Padding(
           padding: EdgeInsets.only(left: 8.0.w),
           child: Text(
-            'Phone Number',
+            'Phone Number'.tr(),
             style: TextStyles.text_12,
           ),
         ),
         _editNumber(
-            numberStaet: user.verify ?? 0,
             context: context,
-            numberType: 'Phone Number',
+            numberType: 'Phone Number'.tr(),
             phoneNumber: phoneNumber,
-            lastupdate: user.lastUpdatePhoneNumber ?? DateTime(2020),
+            lastupdate: user.lastUpdatePhone ?? DateTime(2020),
             user: user),
         verticalSpace(15.h),
         Padding(
           padding: EdgeInsets.only(left: 8.0.w),
           child: Text(
-            'WhatsApp Number',
+            'WhatsApp Number'.tr(),
             style: TextStyles.text_12,
           ),
         ),
         _editNumber(
-            numberStaet: user.whatsState ?? 0,
             context: context,
-            numberType: 'WhatsApp Number',
+            numberType: 'WhatsApp Number'.tr(),
             phoneNumber: whatsAppNumber,
             lastupdate: user.lastUpdateWhatsAppNumber ?? DateTime(2020),
             user: user),
         verticalSpace(15.h),
         Center(
           child: LoadingButton(
-            buttonText: 'Save',
-            isLoading: context.read<UpdateUserInfoCubit>().isLoading,
+            buttonText: 'Save'.tr(),
+            isLoading: context.read<UpdateProfileCubit>().isLoading,
             onPressed: () async {
               setState(() {});
-              await context.read<UpdateUserInfoCubit>().update(
-                  user: UserModel(
-                      userType: UserServices.getUserInformation().userType,
-                      nickname: nickName.text,
-                      name: userName.text,
-                      image: widget.image?.path,
-                      id: user.id),
-                  file: widget.image);
+              UserServices.updateUserInfo(
+                  UserHiveModel(nickName: nickName.text, name: userName.text));
+              await context.read<UpdateProfileCubit>().updateProfile(
+                    UserModel(
+                        type: UserServices.getUserInformation().type,
+                        nickName: nickName.text,
+                        name: userName.text,
+                        image: widget.image?.path,
+                        id: user.id),
+                  );
 
               context.push(RouteName.home);
             },
@@ -161,8 +162,7 @@ Row _editNumber(
     required String numberType,
     required TextEditingController phoneNumber,
     required DateTime lastupdate,
-    required int numberStaet,
-    required User user}) {
+    required UserHiveModel user}) {
   return Row(
     children: [
       Expanded(
@@ -203,12 +203,11 @@ Row _editNumber(
           ),
         ),
       ),
-      numberStaet == 1
+      user.lastUpdatePhone == 1
           ? DateTime.now()
-                          .difference(DateTime.parse(lastupdate.toString()))
-                          .inDays >=
-                      7 &&
-                  numberStaet != 0
+                      .difference(DateTime.parse(lastupdate.toString()))
+                      .inDays >=
+                  7
               ? GestureDetector(
                   child: IconButton(
                     icon: const Icon(Icons.edit, color: Colors.white),
@@ -235,9 +234,7 @@ Row _editNumber(
                     ),
                   ),
                 )
-          : phoneNumber.text != '0' &&
-                  user.verify != 0 &&
-                  phoneNumber.text.isNotEmpty
+          : phoneNumber.text != '0' && phoneNumber.text.isNotEmpty
               ? InkWell(
                   onTap: () {
                     print(numberType);
@@ -255,7 +252,7 @@ Row _editNumber(
                         color: ColorApp.primeryColorDark,
                         borderRadius: BorderRadius.circular(12)),
                     child: Text(
-                      'Not Verifed',
+                      'Not Verifed'.tr(),
                       style: TextStyles.text_12,
                     ),
                   ),

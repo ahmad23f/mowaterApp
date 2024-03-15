@@ -1,9 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
+
+class Category {
+  final int id;
+  final String name;
+
+  Category(this.id, this.name);
+}
 
 class SpecialtyDropDown extends StatefulWidget {
-  final ValueChanged<String>? onCategoryChanged;
+  final ValueChanged<int>? onCategoryChanged;
   final ValueChanged<List<String>>? onSpecialtiesChanged;
 
   const SpecialtyDropDown({
@@ -19,82 +26,81 @@ class SpecialtyDropDown extends StatefulWidget {
 class _SpecialtyDropDownState extends State<SpecialtyDropDown> {
   final _formKey = GlobalKey<FormState>();
 
-  // List of main categories
-  List<String> mainCategories = [
-    'Maintenance', //
-    'showRooms', //
-    'insurance', //
-    'rentalCars',
-    'warranty', //
-    'Evaluation', //
-    'spareParts',
-    'inspection', //
-    'carCare',
-    'mobileService',
+  List<Category> mainCategories = [
+    Category(1, 'Maintenance'.tr()), //
+    Category(2, 'showRooms'.tr()), //
+    Category(3, 'insurance'.tr()), //
+    Category(4, 'rentalCars'.tr()),
+    Category(5, 'warranty'.tr()), //
+    Category(6, 'Evaluation'.tr()), //
+    Category(7, 'spareParts'.tr()),
+    Category(8, 'inspection'.tr()), //
+    Category(9, 'carCare'.tr()),
+    Category(10, 'mobileService'.tr()),
     // Add more main categories as needed
   ];
 
   // Map of main categories to specialties
   Map<String, List<String>> specialties = {
-    'Maintenance': [
-      'Engines',
-      'Electrical',
-      'Mechanical',
-      'Brake',
-      'Ac',
-      "Gear",
-      'Glass',
-      'Oil',
-      'Tires',
-      "programing",
-      'Dyeing And Plumbing',
-      ' Rediators or Exhaust'
+    'Maintenance'.tr(): [
+      'Engines'.tr(),
+      'Electrical'.tr(),
+      'Mechanical'.tr(),
+      'Brake'.tr(),
+      'Ac'.tr(),
+      "Gear".tr(),
+      'Glass'.tr(),
+      'Oil'.tr(),
+      'Tires'.tr(),
+      "programing".tr(),
+      'Dyeing And Plumbing'.tr(),
+      ' Rediators or Exhaust'.tr()
     ],
-    'showRooms': [],
-    'insurance': [
-      'Company',
-      'Broker',
+    'showRooms'.tr(): [],
+    'insurance'.tr(): [
+      'Company'.tr(),
+      'Broker'.tr(),
     ],
-    'Evaluation': [],
-    'rentalCars': [],
-    'warranty': [],
-    'spareParts': [
-      'Steering',
-      'Gera',
-      'Engine',
-      'Suspensio',
-      'Fuel System',
-      'Lighting Or Electrical',
-      'Tires',
-      'Colling Or Heating',
-      'Air System',
-      'Interior Parts',
-      'Oil Or Filters',
-      'Batteries',
-      'Car Glass',
-      'Exhaust',
-      'Chassis Or Body',
+    'Evaluation'.tr(): [],
+    'rentalCars'.tr(): [],
+    'warranty'.tr(): [],
+    'spareParts'.tr(): [
+      'Steering'.tr(),
+      'Gera'.tr(),
+      'Engine'.tr(),
+      'Suspensio'.tr(),
+      'Fuel System'.tr(),
+      'Lighting Or Electrical'.tr(),
+      'Tires'.tr(),
+      'Colling Or Heating'.tr(),
+      'Air System'.tr(),
+      'Interior Parts'.tr(),
+      'Oil Or Filters'.tr(),
+      'Batteries'.tr(),
+      'Car Glass'.tr(),
+      'Exhaust'.tr(),
+      'Chassis Or Body'.tr(),
     ],
-    'inspection': [],
-    'carCare': [
-      'Glass Shading',
-      'Car Polish',
-      'Car Wash',
-      'Accessories',
-      'Car Wraps',
-      'Keys or Remotes',
-      'Interior Washing',
-      'Car Upholstery',
-      'Lights Polishing',
-      'Engine Protection',
-      'Car Body Protections',
-      'Paint Protection',
+    'inspection'.tr(): [],
+    'carCare'.tr(): [
+      'Glass Shading'.tr(),
+      'Car Polish'.tr(),
+      'Car Wash'.tr(),
+      'Accessories'.tr(),
+      'Car Wraps'.tr(),
+      'Keys or Remotes'.tr(),
+      'Interior Washing'.tr(),
+      'Car Upholstery'.tr(),
+      'Lights Polishing'.tr(),
+      'Engine Protection'.tr(),
+      'Car Body Protections'.tr(),
+      'Paint Protection'.tr(),
     ],
-    'mobileService': [
-      'Tiers',
-      'Battery',
-      'Recovery',
-      'Electric Charger',
+    'mobileService'.tr(): [
+      'Tiers'.tr(),
+      'Battery'.tr(),
+      'Recovery'.tr(),
+      'Electric Charger'.tr(),
     ]
   };
 
@@ -108,11 +114,11 @@ class _SpecialtyDropDownState extends State<SpecialtyDropDown> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          DropdownButtonFormField<String>(
+          DropdownButtonFormField<Category>(
             isExpanded: true,
             decoration: InputDecoration(
               filled: true,
-              fillColor: ColorApp.secunderyColorDark,
+              fillColor: Theme.of(context).colorScheme.secondary,
               contentPadding: const EdgeInsets.symmetric(vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -121,21 +127,21 @@ class _SpecialtyDropDownState extends State<SpecialtyDropDown> {
             ),
             hint: Padding(
               padding: EdgeInsets.only(left: 8.0.w),
-              child: const Text(
-                'Select Provider Type',
-                style: TextStyle(fontSize: 14),
+              child: Text(
+                'Select Provider Type'.tr(),
+                style: const TextStyle(fontSize: 14),
               ),
             ),
             value: selectedCategoryIndex != null
                 ? mainCategories[selectedCategoryIndex!]
                 : null,
             items: mainCategories
-                .map((item) => DropdownMenuItem<String>(
+                .map((item) => DropdownMenuItem<Category>(
                       value: item,
                       child: Padding(
                         padding: EdgeInsets.only(left: 8.0.w),
                         child: Text(
-                          item,
+                          item.name,
                           style: const TextStyle(
                             fontSize: 14,
                           ),
@@ -149,7 +155,7 @@ class _SpecialtyDropDownState extends State<SpecialtyDropDown> {
                 selectedSpecialtyIndices
                     .clear(); // Reset specialties on category change
                 if (widget.onCategoryChanged != null) {
-                  widget.onCategoryChanged!(value); // Pass the category name
+                  widget.onCategoryChanged!(value.id); // Pass the category ID
                 }
               });
             },
@@ -158,10 +164,11 @@ class _SpecialtyDropDownState extends State<SpecialtyDropDown> {
           if (selectedCategoryIndex != null)
             Wrap(
               spacing: 8,
-              children: specialties[mainCategories[selectedCategoryIndex!]]!
-                  .asMap()
-                  .entries
-                  .map((entry) {
+              children:
+                  specialties[mainCategories[selectedCategoryIndex!].name]!
+                      .asMap()
+                      .entries
+                      .map((entry) {
                 final index = entry.key;
                 final specialty = entry.value;
                 return Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarLocationWidget extends StatelessWidget {
   final String location;

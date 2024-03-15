@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ProductStateFilter extends StatefulWidget {
   final String selectedState;
@@ -52,7 +52,7 @@ class _ProductStateFilterState extends State<ProductStateFilter> {
                       borderRadius: BorderRadius.circular(12),
                       color: _currentSelectedState == state
                           ? ColorApp.primeryColorDark
-                          : Colors.black26),
+                          : Theme.of(context).textTheme.titleSmall!.color!),
                   child: Text(
                     state,
                     style: TextStyles.text_16,

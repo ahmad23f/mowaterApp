@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class TrendingScreen extends StatefulWidget {
   const TrendingScreen({Key? key}) : super(key: key);
@@ -67,7 +68,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                     Padding(
                       padding: EdgeInsets.all(8.0.dg),
                       child: Text(
-                        "Trending Cars",
+                        "Trending Cars".tr(),
                         style: TextStyles.text_18.copyWith(fontSize: 18.sp.h),
                       ),
                     ),
@@ -85,7 +86,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                         viewportFraction: 1, aspectRatio: 10.5 / 9),
                     itemCount: 20,
                     itemBuilder: (context, index, realIndex) =>
-                        TrendingWidget(image: 'image'),
+                        TrendingWidget(image: 'image'.tr()),
                   ),
                 ),
                 Row(
@@ -93,7 +94,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                     Padding(
                       padding: EdgeInsets.all(8.0.dg),
                       child: Text(
-                        "Trending Providers",
+                        "Trending Providers".tr(),
                         style: TextStyles.text_18.copyWith(fontSize: 18.sp.h),
                       ),
                     ),
@@ -126,7 +127,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                     Padding(
                       padding: EdgeInsets.all(8.0.dg),
                       child: Text(
-                        "Trending News",
+                        "Trending News".tr(),
                         style: TextStyles.text_18.copyWith(fontSize: 18.sp.h),
                       ),
                     ),

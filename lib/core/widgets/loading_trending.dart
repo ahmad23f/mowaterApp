@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class LoadingTrendinglistView extends StatelessWidget {
   const LoadingTrendinglistView({

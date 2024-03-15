@@ -9,11 +9,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.mowaterApp.RunnerTests</string>
+	<string>com.example.Mowater.RunnerTests</string>
 	<key>PROJECT_ID</key>
-	<string>mowaterApp-47196</string>
+	<string>Mowater-47196</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mowaterApp-47196.appspot.com</string>
+	<string>Mowater-47196.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

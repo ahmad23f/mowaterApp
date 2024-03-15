@@ -11,13 +11,15 @@ FuelPriceModel _$FuelPriceModelFromJson(Map<String, dynamic> json) =>
       fuelPrices: (json['FuelPrice'] as List<dynamic>)
           .map((e) => FuelPrice.fromJson(e as Map<String, dynamic>))
           .toList(),
-      lastUpdate: DateTime.parse(json['last_update'] as String),
+      lastUpdate: json['last_update'] == null
+          ? null
+          : DateTime.parse(json['last_update'] as String),
     );
 
 Map<String, dynamic> _$FuelPriceModelToJson(FuelPriceModel instance) =>
     <String, dynamic>{
       'FuelPrice': instance.fuelPrices,
-      'last_update': instance.lastUpdate.toIso8601String(),
+      'last_update': instance.lastUpdate?.toIso8601String(),
     };
 
 FuelPrice _$FuelPriceFromJson(Map<String, dynamic> json) => FuelPrice(

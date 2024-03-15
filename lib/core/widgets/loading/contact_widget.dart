@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class ContactLoadingRow extends StatelessWidget {
   const ContactLoadingRow({super.key});

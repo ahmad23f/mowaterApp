@@ -1,6 +1,6 @@
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/trending_service.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/trending_service.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class TrendingServicesRepositeory {
   final ApiService _apiService;

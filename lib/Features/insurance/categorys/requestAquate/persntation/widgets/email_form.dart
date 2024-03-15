@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class EmailFormWidget extends StatelessWidget {
   TextEditingController? textEditingController;

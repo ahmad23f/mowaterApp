@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_image_and_carouseSlider.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_image_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_image_and_carouseSlider.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_image_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarImageWidget extends StatelessWidget {
   const CarImageWidget({
@@ -35,7 +35,7 @@ class CarImageWidget extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.all(5),
             decoration: BoxDecoration(
-                color: ColorApp.categoryColorDark,
+                color: ColorApp.primeryColorDark,
                 borderRadius: BorderRadius.circular(6)),
             padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
             child: Row(

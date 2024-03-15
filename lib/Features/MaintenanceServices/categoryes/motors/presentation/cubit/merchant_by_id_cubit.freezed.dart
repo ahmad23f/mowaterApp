@@ -19,7 +19,7 @@ mixin _$MerchantByIdState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MaintenanceCompanyModel> merchants) success,
+    required TResult Function(List<UserModel> merchants) success,
     required TResult Function() loading,
     required TResult Function(String message) failure,
   }) =>
@@ -27,7 +27,7 @@ mixin _$MerchantByIdState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult? Function(List<UserModel> merchants)? success,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
   }) =>
@@ -35,7 +35,7 @@ mixin _$MerchantByIdState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult Function(List<UserModel> merchants)? success,
     TResult Function()? loading,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -125,7 +125,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MaintenanceCompanyModel> merchants) success,
+    required TResult Function(List<UserModel> merchants) success,
     required TResult Function() loading,
     required TResult Function(String message) failure,
   }) {
@@ -136,7 +136,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult? Function(List<UserModel> merchants)? success,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
   }) {
@@ -147,7 +147,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult Function(List<UserModel> merchants)? success,
     TResult Function()? loading,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -206,7 +206,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<MaintenanceCompanyModel> merchants});
+  $Res call({List<UserModel> merchants});
 }
 
 /// @nodoc
@@ -226,7 +226,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == merchants
           ? _value._merchants
           : merchants // ignore: cast_nullable_to_non_nullable
-              as List<MaintenanceCompanyModel>,
+              as List<UserModel>,
     ));
   }
 }
@@ -234,12 +234,11 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<MaintenanceCompanyModel> merchants)
-      : _merchants = merchants;
+  const _$SuccessImpl(final List<UserModel> merchants) : _merchants = merchants;
 
-  final List<MaintenanceCompanyModel> _merchants;
+  final List<UserModel> _merchants;
   @override
-  List<MaintenanceCompanyModel> get merchants {
+  List<UserModel> get merchants {
     if (_merchants is EqualUnmodifiableListView) return _merchants;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_merchants);
@@ -273,7 +272,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MaintenanceCompanyModel> merchants) success,
+    required TResult Function(List<UserModel> merchants) success,
     required TResult Function() loading,
     required TResult Function(String message) failure,
   }) {
@@ -284,7 +283,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult? Function(List<UserModel> merchants)? success,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
   }) {
@@ -295,7 +294,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult Function(List<UserModel> merchants)? success,
     TResult Function()? loading,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -345,10 +344,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements MerchantByIdState {
-  const factory _Success(final List<MaintenanceCompanyModel> merchants) =
-      _$SuccessImpl;
+  const factory _Success(final List<UserModel> merchants) = _$SuccessImpl;
 
-  List<MaintenanceCompanyModel> get merchants;
+  List<UserModel> get merchants;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -393,7 +391,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MaintenanceCompanyModel> merchants) success,
+    required TResult Function(List<UserModel> merchants) success,
     required TResult Function() loading,
     required TResult Function(String message) failure,
   }) {
@@ -404,7 +402,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult? Function(List<UserModel> merchants)? success,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
   }) {
@@ -415,7 +413,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult Function(List<UserModel> merchants)? success,
     TResult Function()? loading,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -533,7 +531,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MaintenanceCompanyModel> merchants) success,
+    required TResult Function(List<UserModel> merchants) success,
     required TResult Function() loading,
     required TResult Function(String message) failure,
   }) {
@@ -544,7 +542,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult? Function(List<UserModel> merchants)? success,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
   }) {
@@ -555,7 +553,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MaintenanceCompanyModel> merchants)? success,
+    TResult Function(List<UserModel> merchants)? success,
     TResult Function()? loading,
     TResult Function(String message)? failure,
     required TResult orElse(),

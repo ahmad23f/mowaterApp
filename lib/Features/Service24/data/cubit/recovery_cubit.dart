@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/Service24/data/repositeory/near_recovery_repo.dart';
-import 'package:mowaterApp/Features/Service24/models/recovery_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/Service24/data/repositeory/near_recovery_repo.dart';
+import 'package:Mowater/Features/Service24/models/recovery_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'recovery_state.dart';
 part 'recovery_cubit.freezed.dart';

@@ -11,15 +11,14 @@ SpatepartsCompanyModel _$SpatepartsCompanyModelFromJson(
     SpatepartsCompanyModel(
       companyId: json['id'] as int,
       location: json['location'] as String,
-      companyImage: json['company_image'] as String,
-      name: json['name'] as String,
+      companyImage: json['companyImage'] as String,
+      name: json['companyName'] as String,
       startTime: json['start_time'] as String,
       endTime: json['end_time'] as String,
       phoneNumber: json['phoneNumber'] as String,
       whatsAppNumber: json['whatsAppNumber'] as String,
-      daysWeek: (json['weekday_work'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      daysWeek:
+          (json['daysWeek'] as List<dynamic>).map((e) => e as String).toList(),
       createAccountAt: json['createAccountAt'] as String,
       mowaterDiscount: json['mowaterDiscount'] as int,
       carBrandNames: (json['car_brand_names'] as List<dynamic>)
@@ -34,13 +33,13 @@ Map<String, dynamic> _$SpatepartsCompanyModelToJson(
         SpatepartsCompanyModel instance) =>
     <String, dynamic>{
       'id': instance.companyId,
-      'company_image': instance.companyImage,
-      'name': instance.name,
+      'companyImage': instance.companyImage,
+      'companyName': instance.name,
       'start_time': instance.startTime,
       'end_time': instance.endTime,
       'phoneNumber': instance.phoneNumber,
       'whatsAppNumber': instance.whatsAppNumber,
-      'weekday_work': instance.daysWeek,
+      'daysWeek': instance.daysWeek,
       'createAccountAt': instance.createAccountAt,
       'location': instance.location,
       'mowaterDiscount': instance.mowaterDiscount,

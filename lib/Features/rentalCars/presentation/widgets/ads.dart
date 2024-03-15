@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/cubtis/cubit/rental_cars_ads_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/rentalCars/presentation/cubtis/cubit/rental_cars_ads_cubit.dart';
 
 class RentalCarsAds extends StatelessWidget {
   const RentalCarsAds({

@@ -1,0 +1,29 @@
+import 'package:Mowater/Features/MowaterMart/data/repositeory/Mowater_mart_ads_repositeory.dart';
+import 'package:Mowater/core/helper/ads_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'mowater_martad_state.dart';
+part 'mowater_martad_cubit.freezed.dart';
+
+class MowaterMartAdsCubit extends Cubit<MowaterMartAdsState> {
+  final ApiService _apiService;
+  MowaterMartAdsCubit(this._apiService)
+      : super(const MowaterMartAdsState.initial());
+  getAds() async {
+    emit(const MowaterMartAdsState.loading());
+    MowaterMartAdsReposite adsReposite = MowaterMartAdsReposite(_apiService);
+
+    final response = await adsReposite.getAds();
+    response.when(
+      success: (data) {
+        emit(MowaterMartAdsState.success(data));
+      },
+      failure: (error) {
+        print(error);
+        emit(const MowaterMartAdsState.faliure());
+      },
+    );
+  }
+}

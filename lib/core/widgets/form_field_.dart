@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CustomFormFieldWitheBorder extends StatelessWidget {
   TextEditingController? textEditingController;
@@ -17,7 +17,7 @@ class CustomFormFieldWitheBorder extends StatelessWidget {
     return TextFormField(
       controller: textEditingController,
       decoration: InputDecoration(
-        fillColor: ColorApp.secunderyColorDark,
+        fillColor: Theme.of(context).colorScheme.secondary,
         filled: true,
         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
         label: Text(

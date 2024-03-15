@@ -2,8 +2,8 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({
@@ -29,7 +29,7 @@ class OnBoardingScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   // BoxShadow(
-                  //     spreadRadius: 0.1, blurRadius: 20, color: Colors.black)
+                  //     spreadRadius: 0.1, blurRadius: 20, color: Theme.of(context).textTheme.titleSmall!.color!)
                 ],
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(26),
@@ -49,11 +49,16 @@ class OnBoardingScreen extends StatelessWidget {
                 children: [
                   Text(
                     textAlign: TextAlign.center,
-                    "Welcome \n To \n mowaterApp",
+                    "Welcome \n To \n Mowater",
                     style: TextStyles.text_26.copyWith(
                         color: const Color.fromARGB(255, 17, 17, 17),
                         shadows: [
-                          const Shadow(color: Colors.black, blurRadius: 20)
+                          Shadow(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .color!,
+                              blurRadius: 20)
                         ]),
                   ),
                   Text(

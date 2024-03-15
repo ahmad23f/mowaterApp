@@ -7,7 +7,7 @@ class FuelPriceModel {
   @JsonKey(name: 'FuelPrice')
   final List<FuelPrice> fuelPrices;
   @JsonKey(name: 'last_update')
-  final DateTime lastUpdate;
+  final DateTime? lastUpdate;
 
   FuelPriceModel({required this.fuelPrices, required this.lastUpdate});
 

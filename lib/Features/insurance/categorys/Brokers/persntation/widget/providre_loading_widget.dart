@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/widgets/loading/contact_widget.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/widgets/loading/contact_widget.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class ProviderServiceLoadingListView extends StatelessWidget {
   const ProviderServiceLoadingListView({super.key});
@@ -18,7 +18,7 @@ class ProviderServiceLoadingListView extends StatelessWidget {
       itemBuilder: (context, index) => Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-            color: ColorApp.secunderyColorDark,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(12)),
         height: 280.h,
         child: Column(

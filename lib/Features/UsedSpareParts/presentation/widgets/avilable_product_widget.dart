@@ -1,11 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/models/spare_part_company.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
+import 'package:Mowater/Features/UsedSpareParts/models/spare_part_company.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
 
 class AvilableProductWidget extends StatelessWidget {
   SparePartProduct product;
@@ -20,7 +21,7 @@ class AvilableProductWidget extends StatelessWidget {
         width: 180.w,
         margin: const EdgeInsets.symmetric(horizontal: mainPadding),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -41,19 +42,25 @@ class AvilableProductWidget extends StatelessWidget {
                       Text(
                         product.productPrice,
                         style: TextStyles.text_14.copyWith(shadows: [
-                          const BoxShadow(
-                              color: Colors.black,
+                          BoxShadow(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .color!,
                               spreadRadius: 20,
                               blurRadius: 10)
                         ]),
                       ),
                       Text(
-                        'AED ',
+                        'AED '.tr(),
                         style: TextStyles.text_10.copyWith(
                             color: ColorApp.primeryColorDark,
                             shadows: [
-                              const BoxShadow(
-                                  color: Colors.black,
+                              BoxShadow(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .color!,
                                   spreadRadius: 20,
                                   blurRadius: 10)
                             ]),
@@ -61,7 +68,7 @@ class AvilableProductWidget extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    product.state == 1 ? 'USED' : 'NEW',
+                    product.state == 1 ? 'USED'.tr() : 'NEW'.tr(),
                     style: product.state == 1
                         ? TextStyles.text_12.copyWith(
                             color: const Color.fromARGB(255, 255, 232, 29))
@@ -92,7 +99,7 @@ class AvilableProductWidget extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 50.w),
                       textStyle: TextStyles.text_12
                           .copyWith(color: Colors.white, fontSize: 12.sp),
-                      text: "Order")
+                      text: "Order".tr())
                 ],
               ),
             ),

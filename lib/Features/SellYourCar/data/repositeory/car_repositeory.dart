@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class AddNewCarRepository {
   final ApiService _apiService;

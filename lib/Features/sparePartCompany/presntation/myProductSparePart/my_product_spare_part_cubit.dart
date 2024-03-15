@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/sparePartCompany/data/my_product_repo.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/sparePartCompany/data/my_product_repo.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'my_product_spare_part_state.dart';
 part 'my_product_spare_part_cubit.freezed.dart';

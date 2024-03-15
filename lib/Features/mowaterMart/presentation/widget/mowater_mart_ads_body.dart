@@ -2,11 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_mart_body.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_mart_body.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class MowaterMartAdsBody extends StatelessWidget {
   List<MowaterMartProductModel> products;

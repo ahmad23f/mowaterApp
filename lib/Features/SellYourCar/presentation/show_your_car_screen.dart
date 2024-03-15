@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/SellYourCar/data/cubit/cubit/show_your_car_cubit.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/new_car_form.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/annymous_block.dart';
+import 'package:Mowater/Features/SellYourCar/data/cubit/cubit/show_your_car_cubit.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/new_car_form.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/annymous_block.dart';
 
 class SellYourCarScreen extends StatelessWidget {
   const SellYourCarScreen({Key? key}) : super(key: key);

@@ -1,6 +1,9 @@
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:dio/dio.dart';
 
 class AddAccountNumberUserRepositeory {
   final ApiService _apiService;
@@ -21,10 +24,9 @@ class AddAccountNumberUserRepositeory {
 
       numberType == 'Phone Number'
           ? UserServices.updateUserInfo(
-              lastUpdatePhoneNumber: DateTime.now(),
-            )
+              UserHiveModel(lastUpdatePhone: DateTime.now()))
           : UserServices.updateUserInfo(
-              lastUpdateWhatsAppNumber: DateTime.now());
+              UserHiveModel(lastUpdateWhatsAppNumber: DateTime.now()));
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(e.toString());

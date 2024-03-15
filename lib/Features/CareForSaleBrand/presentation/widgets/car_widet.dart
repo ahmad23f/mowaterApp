@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_price_and_premium.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/care_date_and_kilometers.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/care_model_and_name.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_price_and_premium.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/care_date_and_kilometers.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/care_model_and_name.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
 
 class CarWidget extends StatefulWidget {
   CarProduct car;
@@ -27,7 +27,7 @@ class _CarWidgetState extends State<CarWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12)),
       child: Column(
         children: [

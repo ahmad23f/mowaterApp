@@ -1,20 +1,16 @@
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/company_model.dart';
+import 'package:Mowater/core/services/company_service.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/data/show_room_repo.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/model/service_account.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/services/user_type.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
 
 class ThankYouScreen extends StatelessWidget {
-  final String userType;
   const ThankYouScreen({
     Key? key,
-    required this.userType,
   }) : super(key: key);
 
   @override
@@ -32,18 +28,19 @@ class ThankYouScreen extends StatelessWidget {
                 color: Colors.green,
               ),
               const SizedBox(height: 20.0),
-              const Text(
-                'Thank you for joining us!',
-                style: TextStyle(
+              Text(
+                'Thank you for joining us!'.tr(),
+                style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20.0),
-              const Text(
-                'Your account is pending approval. We will review it as soon as possible.',
-                style: TextStyle(fontSize: 16.0),
+              Text(
+                'Your account is pending approval. We will review it as soon as possible.'
+                    .tr(),
+                style: const TextStyle(fontSize: 16.0),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40.0),
@@ -54,51 +51,13 @@ class ThankYouScreen extends StatelessWidget {
                     child: CustomButton(
                       onPressed: () async {
                         // Save the user state with the appropriate user type
-                        switch (userType) {
-                          case 'showRooms':
-                            context.push(RouteName.home);
-                            break;
-                          case 'Maintenance':
-                            context.push(RouteName.home);
 
-                            break;
-
-                          case 'insurance':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'rentalCars':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'warranty':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'spareParts':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'inspection':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'carCare':
-                            context.push(RouteName.home);
-
-                            break;
-                          case 'mobileService':
-                            context.push(RouteName.home);
-
-                            break;
-                          default:
-                            break;
-                        }
+                        context.pushReplacement(RouteName.home);
                       },
-                      color: ColorApp.secunderyColorDark,
+                      color: Theme.of(context).colorScheme.secondary,
                       textStyle:
                           TextStyles.text_22.copyWith(color: Colors.white),
-                      text: "Let’s Start",
+                      text: "Let’s Start".tr(),
                     ),
                   ),
                 ],

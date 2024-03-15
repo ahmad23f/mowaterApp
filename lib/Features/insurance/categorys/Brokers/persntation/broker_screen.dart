@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/persntation/cubit/insurance_provider_service_cubit.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/persntation/widget/provider_widget.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/persntation/widget/providre_loading_widget.dart';
-import 'package:mowaterApp/Features/insurance/presentation/insurance_category_ads.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/persntation/cubit/insurance_provider_service_cubit.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/persntation/widget/provider_widget.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/persntation/widget/providre_loading_widget.dart';
+import 'package:Mowater/Features/insurance/presentation/insurance_category_ads.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class BorkersScreen extends StatelessWidget {
   const BorkersScreen({super.key});

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/Parking/data/image_principality.dart';
-import 'package:mowaterApp/Features/Parking/data/plate_code_country.dart';
-import 'package:mowaterApp/Features/Parking/presentation/widgets/add_new_plate_code.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/Parking/data/image_principality.dart';
+import 'package:Mowater/Features/Parking/presentation/widgets/add_new_plate_code.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class BuildAddPlateWidget extends StatefulWidget {
   final TextEditingController plateNumberController;
@@ -40,7 +39,7 @@ class _BuildAddPlateWidgetState extends State<BuildAddPlateWidget> {
             ],
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.black, width: 6),
+            border: Border.all(width: 6),
           ),
           height: 110.h,
           child: Row(
@@ -49,11 +48,11 @@ class _BuildAddPlateWidgetState extends State<BuildAddPlateWidget> {
               SizedBox(
                 width: 90.w,
                 child: AddNewPlateCode(
-                  textStyle: TextStyles.text_12.copyWith(
-                      color: ColorApp.primeryColorDark, fontSize: 16.sp),
+                  textStyle: TextStyles.text_16
+                      .copyWith(color: ColorApp.primeryColorDark),
                   onChanged: widget.onPlateCodeChanged,
                   defultName: 'Plate code',
-                  data: getCodesByCountryName(widget.selectedValue),
+                  data: const ['1', '2'],
                   width: 100.w,
                 ),
               ),
@@ -71,7 +70,6 @@ class _BuildAddPlateWidgetState extends State<BuildAddPlateWidget> {
                   ).then((selectedValue) {
                     if (selectedValue != null) {
                       setState(() {
-                        print(selectedValue);
                         widget.selectedValue = selectedValue;
                       });
                     }
@@ -95,25 +93,25 @@ class _BuildAddPlateWidgetState extends State<BuildAddPlateWidget> {
                 width: 120.w,
                 child: TextFormField(
                   controller: widget.plateNumberController,
-                  cursorColor: Colors.black,
                   maxLength: 5,
-                  decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
+                  decoration: InputDecoration(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
                         style: BorderStyle.none,
                       ),
                     ),
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black, // Change the underline color here
+                        color: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .color!, // Change the underline color here
                       ),
                     ),
                   ),
                   keyboardType: TextInputType.number,
                   style: TextStyles.text_30.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
                   ),
                 ),
               ),

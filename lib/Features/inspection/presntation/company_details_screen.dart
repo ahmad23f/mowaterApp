@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/inspection/models/inspection_company_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/google_map_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/inspection/models/inspection_company_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/google_map_widget.dart';
 
 class InspectionCompanyDetailsScreen extends StatelessWidget {
   InspectionCompanyModel company;
@@ -66,7 +66,7 @@ class InspectionCompanyDetailsScreen extends StatelessWidget {
                                       ),
                                       Text(
                                         textAlign: TextAlign.center,
-                                        'mowaterApp Discount',
+                                        'Mowater Discount',
                                         style: TextStyles.text_12.copyWith(
                                           color: Colors.white,
                                           fontSize: 12.sp,
@@ -181,7 +181,7 @@ class InspectionCompanyDetailsScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                                 gradient: LinearGradient(colors: [
                                   ColorApp.primeryColorDark,
-                                  ColorApp.secunderyColorDark
+                                  Theme.of(context).colorScheme.secondary
                                 ])),
                             child: company.brandNames.length > 1
                                 ? Text(

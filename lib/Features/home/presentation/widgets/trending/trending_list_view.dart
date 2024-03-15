@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/Features/home/models/trendingModel/trend_model.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/home/models/trendingModel/trend_model.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
 
 class TrendinglistView extends StatelessWidget {
   final List<TrendingModel> trendings;

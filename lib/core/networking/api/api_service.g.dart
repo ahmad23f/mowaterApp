@@ -279,7 +279,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<MaintenanceCompanyModel>> getMaintenanceServiceBySpecialty(
+  Future<List<AuthenticatinResponse>> getMaintenanceServiceBySpecialty(
     int id,
     String? location,
     int? carMake,
@@ -296,7 +296,7 @@ class _ApiService implements ApiService {
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<MaintenanceCompanyModel>>(Options(
+        _setStreamType<List<AuthenticatinResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -314,7 +314,7 @@ class _ApiService implements ApiService {
             ))));
     var value = _result.data!
         .map((dynamic i) =>
-            MaintenanceCompanyModel.fromJson(i as Map<String, dynamic>))
+            AuthenticatinResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
@@ -392,12 +392,12 @@ class _ApiService implements ApiService {
   @override
   Future<List<MowaterMartProductModel>> getRelatedProduct(
     int? id,
-    int? type_id,
+    int? typeId,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'id': id,
-      r'type_id': type_id,
+      r'type_id': typeId,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -1522,14 +1522,15 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<UserResponse> signUpUser(Map<String, dynamic> userData) async {
+  Future<AuthenticatinResponse> signUpUser(
+      Map<String, dynamic> userData) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(userData);
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserResponse>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticatinResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1545,7 +1546,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserResponse.fromJson(_result.data!);
+    final value = AuthenticatinResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -1579,14 +1580,14 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<UserResponse> verifyCode(Map<String, dynamic> data) async {
+  Future<AuthenticatinResponse> verifyCode(Map<String, dynamic> data) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(data);
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserResponse>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticatinResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1602,18 +1603,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserResponse.fromJson(_result.data!);
+    final value = AuthenticatinResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<UpdateUserInformationResponse> updateUserInfo(FormData data) async {
+  Future<AuthenticatinResponse> updateUserInfo(FormData data) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = data;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<UpdateUserInformationResponse>(Options(
+        _setStreamType<AuthenticatinResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1629,18 +1630,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UpdateUserInformationResponse.fromJson(_result.data!);
+    final value = AuthenticatinResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<UserResponse> signInUser(FormData data) async {
+  Future<AuthenticatinResponse> signInUser(FormData data) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = data;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserResponse>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticatinResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -1656,7 +1657,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserResponse.fromJson(_result.data!);
+    final value = AuthenticatinResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -2021,6 +2022,86 @@ class _ApiService implements ApiService {
         .compose(
           _dio.options,
           'serviceProviderProfileUpdate/update_normal_company.php',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final value = _result.data;
+    return value;
+  }
+
+  @override
+  Future<AuthenticatinResponse> signUp(FormData data) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = data;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticatinResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'authentication/sign_up.php',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AuthenticatinResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AuthenticatinResponse> signIn(FormData data) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = data;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticatinResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'authentication/sign_in.php',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AuthenticatinResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<dynamic> updateProfile(FormData data) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = data;
+    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'authentication/update.php',
           queryParameters: queryParameters,
           data: _data,
         )

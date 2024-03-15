@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
 
 import '../ads/mobile_service_cubit.dart';
 

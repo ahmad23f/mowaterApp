@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
 
 part 'show_room.g.dart';
 

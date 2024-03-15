@@ -1,17 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:mowaterApp/Features/drawer/drawer.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/company_model.dart';
-import 'package:mowaterApp/core/services/company_service.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/drawer/drawer.dart';
+import 'package:Mowater/Features/drawer/widgets/image_view_dialog.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/company_model.dart';
+import 'package:Mowater/core/services/company_service.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class NormalCompanyProfile extends StatelessWidget {
   NormalCompanyProfile({
@@ -24,10 +25,10 @@ class NormalCompanyProfile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(13.dg),
       decoration: BoxDecoration(
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: [
           BoxShadow(
-            color: ColorApp.secunderyColorDark.withOpacity(0.25),
+            color: Theme.of(context).colorScheme.secondary.withOpacity(0.25),
             spreadRadius: 0.01,
             blurRadius: 4,
           )
@@ -83,7 +84,8 @@ class NormalCompanyProfile extends StatelessWidget {
                         ),
                       ),
                       child: CircleAvatar(
-                        backgroundColor: ColorApp.secunderyColorDark,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
                         radius: 40.dg,
                         backgroundImage: NetworkImage(
                             "${ApiConstans.companyImage}${company.image}"),
@@ -126,13 +128,13 @@ class NormalCompanyProfile extends StatelessWidget {
                 ? Text('${company.phoneNumber!.substring(0, 7)}xxxxxxx',
                     style: TextStyles.text_14)
                 : Text(
-                    'Phone unregistered',
+                    'Phone unregistered'.tr(),
                     style: TextStyles.text_10,
                   ),
             company.whatsappNumber != '' && company.whatsappNumber != null
                 ? Text(company.whatsappNumber!, style: TextStyles.text_14)
                 : Text(
-                    'whatsapp Number unregistered',
+                    'whatsapp Number unregistered'.tr(),
                     style: TextStyles.text_10,
                   ),
             verticalSpace(2.h),

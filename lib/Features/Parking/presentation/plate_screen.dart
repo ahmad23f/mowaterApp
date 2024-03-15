@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/Parking/data/image_principality.dart';
-import 'package:mowaterApp/Features/Parking/data/plateService/plate_service.dart';
-import 'package:mowaterApp/Features/Parking/models/plate_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/confirm_dialog.dart';
+import 'package:Mowater/Features/Parking/data/image_principality.dart';
+import 'package:Mowater/Features/Parking/data/plateService/plate_service.dart';
+import 'package:Mowater/Features/Parking/models/plate_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/confirm_dialog.dart';
 
 class PlateScreen extends StatefulWidget {
   const PlateScreen({super.key});
@@ -127,7 +127,6 @@ class MyPlateWidget extends StatelessWidget {
                   Text(
                     plate.plateCode,
                     style: TextStyles.text_20.copyWith(
-                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -140,7 +139,6 @@ class MyPlateWidget extends StatelessWidget {
                   Text(
                     plate.plateNumber,
                     style: TextStyles.text_20.copyWith(
-                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   )

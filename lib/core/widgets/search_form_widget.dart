@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ModernSearchContainer extends StatelessWidget {
   final TextEditingController controller;
@@ -27,7 +27,7 @@ class ModernSearchContainer extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(
             color: Color.fromARGB(71, 0, 0, 0),

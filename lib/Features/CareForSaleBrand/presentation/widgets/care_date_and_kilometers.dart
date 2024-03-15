@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_location.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_location.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarPrimeryDetails extends StatelessWidget {
   final CarProduct carModel;
@@ -24,7 +24,7 @@ class CarPrimeryDetails extends StatelessWidget {
           height: 10.h,
           width: 20.w,
           child: VerticalDivider(
-            color: ColorApp.categoryColorDark,
+            color: ColorApp.primeryColorDark,
             thickness: 1,
           ),
         ),
@@ -48,7 +48,6 @@ class CarPrimeryDetails extends StatelessWidget {
           height: 10.h,
           width: 10.w,
           child: const VerticalDivider(
-            color: Colors.black,
             thickness: 1,
           ),
         ),

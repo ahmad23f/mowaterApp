@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/helper/get_post_when.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/helper/get_post_when.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarPriceWithPremium extends StatelessWidget {
   CarProduct carModel;

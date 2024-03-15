@@ -1,18 +1,19 @@
 import 'dart:io';
 
+import 'package:Mowater/Features/drawer/data/updateProfile/update_profile_cubit.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/cubit/update_user_info_cubit.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/services/user_type.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/animation_loading_button.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/services/user_type.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
 
 class AddBasicInfoFormUser extends StatelessWidget {
   TextEditingController nickNamecontroller;
@@ -38,24 +39,24 @@ class AddBasicInfoFormUser extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8.0.w),
               child: Text(
-                'Nick Name',
+                'Nick Name'.tr(),
                 style: TextStyles.text_12,
               ),
             ),
             CustomTextFormField(
-              hintText: 'Nick Name',
+              hintText: 'Nick Name'.tr(),
               controller: nickNamecontroller,
               label: '',
             ),
             Padding(
               padding: EdgeInsets.only(left: 8.0.w),
               child: Text(
-                'Full Name',
+                'Full Name'.tr(),
                 style: TextStyles.text_12,
               ),
             ),
             CustomTextFormField(
-              hintText: 'Full Name',
+              hintText: 'Full Name'.tr(),
               controller: fullNameController,
               label: '',
             ),
@@ -92,18 +93,18 @@ class _AddBasicInfoButtonState extends State<AddBasicInfoButton> {
   Widget build(BuildContext context) {
     return Center(
       child: LoadingButton(
-        isLoading: context.read<UpdateUserInfoCubit>().isLoading,
-        buttonText: 'Save',
+        isLoading: context.read<UpdateProfileCubit>().isLoading,
+        buttonText: 'Save'.tr(),
         onPressed: () async {
           setState(() {});
-          await context.read<UpdateUserInfoCubit>().update(
-              user: UserModel(
-                  userType: 'ghost',
-                  nickname: widget.nickNamecontroller.text,
-                  name: widget.fullNameController.text,
-                  image: widget.image?.path,
-                  id: UserServices.getUserInformation().id),
-              file: widget.image);
+          await context.read<UpdateProfileCubit>().updateProfile(
+                UserModel(
+                    type: '0',
+                    nickName: widget.nickNamecontroller.text,
+                    name: widget.fullNameController.text,
+                    image: widget.image?.path,
+                    id: UserServices.getUserInformation().id),
+              );
           context.push(RouteName.home);
         },
       ),

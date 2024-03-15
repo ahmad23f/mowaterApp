@@ -6,8 +6,8 @@ part 'spare_part_company.g.dart';
 class SpatepartsCompanyModel {
   @JsonKey(name: 'id')
   int companyId;
-  @JsonKey(name: 'company_image')
   String companyImage;
+  @JsonKey(name: 'companyName')
   String name;
   @JsonKey(name: 'start_time')
   String startTime;
@@ -15,7 +15,6 @@ class SpatepartsCompanyModel {
   String endTime;
   String phoneNumber;
   String whatsAppNumber;
-  @JsonKey(name: 'weekday_work')
   List<String> daysWeek;
   String createAccountAt;
   String location;

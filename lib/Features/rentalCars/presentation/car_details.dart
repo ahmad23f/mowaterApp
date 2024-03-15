@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/rentalCars/models/rental_cars_model.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/widgets/avilable_car_widet.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/rentalCars/models/rental_cars_model.dart';
+import 'package:Mowater/Features/rentalCars/presentation/widgets/avilable_car_widet.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class RentCarDetailsScreen extends StatefulWidget {
   final RentCarModel car;

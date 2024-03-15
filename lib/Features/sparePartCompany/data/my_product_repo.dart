@@ -1,5 +1,5 @@
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class GetMaySparePartProductRepo {
   final ApiService _apiService;

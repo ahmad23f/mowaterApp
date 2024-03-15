@@ -3,19 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/companies/mobile_service_companeis_cubit.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/widgets/ads.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/company_widget.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/MobileService/presentation/companies/mobile_service_companeis_cubit.dart';
+import 'package:Mowater/Features/MobileService/presentation/widgets/ads.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/company_widget.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class MobileServicecreen extends StatelessWidget {
   final String categoryName;
@@ -61,7 +60,7 @@ class MobileServicecreen extends StatelessWidget {
                             builder: (context) => Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
-                                color: ColorApp.secunderyColorDark,
+                                color: Theme.of(context).colorScheme.secondary,
                                 boxShadow: const [
                                   BoxShadow(
                                     spreadRadius: 2,
@@ -106,8 +105,11 @@ class MobileServicecreen extends StatelessWidget {
                                                       color: ColorApp
                                                           .primeryColorDark,
                                                       shadows: [
-                                                    const Shadow(
-                                                        color: Colors.black,
+                                                    Shadow(
+                                                        color: Theme.of(context)
+                                                            .textTheme
+                                                            .titleSmall!
+                                                            .color!,
                                                         blurRadius: 10)
                                                   ]),
                                             ),
@@ -197,8 +199,7 @@ class MobileServiceCompaniesWidget extends StatelessWidget {
                     whatsAppNumber: companies[index].whatsAppNumber,
                     weekdays: companies[index].weekdayWork,
                     timeIcon: Icons.calendar_month_outlined,
-                    companyImage:
-                        "${ApiConstans.companyImage}${companies[index].companyImage}",
+                    companyImage: companies[index].companyImage,
                   ),
                 ),
             loading: () => CarouselSlider.builder(

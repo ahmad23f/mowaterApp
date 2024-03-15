@@ -1,8 +1,8 @@
+import 'package:Mowater/core/models/user_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/verifyPhoneNumber/data/verify.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/verifyPhoneNumber/data/verify.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'otp_verify_cubit.freezed.dart';
 part 'otp_verify_state.dart';

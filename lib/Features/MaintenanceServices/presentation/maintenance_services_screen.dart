@@ -2,16 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/repositeory/localData/maintenace_services_categores.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/trending_serveic/trending_service_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/repositeory/localData/maintenace_services_categores.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/trending_serveic/trending_service_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
 
 class MaintenanceServicesScreen extends StatefulWidget {
   MaintenanceServicesScreen({Key? key}) : super(key: key);

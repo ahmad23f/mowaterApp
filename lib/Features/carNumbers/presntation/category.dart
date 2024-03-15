@@ -1,44 +1,45 @@
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/plate_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/plate_widget.dart';
 
 List<PlateCodeWidget> carNumberCateogry = [
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 1,
     image: 'assets/parking/abu-dhabi-logo-.png',
-    categoryName: 'Abu Dhabi',
+    categoryName: 'Abu Dhabi'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 2,
-    image: 'assets/parking/Dubai.png',
-    categoryName: 'Dubai',
+    image: 'assets/parking/Dubai.png'.tr(),
+    categoryName: 'Dubai'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 3,
-    image: 'assets/parking/sharjah.png',
-    categoryName: 'Sharjah',
+    image: 'assets/parking/sharjah.png'.tr(),
+    categoryName: 'Sharjah'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 4,
-    image: 'assets/parking/Ajman_Logo.png',
-    categoryName: 'Ajman',
+    image: 'assets/parking/Ajman_Logo.png'.tr(),
+    categoryName: 'Ajman'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 6,
-    image: 'assets/parking/fujairah.png',
-    categoryName: 'Fujairah',
+    image: 'assets/parking/fujairah.png'.tr(),
+    categoryName: 'Fujairah'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 7,
-    image: 'assets/parking/rak.png',
-    categoryName: 'Rak',
+    image: 'assets/parking/rak.png'.tr(),
+    categoryName: 'Rak'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 8,
-    image: 'assets/parking/uaq.png',
-    categoryName: 'uaq',
+    image: 'assets/parking/uaq.png'.tr(),
+    categoryName: 'uaq'.tr(),
   ),
-  const PlateCodeWidget(
+  PlateCodeWidget(
     id: 9,
-    image: 'assets/parking/sell_your_plate.png',
-    categoryName: 'Sell Your Plate',
+    image: 'assets/parking/sell_your_plate.png'.tr(),
+    categoryName: 'Sell Your Plate'.tr(),
   ),
 ];

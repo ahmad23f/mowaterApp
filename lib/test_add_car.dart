@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/car_model.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/car_model.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
 
 class addCar {
   static final Dio _dio = Dio();

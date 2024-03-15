@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/insurance/data/repositeory/ads.dart';
-import 'package:mowaterApp/core/helper/ads_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/insurance/data/repositeory/ads.dart';
+import 'package:Mowater/core/helper/ads_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'insurance_main_ads_state.dart';
 part 'insurance_main_ads_cubit.freezed.dart';

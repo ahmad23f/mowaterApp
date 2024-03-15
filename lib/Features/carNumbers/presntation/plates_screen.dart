@@ -1,22 +1,23 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plateCateogry/plate_category_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/plate_length.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/plate_widget.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/plate_widget_for_sale.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/price_slider.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plateCateogry/plate_category_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/plate_length.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/plate_widget.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/plate_widget_for_sale.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/price_slider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class PlateForSaleScreen extends StatefulWidget {
@@ -43,7 +44,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "${widget.plate.categoryName} Numbers",
+          "${widget.plate.categoryName} Numbers".tr(),
           style: TextStyles.text_12.copyWith(fontSize: 12.sp),
         ),
         actions: [
@@ -62,7 +63,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
                 setState(() {});
               },
               controller: searchController,
-              hintText: 'Search By Number',
+              hintText: 'Search By Number'.tr(),
               icon: Icons.search,
               widget: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -82,7 +83,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "Length Of Plate",
+                                    "Length Of Plate".tr(),
                                     style: TextStyles.text_18
                                         .copyWith(fontSize: 18.sp),
                                   ),
@@ -96,7 +97,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
                                           );
                                     },
                                     child: Text(
-                                      "Rest",
+                                      "Rest".tr(),
                                       style: TextStyles.text_20.copyWith(
                                           color: ColorApp.primeryColorDark),
                                     ),
@@ -151,7 +152,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
                                     vertical: 10.h,
                                     horizontal: 100.h,
                                   ),
-                                  text: 'Apply',
+                                  text: 'Apply'.tr(),
                                 ),
                               ),
                             ],
@@ -208,7 +209,7 @@ class _PlateForSaleScreenState extends State<PlateForSaleScreen> {
                   ),
                   faliure: () => Center(
                     child: Text(
-                      "No Plates Try Without Filtering ! ",
+                      "No Plates Try Without Filtering ! ".tr(),
                       style: TextStyles.text_14,
                     ),
                   ),

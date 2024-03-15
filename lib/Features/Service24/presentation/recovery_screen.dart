@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show Uint8List, rootBundle;
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,13 +10,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/Service24/data/cubit/recovery_cubit.dart';
-import 'package:mowaterApp/Features/Service24/models/recovery_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/Service24/data/cubit/recovery_cubit.dart';
+import 'package:Mowater/Features/Service24/models/recovery_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class Service24Screen extends StatefulWidget {
   const Service24Screen({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class Service24Screen extends StatefulWidget {
 }
 
 class _Service24ScreenState extends State<Service24Screen> {
-  String selectedCategory = 'Recovery';
+  String selectedCategory = 'Recovery'.tr();
   late GoogleMapController mapController;
   LatLng _initialLocation = const LatLng(0.0, 0.0);
   bool _permissionGranted = false;
@@ -105,7 +106,7 @@ class _Service24ScreenState extends State<Service24Screen> {
       _initialLocation = LatLng(position.latitude, position.longitude);
     });
     await context.read<Service24Cubit>().getNearestRecovery(
-        position.latitude, position.longitude, 'recoveryCompanies');
+        position.latitude, position.longitude, 'recoveryCompanies'.tr());
   }
 
   @override
@@ -125,7 +126,7 @@ class _Service24ScreenState extends State<Service24Screen> {
                   return MapBody(companies, context);
                 },
                 faliure: () {
-                  return const Text('No Internet');
+                  return Text('No Internet'.tr());
                 },
                 loading: () => MapBody([], context));
           });
@@ -227,7 +228,9 @@ class _Service24ScreenState extends State<Service24Screen> {
                                           ],
                                           borderRadius:
                                               BorderRadius.circular(20),
-                                          color: ColorApp.secunderyColorDark,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
                                         ),
                                         child: Column(
                                           children: [
@@ -372,52 +375,52 @@ class _Service24ScreenState extends State<Service24Screen> {
                   shrinkWrap: true,
                   children: [
                     FilterMapWidget(
-                      categoryName: 'Recovery',
+                      categoryName: 'Recovery'.tr(),
                       selectedName: selectedCategory,
                       onTap: () async {
-                        selectedCategory = 'Recovery';
+                        selectedCategory = 'Recovery'.tr();
 
                         setState(() {});
                         await context.read<Service24Cubit>().getNearestRecovery(
                             position.latitude,
                             position.longitude,
-                            'recoveryCompanies');
+                            'recoveryCompanies'.tr());
                       },
                     ),
                     FilterMapWidget(
-                      categoryName: 'Battry',
+                      categoryName: 'Battry'.tr(),
                       selectedName: selectedCategory,
                       onTap: () async {
-                        selectedCategory = 'Battry';
+                        selectedCategory = 'Battry'.tr();
                         setState(() {});
                         await context.read<Service24Cubit>().getNearestRecovery(
                             position.latitude,
                             position.longitude,
-                            'BatteryCompanies');
+                            'BatteryCompanies'.tr());
                       },
                     ),
                     FilterMapWidget(
                       onTap: () async {
-                        selectedCategory = 'Tiers';
+                        selectedCategory = 'Tiers'.tr();
                         setState(() {});
                         await context.read<Service24Cubit>().getNearestRecovery(
                             position.latitude,
                             position.longitude,
-                            'TiersCompanies');
+                            'TiersCompanies'.tr());
                       },
-                      categoryName: 'Tiers',
+                      categoryName: 'Tiers'.tr(),
                       selectedName: selectedCategory,
                     ),
                     FilterMapWidget(
                       onTap: () async {
-                        selectedCategory = 'Electic Charger';
+                        selectedCategory = 'Electic Charger'.tr();
                         setState(() {});
                         await context.read<Service24Cubit>().getNearestRecovery(
                             position.latitude,
                             position.longitude,
-                            'electricCaCharger');
+                            'electricCaCharger'.tr());
                       },
-                      categoryName: 'Electic Charger',
+                      categoryName: 'Electic Charger'.tr(),
                       selectedName: selectedCategory,
                     ),
                   ],

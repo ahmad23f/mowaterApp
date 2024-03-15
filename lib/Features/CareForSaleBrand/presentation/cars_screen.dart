@@ -1,21 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/brandAdsCubit/brand_ads_cubit_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_price_and_premium.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/care_date_and_kilometers.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/care_model_and_name.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/brandAdsCubit/brand_ads_cubit_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_price_and_premium.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/care_date_and_kilometers.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/care_model_and_name.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CarScreen extends StatefulWidget {
   final String name;
@@ -35,7 +36,7 @@ class _CarScreenState extends State<CarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${AppRegex.extractEnglishText(widget.name)} Cars',
+          '${AppRegex.extractEnglishText(widget.name)} Cars'.tr(),
           style: TextStyles.text_22,
         ),
       ),
@@ -88,7 +89,8 @@ class _CarScreenState extends State<CarScreen> {
                               return Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
-                                  color: ColorApp.secunderyColorDark,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                                 margin:
                                     const EdgeInsets.symmetric(vertical: 10),
@@ -107,8 +109,11 @@ class _CarScreenState extends State<CarScreen> {
                                           ),
                                           CarPrimeryDetails(carModel: car),
                                           verticalSpace(6),
-                                          const Divider(
-                                            color: Colors.black,
+                                          Divider(
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall!
+                                                .color!,
                                             thickness: 2,
                                             indent: 10,
                                             endIndent: 10,
@@ -135,7 +140,7 @@ class _CarScreenState extends State<CarScreen> {
                           },
                         );
                       },
-                      faliure: () => const Text('error'),
+                      faliure: () => Text('error'.tr()),
                       loading: () => const CircularProgressIndicator.adaptive(),
                     );
                   },

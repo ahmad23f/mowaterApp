@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/cubits/relatedProduct/related_product_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/details_product_widget.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/product_widget.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/related_product_loading_list.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/cubits/relatedProduct/related_product_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/details_product_widget.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/product_widget.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/related_product_loading_list.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class MowaterMartProductDetailsScreen extends StatelessWidget {
   MowaterMartProductModel martProductModel;

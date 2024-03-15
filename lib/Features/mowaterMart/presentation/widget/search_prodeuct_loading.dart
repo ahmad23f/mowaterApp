@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class SearchProductLoading extends StatelessWidget {
   const SearchProductLoading({super.key});

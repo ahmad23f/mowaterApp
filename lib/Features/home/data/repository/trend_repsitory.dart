@@ -1,6 +1,6 @@
-import 'package:mowaterApp/Features/home/models/trendingModel/trend_model.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/home/models/trendingModel/trend_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class TrendRepsiteory {
   final ApiService _apiService;

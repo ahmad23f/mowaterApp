@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
 
 class LoadingButton extends StatelessWidget {
   final bool isLoading;
@@ -32,7 +32,6 @@ class LoadingButton extends StatelessWidget {
             : BorderRadius.circular(6), // Set a circular border radius
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
             spreadRadius: 2,
             blurRadius: 2,
             offset: const Offset(0, 2), // changes position of shadow

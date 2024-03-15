@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/Parking/data/model/parking_model.dart';
-import 'package:mowaterApp/Features/Parking/dubaiParking/presentation/dubai_parking_screen.dart';
-import 'package:mowaterApp/Features/Parking/khorfakkan/presntation/khorfakkan_parking_screen.dart';
-import 'package:mowaterApp/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
-import 'package:mowaterApp/Features/Parking/aboDhabiParking/presentation/abo_dhabi_screen.dart';
-import 'package:mowaterApp/Features/Parking/ajman/presentation/ajman_parking_screen.dart';
-import 'package:mowaterApp/Features/Parking/sharjah/presntation/sharjah_parking_screen.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/Parking/data/model/parking_model.dart';
+import 'package:Mowater/Features/Parking/dubaiParking/presentation/dubai_parking_screen.dart';
+import 'package:Mowater/Features/Parking/khorfakkan/presntation/khorfakkan_parking_screen.dart';
+import 'package:Mowater/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
+import 'package:Mowater/Features/Parking/aboDhabiParking/presentation/abo_dhabi_screen.dart';
+import 'package:Mowater/Features/Parking/ajman/presentation/ajman_parking_screen.dart';
+import 'package:Mowater/Features/Parking/sharjah/presntation/sharjah_parking_screen.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class ParkingFormScreen extends StatelessWidget {
   final ParkingModel parkingModel;

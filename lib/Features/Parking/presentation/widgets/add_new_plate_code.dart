@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class AddNewPlateCode extends StatefulWidget {
   final List<String> data;
@@ -35,7 +35,7 @@ class _AddNewPlateCodeState extends State<AddNewPlateCode> {
         hint: Text(
           widget.defultName,
           style:
-              widget.textStyle ?? TextStyles.text_22.copyWith(fontSize: 22.sp),
+              widget.textStyle ?? TextStyles.text_26.copyWith(fontSize: 26.sp),
         ),
         items: widget.data.map((item) {
           bool isSelected = item == selectedValue;
@@ -46,7 +46,6 @@ class _AddNewPlateCodeState extends State<AddNewPlateCode> {
               style: isSelected
                   ? TextStyle(
                       fontSize: 40.sp,
-                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )
                   : TextStyle(
@@ -60,7 +59,6 @@ class _AddNewPlateCodeState extends State<AddNewPlateCode> {
         value: selectedValue,
         onChanged: (value) {
           setState(() {
-            print(value);
             selectedValue = value;
           });
           // Call the onChanged callback with the selected value
@@ -70,7 +68,6 @@ class _AddNewPlateCodeState extends State<AddNewPlateCode> {
         },
         style: TextStyles.text_32.copyWith(
           fontSize: 32.sp,
-          color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
         buttonStyleData: ButtonStyleData(

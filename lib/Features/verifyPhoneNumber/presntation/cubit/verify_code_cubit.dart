@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/verifyPhoneNumber/data/resend_code.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/verifyPhoneNumber/data/resend_code.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'verify_code_state.dart';
 part 'verify_code_cubit.freezed.dart';

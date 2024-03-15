@@ -21,7 +21,7 @@ class NormalCompanyModelHiveAdapter
       companyToken: fields[19] as String?,
       companyImage: fields[20] as String?,
       companyType: fields[18] as String?,
-      id: fields[0] as String?,
+      id: fields[0] as int?,
       name: fields[1] as String?,
       weekdayWork: fields[2] as String?,
       startTime: fields[3] as String?,

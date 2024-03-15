@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
+import 'package:Mowater/core/constants/color.dart';
 
 class CategoryWidget extends StatelessWidget {
   final String image;
@@ -42,7 +42,7 @@ class CategoryWidget extends StatelessWidget {
               width: ScreenUtil().setWidth(110), // Use ScreenUtil for width
               height: ScreenUtil().setHeight(80), // Use ScreenUtil for height
               decoration: BoxDecoration(
-                color: ColorApp.secunderyColorDark,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(

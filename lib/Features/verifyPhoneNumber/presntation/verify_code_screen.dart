@@ -1,17 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sell_your_plate_screen.dart';
-import 'package:mowaterApp/Features/spareParts/presentation/otp/otp_verify_cubit.dart';
-import 'package:mowaterApp/Features/verifyPhoneNumber/presntation/cubit/verify_code_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/animation_loading_button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/carNumbers/presntation/sell_your_plate_screen.dart';
+import 'package:Mowater/Features/spareParts/presentation/otp/otp_verify_cubit.dart';
+import 'package:Mowater/Features/verifyPhoneNumber/presntation/cubit/verify_code_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -55,7 +56,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Verify Your Phone Number',
+                  'Verify Your Phone Number'.tr(),
                   style: TextStyles.text_30
                       .copyWith(color: ColorApp.primeryColorDark),
                   textAlign: TextAlign.center,
@@ -63,7 +64,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                 verticalSpace(12.h),
                 Text.rich(
                   TextSpan(
-                    text: 'We have sent the verification code to ',
+                    text: 'We have sent the verification code to '.tr(),
                     style: TextStyles.text_16,
                     children: <TextSpan>[
                       TextSpan(
@@ -75,7 +76,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         ),
                       ),
                       TextSpan(
-                        text: '. Check your inbox!',
+                        text: '. Check your inbox!'.tr(),
                         style: TextStyle(fontSize: 16.sp),
                       ),
                     ],
@@ -111,24 +112,23 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                           BlocProvider.of<OtpVerifyCubit>(context).verifyCode(
                               widget.number, code, widget.numberType);
                         },
-                        buttonText: 'Verify',
+                        buttonText: 'Verify'.tr(),
                       ),
                       loading: () => LoadingButton(
                         isLoading: false,
                         onPressed: () =>
                             BlocProvider.of<OtpVerifyCubit>(context).verifyCode(
                                 widget.number, code, widget.numberType),
-                        buttonText: 'Verify',
+                        buttonText: 'Verify'.tr(),
                       ),
                       success: (user) {
                         WidgetsBinding.instance.addPostFrameCallback((_) async {
                           if (UserServices.getUserInformation().id != -1 &&
-                              UserServices.getUserInformation().username !=
+                              UserServices.getUserInformation().nickName !=
                                   'Ghost' &&
-                              UserServices.getUserInformation().username !=
-                                  '') {
+                              UserServices.getUserInformation().name != '') {
                             print(UserServices.getUserInformation().id);
-                            print(UserServices.getUserInformation().username);
+                            print(UserServices.getUserInformation().name);
                             context.go(RouteName.home);
                           } else {
                             GoRouter.of(context).go(
@@ -142,16 +142,18 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         WidgetsBinding.instance.addPostFrameCallback((_) async {
                           print(UserServices.getUserInformation().id);
                           print(
-                              ' name ${UserServices.getUserInformation().username}');
+                              ' name ${UserServices.getUserInformation().name}'
+                                  .tr());
                           ShowSnakBar(
                             context,
-                            title: 'Failure',
+                            title: 'Failure'.tr(),
                             iconData: Icons.info_outline_rounded,
                             messageTextStyle: TextStyles.text_16
                                 .copyWith(fontWeight: FontWeight.bold),
                             content: error,
                             subtitleTextStyle: TextStyles.text_16,
-                            backGroundColor: ColorApp.secunderyColorDark,
+                            backGroundColor:
+                                Theme.of(context).colorScheme.secondary,
                           );
                         });
                         return LoadingButton(
@@ -160,7 +162,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                               BlocProvider.of<OtpVerifyCubit>(context)
                                   .verifyCode(
                                       widget.number, code, widget.numberType),
-                          buttonText: 'Verify',
+                          buttonText: 'Verify'.tr(),
                         );
                       },
                     );
@@ -171,7 +173,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      " I didn't receive a code ,",
+                      " I didn't receive a code ,".tr(),
                       style: TextStyles.text_16,
                     ),
                     InkWell(
@@ -179,14 +181,14 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         print(widget.numberType);
                         print(widget.numberType);
                         await context.read<ResendOtpCubit>().resendOtp(
-                            sendTo: widget.numberType == 'WhatsApp Number'
-                                ? "whatsapp"
-                                : 'phone',
+                            sendTo: widget.numberType == 'WhatsApp Number'.tr()
+                                ? "whatsapp".tr()
+                                : 'phone'.tr(),
                             token: UserServices.getUserInformation().token!,
-                            fromTable: 'users');
+                            fromTable: 'users'.tr());
                         setState(() {});
                       },
-                      child: Text('Resend',
+                      child: Text('Resend'.tr(),
                           style: TextStyles.text_16.copyWith(
                               fontWeight: FontWeight.bold,
                               color: ColorApp.primeryColorDark)),
@@ -198,16 +200,17 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                     return state.when(
                       initial: () => const SizedBox(),
                       success: (successMessage) {
-                        print('success');
+                        print('success'.tr());
                         Future(() => ShowSnakBar(
                               context,
-                              title: 'Success',
+                              title: 'Success'.tr(),
                               iconData: Icons.info_outline_rounded,
                               messageTextStyle: TextStyles.text_16
                                   .copyWith(fontWeight: FontWeight.bold),
                               content: successMessage,
                               subtitleTextStyle: TextStyles.text_16,
-                              backGroundColor: ColorApp.secunderyColorDark,
+                              backGroundColor:
+                                  Theme.of(context).colorScheme.secondary,
                             ));
                         return const SizedBox();
                       },
@@ -221,7 +224,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         //       .copyWith(fontWeight: FontWeight.bold),
                         //   content: errorMessage,
                         //   subtitleTextStyle: TextStyles.text_16,
-                        //   backGroundColor: ColorApp.secunderyColorDark,
+                        //   backGroundColor: Theme.of(context).colorScheme.secondary,
                         // );
                         return const SizedBox();
                       },

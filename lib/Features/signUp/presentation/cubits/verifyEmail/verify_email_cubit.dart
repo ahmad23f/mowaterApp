@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/signUp/presentation/data/repositeory/email_verify.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
+import 'package:Mowater/Features/signUp/presentation/data/repositeory/email_verify.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
 
 part 'verify_email_state.dart';
 part 'verify_email_cubit.freezed.dart';
@@ -24,8 +24,8 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
       success: (data) {
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           if (UserServices.getUserInformation().id != -1 &&
-              UserServices.getUserInformation().username != 'Ghost' &&
-              UserServices.getUserInformation().username != '') {
+              UserServices.getUserInformation().nickName != 'Ghost' &&
+              UserServices.getUserInformation().name != '') {
             context.go(RouteName.home);
           } else {
             GoRouter.of(context)

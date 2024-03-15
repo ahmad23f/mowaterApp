@@ -1,6 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/categorys_image.dart';
-import 'package:mowaterApp/core/widgets/category_widget.dart';
+import 'package:Mowater/core/constants/categorys_image.dart';
+import 'package:Mowater/core/widgets/category_widget.dart';
 
 List<CategoryWidget> maintenaceServicesCategoryes = [
   CategoryWidget(

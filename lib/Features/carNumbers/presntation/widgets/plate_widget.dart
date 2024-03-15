@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class PlateCodeWidget extends StatelessWidget {
   final String image;
@@ -39,11 +39,11 @@ class PlateCodeWidget extends StatelessWidget {
               width: ScreenUtil().setWidth(120), // Use ScreenUtil for width
               height: ScreenUtil().setHeight(70), // Use ScreenUtil for height
               decoration: BoxDecoration(
-                color: ColorApp.secunderyColorDark,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                    color: ColorApp.categoryColorDark,
+                    color: ColorApp.primeryColorDark,
                     blurRadius: ScreenUtil()
                         .setWidth(5), // Use ScreenUtil for blurRadius
                     spreadRadius: ScreenUtil()
@@ -61,7 +61,7 @@ class PlateCodeWidget extends StatelessWidget {
               child: Container(
                 height: 75.h,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 5),
+                    border: Border.all(width: 5),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12)),
                 child: Column(
@@ -79,7 +79,10 @@ class PlateCodeWidget extends StatelessWidget {
                         style: TextStyles.text_14.copyWith(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black)),
+                            color: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .color!)),
                   ],
                 ),
               ),

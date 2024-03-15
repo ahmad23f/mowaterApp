@@ -1,6 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
-import 'package:mowaterApp/Features/Parking/models/plate_model.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
+import 'package:Mowater/Features/Parking/models/plate_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
 
 class PlateService {
   static Future<ApiResult> addPlate(

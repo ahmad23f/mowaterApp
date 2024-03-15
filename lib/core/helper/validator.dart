@@ -1,4 +1,4 @@
-import 'package:mowaterApp/core/helper/reqexp.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
 
 emailValidator(
   String? text,

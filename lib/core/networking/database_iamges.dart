@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class ImageFromDatabase extends StatefulWidget {
   final ApiService apiService;

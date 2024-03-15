@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/home/data/repository/main_category_repsiteory.dart';
-import 'package:mowaterApp/Features/home/models/mainCategorys/main_categorys_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/home/data/repository/main_category_repsiteory.dart';
+import 'package:Mowater/Features/home/models/mainCategorys/main_categorys_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'main_categorys_cubit.freezed.dart';
 part 'main_categorys_state.dart';

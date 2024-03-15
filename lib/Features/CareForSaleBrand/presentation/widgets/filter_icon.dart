@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
+import 'package:Mowater/core/constants/color.dart';
 
 class FilterIcon extends StatelessWidget {
   void Function()? onPressed;

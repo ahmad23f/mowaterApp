@@ -11,6 +11,7 @@ class signUpRequestModel {
   String confiermPasswrod;
   String image;
   String password;
+
   signUpRequestModel({
     required this.confiermPasswrod,
     required this.password,

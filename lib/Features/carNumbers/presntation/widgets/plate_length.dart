@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class SingleSelectionContainerGroup extends StatefulWidget {
   final int numberOfContainers;
@@ -31,7 +31,9 @@ class _SingleSelectionContainerGroupState
       widget.numberOfContainers,
       (index) => index == widget.selectedIndex
           ? ColorApp.primeryColorDark
-          : ColorApp.secunderyColorDark, // Initialize with default color
+          : Theme.of(context)
+              .colorScheme
+              .secondary, // Initialize with default color
     );
   }
 
@@ -47,7 +49,7 @@ class _SingleSelectionContainerGroupState
                 widget.numberOfContainers,
                 (idx) => idx == index
                     ? ColorApp.primeryColorDark
-                    : ColorApp.secunderyColorDark,
+                    : Theme.of(context).colorScheme.secondary,
               );
               widget.onChanged(index);
             });

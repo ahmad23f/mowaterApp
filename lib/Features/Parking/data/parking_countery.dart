@@ -1,4 +1,4 @@
-import 'package:mowaterApp/Features/Parking/data/model/parking_model.dart';
+import 'package:Mowater/Features/Parking/data/model/parking_model.dart';
 
 List<ParkingModel> barkingCountery = [
   ParkingModel(name: "Dubai", id: 1, image: 'assets/images/dubai.png'),

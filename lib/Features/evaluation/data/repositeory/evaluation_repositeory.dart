@@ -1,5 +1,5 @@
-import 'package:mowaterApp/Features/evaluation/model/evaluation_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/evaluation/model/evaluation_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class EvaluationRepositeory {
   final ApiService _apiService;

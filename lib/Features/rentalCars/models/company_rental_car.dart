@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mowaterApp/Features/rentalCars/models/rental_cars_model.dart';
+import 'package:Mowater/Features/rentalCars/models/rental_cars_model.dart';
 
 part 'company_rental_car.g.dart';
 

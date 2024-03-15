@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class EmirateNameCountryFilter extends StatefulWidget {
   final List<String> emirates;
@@ -44,7 +45,7 @@ class _EmirateNameCountryFilterState extends State<EmirateNameCountryFilter> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Emirate Country',
+            'Emirate Country'.tr(),
             style: TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -93,12 +94,14 @@ class EmirateContainer extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 5.w),
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         decoration: BoxDecoration(
-          color: isSelected ? ColorApp.primeryColorDark : Colors.black26,
+          color: isSelected
+              ? ColorApp.primeryColorDark
+              : Theme.of(context).textTheme.titleSmall!.color!,
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
             color: isSelected
                 ? ColorApp.primeryColorDark
-                : ColorApp.secunderyColorDark,
+                : Theme.of(context).colorScheme.secondary,
             width: 2.0,
           ),
         ),

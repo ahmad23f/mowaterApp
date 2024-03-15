@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
 
 Widget registerUserLink(BuildContext context) {
   return Row(

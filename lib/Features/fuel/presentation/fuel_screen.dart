@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/fuel/models/fuel_model.dart';
-import 'package:mowaterApp/Features/fuel/presentation/fuelPrice/fuel_price_cubit.dart';
-import 'package:mowaterApp/Features/fuel/presentation/widgets/car_model.dart';
-import 'package:mowaterApp/Features/fuel/presentation/widgets/fuel_price_continer.dart';
-import 'package:mowaterApp/Features/fuel/presentation/widgets/fuel_price_for_car_mode.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/fuel/models/fuel_model.dart';
+import 'package:Mowater/Features/fuel/presentation/fuelPrice/fuel_price_cubit.dart';
+import 'package:Mowater/Features/fuel/presentation/widgets/car_model.dart';
+import 'package:Mowater/Features/fuel/presentation/widgets/fuel_price_continer.dart';
+import 'package:Mowater/Features/fuel/presentation/widgets/fuel_price_for_car_mode.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class FuelScreen extends StatefulWidget {
   const FuelScreen({Key? key}) : super(key: key);
@@ -69,12 +69,11 @@ class _FuelScreenState extends State<FuelScreen> {
                     ),
                     Text(
                       DateFormat('yyyy-MM-dd – HH:mm a').format(
-                          fuel.lastUpdate.add(const Duration(hours: 4))),
+                          fuel.lastUpdate?.add(const Duration(hours: 4)) ??
+                              DateTime.now()),
                       style: TextStyles.text_10.copyWith(
                           color: ColorApp.primeryColorDark,
-                          shadows: [
-                            const Shadow(color: Colors.black, blurRadius: 10)
-                          ]),
+                          shadows: [const Shadow(blurRadius: 10)]),
                     )
                   ],
                 )

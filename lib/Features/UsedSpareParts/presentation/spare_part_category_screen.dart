@@ -1,26 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/Cubits/spareParts/spare_parts_category_cubit.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/ads/used_spare_parts_ads_cubit.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_state_product.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/spare_part_company.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/Cubits/spareParts/spare_parts_category_cubit.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/ads/used_spare_parts_ads_cubit.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_state_product.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/spare_part_company.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class SparePartsCategoryScreen extends StatefulWidget {
   String categoryName;
@@ -94,7 +95,8 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                             : _buildNoProductsFound(),
                         faliure: () => Container(
                           child: Text(
-                            "There was an unknown error. We'll fix it soon.",
+                            "There was an unknown error. We'll fix it soon."
+                                .tr(),
                             style: TextStyles.text_18,
                           ),
                         ),
@@ -140,8 +142,8 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
             color: Colors.grey,
           ),
           const SizedBox(height: 10),
-          const Text(
-            'No products found',
+          Text(
+            'No products found'.tr(),
             style: TextStyle(
               fontSize: 18,
               color: Colors.grey,
@@ -151,7 +153,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
           const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {},
-            child: const Text('Try another search'),
+            child: Text('Try another search'.tr()),
           ),
         ],
       ),
@@ -170,7 +172,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
           width: 200.w,
           child: ModernSearchContainer(
             controller: searchController,
-            hintText: 'Search',
+            hintText: 'Search'.tr(),
             onChange: (p0) {
               print(widget.categoryId);
               context.read<SparePartsCategoryCubit>().getCompanyAt(
@@ -188,7 +190,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                     builder: (context) => Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: ColorApp.secunderyColorDark,
+                        color: Theme.of(context).colorScheme.secondary,
                         boxShadow: const [
                           BoxShadow(spreadRadius: 2, blurRadius: 20),
                         ],
@@ -214,7 +216,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "Product State",
+                                        "Product State".tr(),
                                         style: TextStyles.text_16.copyWith(
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -229,7 +231,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                                               );
                                         },
                                         child: Text(
-                                          "Reset",
+                                          "Reset".tr(),
                                           style: TextStyles.text_16.copyWith(
                                               fontWeight: FontWeight.bold,
                                               color: ColorApp.primeryColorDark),
@@ -240,17 +242,21 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                                   verticalSpace(10.h),
                                   ProductStateFilter(
                                     selectedState: [
-                                      'All',
-                                      'Used',
-                                      'New'
+                                      'All'.tr(),
+                                      'Used'.tr(),
+                                      'New'.tr()
                                     ][selectedStates == 3 ? 0 : selectedStates],
-                                    states: const ['All', 'Used', 'New'],
+                                    states: [
+                                      'All'.tr(),
+                                      'Used'.tr(),
+                                      'New'.tr()
+                                    ],
                                     onSelected: (newState) {
-                                      if (newState == 'Used') {
+                                      if (newState == 'Used'.tr()) {
                                         selectedStates = 1;
-                                      } else if (newState == 'New') {
+                                      } else if (newState == 'New'.tr()) {
                                         selectedStates = 2;
-                                      } else if (newState == 'All') {
+                                      } else if (newState == 'All'.tr()) {
                                         selectedStates = 3;
                                       }
                                     },
@@ -272,7 +278,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Car Make',
+                                          'Car Make'.tr(),
                                           style: TextStyles.text_16.copyWith(
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -298,7 +304,7 @@ class _SparePartsCategoryScreenState extends State<SparePartsCategoryScreen> {
                                       textStyle: TextStyles.text_18
                                           .copyWith(color: Colors.white),
                                       color: ColorApp.primeryColorDark,
-                                      text: 'Apply',
+                                      text: 'Apply'.tr(),
                                       onPressed: () async {
                                         context.pop();
                                         await _applyFilters(mcontext);

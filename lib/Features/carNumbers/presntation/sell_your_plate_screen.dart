@@ -1,15 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/Parking/presentation/widgets/add_new_plate_widget.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
-import 'package:mowaterApp/Features/carNumbers/models/plate_model.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sellYourPlate/sell_you_plate_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/custom_text_field.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
+import 'package:Mowater/Features/Parking/presentation/widgets/add_new_plate_widget.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
+import 'package:Mowater/Features/carNumbers/models/plate_model.dart';
+import 'package:Mowater/Features/carNumbers/presntation/sellYourPlate/sell_you_plate_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/custom_text_field.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
 
 class SellYourPlateScreen extends StatefulWidget {
   const SellYourPlateScreen({super.key});
@@ -23,7 +24,7 @@ TextEditingController owner = TextEditingController();
 TextEditingController whatsApp = TextEditingController();
 TextEditingController phoneNumber = TextEditingController();
 TextEditingController price = TextEditingController();
-String selectedSource = 'Abu Dhabi';
+String selectedSource = 'Abu Dhabi'.tr();
 String code = '';
 bool isNegotiable = false;
 
@@ -37,13 +38,13 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
         selectedSource.isEmpty) {
       ShowSnakBar(
         context,
-        title: 'Failure',
+        title: 'Failure'.tr(),
         iconData: Icons.info_outline_rounded,
         messageTextStyle:
             TextStyles.text_16.copyWith(fontWeight: FontWeight.bold),
-        content: 'Please fill in all fields.',
+        content: 'Please fill in all fields.'.tr(),
         subtitleTextStyle: TextStyles.text_16,
-        backGroundColor: ColorApp.secunderyColorDark,
+        backGroundColor: Theme.of(context).colorScheme.secondary,
       );
       return;
     } else {
@@ -71,7 +72,8 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
         whatsApp.clear();
         phoneNumber.clear();
         price.clear();
-        selectedSource = 'Abu Dhabi'; // or any default value you want to set
+        selectedSource =
+            'Abu Dhabi'.tr(); // or any default value you want to set
         code = '';
         isNegotiable = false;
       });
@@ -83,7 +85,7 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Sell Your Plate',
+          'Sell Your Plate'.tr(),
           style: TextStyles.text_16,
         ),
       ),
@@ -104,21 +106,21 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
                   onChanged: (p0) {
                     owner.text = p0;
                   },
-                  label: 'Owner'),
+                  label: 'Owner'.tr()),
               CustomTextField2(
                   controller: whatsApp,
                   textInputType: TextInputType.number,
                   onChanged: (p0) {
                     whatsApp.text = p0;
                   },
-                  label: 'WhatsApp'),
+                  label: 'WhatsApp'.tr()),
               CustomTextField2(
                   textInputType: TextInputType.number,
                   controller: phoneNumber,
                   onChanged: (p0) {
                     phoneNumber.text = p0;
                   },
-                  label: 'Phone Number'),
+                  label: 'Phone Number'.tr()),
               PriceFormField(
                   controller: price,
                   onChanged: (p0) {
@@ -138,9 +140,9 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
                       });
                     },
                   ),
-                  const Text(
-                    'Negotiable',
-                    style: TextStyle(color: Colors.grey),
+                  Text(
+                    'Negotiable'.tr(),
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 ],
               ),
@@ -148,7 +150,7 @@ class _SellYourPlateScreenState extends State<SellYourPlateScreen> {
                 onPressed: _submitForm,
                 padding:
                     EdgeInsets.symmetric(horizontal: 100.w, vertical: 10.h),
-                text: 'Submit',
+                text: 'Submit'.tr(),
                 color: ColorApp.primeryColorDark,
                 textStyle: TextStyles.text_18
                     .copyWith(color: Colors.white, fontWeight: FontWeight.bold),

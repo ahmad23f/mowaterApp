@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class LoadingProductWidget extends StatelessWidget {
   const LoadingProductWidget({
@@ -32,7 +32,7 @@ class LoadingProductWidget extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  color: ColorApp.secunderyColorDark,
+                  color: Theme.of(context).colorScheme.secondary,
                   boxShadow: const [
                     BoxShadow(
                       color: Color.fromARGB(98, 0, 0, 0),

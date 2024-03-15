@@ -1,6 +1,7 @@
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/ads/maintenance_ads_model.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/ads/maintenance_ads_model.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class MaintenanceAdsByCategoryRepositeory {
   final ApiService _apiServis;

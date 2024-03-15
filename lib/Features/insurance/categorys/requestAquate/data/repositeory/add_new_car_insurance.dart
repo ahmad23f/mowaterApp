@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/model/car_insurance_model.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 class AddCarInsuranceRepository {
   final ApiService _apiService;

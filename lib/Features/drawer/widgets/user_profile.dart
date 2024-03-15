@@ -1,32 +1,35 @@
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_hive_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:mowaterApp/Features/drawer/drawer.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_model.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/drawer/drawer.dart';
+import 'package:Mowater/Features/drawer/widgets/image_view_dialog.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class UserProfileWidget extends StatelessWidget {
   UserProfileWidget({
     super.key,
   });
-  User user = UserServices.getUserInformation();
+  UserHiveModel user = UserServices.getUserInformation();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(13.dg),
       decoration: BoxDecoration(
-        color: ColorApp.secunderyColorDark,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: [
           BoxShadow(
-            color: ColorApp.secunderyColorDark.withOpacity(0.25),
-            spreadRadius: 0.01,
+            color: Theme.of(context).colorScheme.secondary.withOpacity(0.25),
+            spreadRadius: -4, // Negative spread radius for elevation
             blurRadius: 4,
           )
         ],
@@ -81,7 +84,8 @@ class UserProfileWidget extends StatelessWidget {
                         ),
                       ),
                       child: CircleAvatar(
-                        backgroundColor: ColorApp.secunderyColorDark,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
                         radius: 40.dg,
                         backgroundImage: NetworkImage(
                             "${ApiConstans.userImage}${user.image}"),
@@ -105,7 +109,7 @@ class UserProfileWidget extends StatelessWidget {
             ),
             verticalSpace(12.h),
             Text(
-              toBeginningOfSentenceCase(user.username!)!,
+              toBeginningOfSentenceCase(user.name!)!,
               style: TextStyles.text_18.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -113,7 +117,7 @@ class UserProfileWidget extends StatelessWidget {
             user.email != '' && user.email != null
                 ? Text(user.email!, style: TextStyles.text_14)
                 : Text(
-                    'Email unregistered',
+                    'Email unregistered'.tr(),
                     style: TextStyles.text_10,
                   ),
             verticalSpace(2.h),
@@ -121,7 +125,7 @@ class UserProfileWidget extends StatelessWidget {
                 ? Text('${user.phoneNumber!.substring(0, 7)}xxxxxxx',
                     style: TextStyles.text_14)
                 : Text(
-                    'Phone unregistered',
+                    'Phone unregistered'.tr(),
                     style: TextStyles.text_10,
                   ),
           ],

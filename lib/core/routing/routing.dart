@@ -1,128 +1,115 @@
+import 'package:Mowater/Features/CareForSaleBrand/presentation/car_brands_screen.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cars_screen.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarForSale/car_for_sale_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/brandAdsCubit/brand_ads_cubit_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/cars_brands_body.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/motors_screen.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/maintenanceAds/maintenance_ads_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/maintenance_details_screen.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/maintenance_services_screen.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/mowaterSearch/maintenance_cubit.dart';
+import 'package:Mowater/Features/MaintenanceServices/presentation/trending_serveic/trending_service_cubit.dart';
+import 'package:Mowater/Features/MobileService/presentation/ads/mobile_service_cubit.dart';
+import 'package:Mowater/Features/MobileService/presentation/companies/mobile_service_companeis_cubit.dart';
+import 'package:Mowater/Features/MobileService/presentation/mobile_service_category.dart';
+import 'package:Mowater/Features/MobileService/presentation/mobile_service_screen.dart';
+import 'package:Mowater/Features/Parking/data/model/parking_model.dart';
+import 'package:Mowater/Features/Parking/presentation/add_plate_screen.dart';
+import 'package:Mowater/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
+import 'package:Mowater/Features/Parking/presentation/parking_screen.dart';
+import 'package:Mowater/Features/Parking/presentation/plate_screen.dart';
+import 'package:Mowater/Features/Parking/presentation/widgets/parking_form_screen.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/show_your_car_screen.dart';
+import 'package:Mowater/Features/Service24/data/cubit/recovery_cubit.dart';
+import 'package:Mowater/Features/Service24/presentation/recovery_screen.dart';
+import 'package:Mowater/Features/ServiceProvider%20%20Company/presntation/form_company_detials_screen.dart';
+import 'package:Mowater/Features/ServiceProvider%20%20Company/presntation/success_register_provider_screen.dart';
+import 'package:Mowater/Features/UsedSpareParts/models/spare_part_company.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/Cubits/spareParts/spare_parts_category_cubit.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/ads/used_spare_parts_ads_cubit.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/apare_parts_company_detials_screen.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/spare_part_category_screen.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/spare_part_screen.dart';
+import 'package:Mowater/Features/addNumberForAccount/presntation/add_account_number.dart';
+import 'package:Mowater/Features/addNumberForAccount/presntation/cubit/account_number_cubit.dart';
+import 'package:Mowater/Features/carCare/presntation/ads/car_care_category_ads_cubit.dart';
+import 'package:Mowater/Features/carCare/presntation/car_care_category_screen.dart';
+import 'package:Mowater/Features/carCare/presntation/car_care_screen.dart';
+import 'package:Mowater/Features/carCare/presntation/cubit/car_care_companies_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/car_number_screen.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plateCateogry/plate_category_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plates_screen.dart';
+import 'package:Mowater/Features/carNumbers/presntation/sellYourPlate/sell_you_plate_cubit.dart';
+import 'package:Mowater/Features/carNumbers/presntation/sell_your_plate_screen.dart';
+import 'package:Mowater/Features/carNumbers/presntation/widgets/plate_widget.dart';
+import 'package:Mowater/Features/choseAccountType/presentation/chose_account_type_screen.dart';
+import 'package:Mowater/Features/drawer/data/updateProfile/update_profile_cubit.dart';
+import 'package:Mowater/Features/evaluation/presentation/evaluation_screen.dart';
+import 'package:Mowater/Features/forgetPassword/presntation/password_changed_success.dart';
+import 'package:Mowater/Features/forgetPassword/presntation/reset_password_screen.dart';
+import 'package:Mowater/Features/home/presentation/cubits/trendCubit/trend_cubit.dart';
+import 'package:Mowater/Features/home/presentation/home_screen.dart';
+import 'package:Mowater/Features/inspection/models/inspection_company_model.dart';
+import 'package:Mowater/Features/inspection/presntation/ads/inspection_ads_cubit.dart';
+import 'package:Mowater/Features/inspection/presntation/company/inspection_companye_cubit.dart';
+import 'package:Mowater/Features/inspection/presntation/company_details_screen.dart';
+import 'package:Mowater/Features/inspection/presntation/inspection_screen.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/persntation/broker_screen.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/persntation/cubit/insurance_provider_service_cubit.dart';
+import 'package:Mowater/Features/insurance/categorys/companies/presntation/companies_screen.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/persntation/addCar/add_new_car_insurance_cubit.dart';
+import 'package:Mowater/Features/insurance/categorys/requestAquate/persntation/request_a_quate.dart';
+import 'package:Mowater/Features/insurance/presentation/MainAds/insurance_main_ads_cubit.dart';
+import 'package:Mowater/Features/insurance/presentation/insurance_screen.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/cubits/mowaterMartAds/cubit/mowater_mart_ads_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/cubits/mowaterMartCubit/mowater_market_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/mowater_mart_product_details._screen.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/mowater_mart_screen.dart';
+import 'package:Mowater/Features/onBoarding/presentation/on_boarding_screen.dart';
+import 'package:Mowater/Features/rentalCars/models/company_rental_car.dart';
+import 'package:Mowater/Features/rentalCars/presentation/car_details.dart';
+import 'package:Mowater/Features/rentalCars/presentation/cubtis/cubit/rental_cars_ads_cubit.dart';
+import 'package:Mowater/Features/rentalCars/presentation/cubtis/rentalCarsCompany/rental_cars_companys_cubit.dart';
+import 'package:Mowater/Features/rentalCars/presentation/rental_car_company_detials.dart';
+import 'package:Mowater/Features/rentalCars/presentation/rental_cars_screen.dart';
+import 'package:Mowater/Features/serviceProverAuth/presnation/sign_in_screen.dart';
+import 'package:Mowater/Features/showRooms/data/ads/showRooms/show_rooms_cubit.dart';
+import 'package:Mowater/Features/showRooms/data/ads/showRoomsAds/show_rooms_ads_cubit.dart';
+import 'package:Mowater/Features/showRooms/models/show_room.dart';
+import 'package:Mowater/Features/showRooms/presentation/show_rooms_details_screen.dart';
+import 'package:Mowater/Features/showRooms/presentation/show_rooms_screen.dart';
+import 'package:Mowater/Features/signIn/presntation/cubit/sign_in_cubit.dart';
+import 'package:Mowater/Features/signIn/presntation/sign_in_user_screen.dart';
+import 'package:Mowater/Features/signUp/presentation/cubits/googleCubti/google_sign_in_cubit.dart';
+import 'package:Mowater/Features/signUp/presentation/cubits/signUp/cubit/sign_up_cubit.dart';
+import 'package:Mowater/Features/signUp/presentation/cubits/verifyEmail/verify_email_cubit.dart';
+import 'package:Mowater/Features/signUp/presentation/email_verify_code_screen.dart';
+import 'package:Mowater/Features/signUp/presentation/sign_up_screen.dart';
+import 'package:Mowater/Features/spareParts/presentation/otp/otp_verify_cubit.dart';
+import 'package:Mowater/Features/splash.dart';
+import 'package:Mowater/Features/updateUserInformation/presntation/user_information_screen.dart';
+import 'package:Mowater/Features/verifyPhoneNumber/presntation/cubit/verify_code_cubit.dart';
+import 'package:Mowater/Features/verifyPhoneNumber/presntation/verify_code_screen.dart';
+import 'package:Mowater/Features/warranty/presntation/cubit/warranty_companies_cubit.dart';
+import 'package:Mowater/Features/warranty/presntation/warranty_screen.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/routing/transition_animation.dart';
+import 'package:Mowater/core/services/adsCubit/ads_cubit.dart';
+import 'package:Mowater/core/services/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/car_brands_screen.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cars_screen.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarForSale/car_for_sale_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/brandAdsCubit/brand_ads_cubit_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/cars_brands_body.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/cubit/merchant_by_id_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/motors_screen.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/maintenanceAds/maintenance_ads_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/maintenance_details_screen.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/maintenance_services_screen.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/mowaterSearch/maintenance_cubit.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/presentation/trending_serveic/trending_service_cubit.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/ads/mobile_service_cubit.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/companies/mobile_service_companeis_cubit.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/mobile_service_category.dart';
-import 'package:mowaterApp/Features/MobileService/presentation/mobile_service_screen.dart';
-import 'package:mowaterApp/Features/Parking/data/model/parking_model.dart';
-import 'package:mowaterApp/Features/Parking/presentation/add_plate_screen.dart';
-import 'package:mowaterApp/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
-import 'package:mowaterApp/Features/Parking/presentation/plate_screen.dart';
-import 'package:mowaterApp/Features/Parking/presentation/widgets/parking_form_screen.dart';
-import 'package:mowaterApp/Features/Parking/presentation/parking_screen.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/show_your_car_screen.dart';
-import 'package:mowaterApp/Features/Service24/data/cubit/recovery_cubit.dart';
-import 'package:mowaterApp/Features/Service24/presentation/recovery_screen.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/editNormalCompany/edite_normal_company_cubit.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/form_company_detials_screen.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/providerServicesAuth/provider_service_auth_cubit.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/success_register_provider_screen.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/models/spare_part_company.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/Cubits/spareParts/spare_parts_category_cubit.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/ads/used_spare_parts_ads_cubit.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/apare_parts_company_detials_screen.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/spare_part_category_screen.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/spare_part_screen.dart';
-import 'package:mowaterApp/Features/addNumberForAccount/presntation/add_account_number.dart';
-import 'package:mowaterApp/Features/addNumberForAccount/presntation/cubit/account_number_cubit.dart';
-import 'package:mowaterApp/Features/carCare/presntation/ads/car_care_category_ads_cubit.dart';
-import 'package:mowaterApp/Features/carCare/presntation/car_care_category_screen.dart';
-import 'package:mowaterApp/Features/carCare/presntation/car_care_screen.dart';
-import 'package:mowaterApp/Features/carCare/presntation/cubit/car_care_companies_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/car_number_screen.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plateCateogry/plate_category_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plates_screen.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sellYourPlate/sell_you_plate_cubit.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/sell_your_plate_screen.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/widgets/plate_widget.dart';
-import 'package:mowaterApp/Features/choseAccountType/presentation/chose_account_type_screen.dart';
-import 'package:mowaterApp/Features/drawer/widgets/normalCompany/edite_profiel.dart';
-import 'package:mowaterApp/Features/evaluation/presentation/evaluation_screen.dart';
-import 'package:mowaterApp/Features/forgetPassword/presntation/forget_password_screen.dart';
-import 'package:mowaterApp/Features/forgetPassword/presntation/password_changed_success.dart';
-import 'package:mowaterApp/Features/forgetPassword/presntation/resetPassword/reset_passwor_cubit.dart';
-import 'package:mowaterApp/Features/forgetPassword/presntation/reset_password_screen.dart';
-import 'package:mowaterApp/Features/forgetPassword/presntation/verif_reset_password_screen.dart';
-import 'package:mowaterApp/Features/home/presentation/cubits/mainCategory/main_categorys_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/cubits/trendCubit/trend_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/home_screen.dart';
-import 'package:mowaterApp/Features/inspection/models/inspection_company_model.dart';
-import 'package:mowaterApp/Features/inspection/presntation/ads/inspection_ads_cubit.dart';
-import 'package:mowaterApp/Features/inspection/presntation/company/inspection_companye_cubit.dart';
-import 'package:mowaterApp/Features/inspection/presntation/company_details_screen.dart';
-import 'package:mowaterApp/Features/inspection/presntation/inspection_screen.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/persntation/broker_screen.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/persntation/cubit/insurance_provider_service_cubit.dart';
-import 'package:mowaterApp/Features/insurance/categorys/companies/presntation/companies_screen.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/persntation/addCar/add_new_car_insurance_cubit.dart';
-import 'package:mowaterApp/Features/insurance/categorys/requestAquate/persntation/request_a_quate.dart';
-import 'package:mowaterApp/Features/insurance/presentation/MainAds/insurance_main_ads_cubit.dart';
-import 'package:mowaterApp/Features/insurance/presentation/insurance_screen.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/cubits/mowaterMartAds/cubit/mowater_mart_ads_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/cubits/mowaterMartCubit/mowater_market_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/mowater_mart_product_details._screen.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/mowater_mart_screen.dart';
-import 'package:mowaterApp/Features/onBoarding/presentation/on_boarding_screen.dart';
-import 'package:mowaterApp/Features/rentalCars/models/company_rental_car.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/car_details.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/cubtis/cubit/rental_cars_ads_cubit.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/cubtis/rentalCarsCompany/rental_cars_companys_cubit.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/rental_car_company_detials.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/rental_cars_screen.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/signIn/sign_in_company_cubit.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/sign_in_screen.dart';
-import 'package:mowaterApp/Features/showRoomMyCars/add_new_car_screen.dart';
-import 'package:mowaterApp/Features/showRoomMyCars/presntation/addEdit/show_room_add_edit_cubit.dart';
-import 'package:mowaterApp/Features/showRoomMyCars/presntation/myCars/show_room_my_cars_cubit.dart';
-import 'package:mowaterApp/Features/showRoomMyCars/presntation/show_room_my_cars.dart';
-import 'package:mowaterApp/Features/showRooms/data/ads/showRooms/show_rooms_cubit.dart';
-import 'package:mowaterApp/Features/showRooms/data/ads/showRoomsAds/show_rooms_ads_cubit.dart';
-import 'package:mowaterApp/Features/showRooms/models/show_room.dart';
-import 'package:mowaterApp/Features/showRooms/presentation/show_rooms_details_screen.dart';
-import 'package:mowaterApp/Features/showRooms/presentation/show_rooms_screen.dart';
-import 'package:mowaterApp/Features/signInUser/presntation/cubit/sign_in_user_cubit.dart';
-import 'package:mowaterApp/Features/signInUser/presntation/sign_in_user_screen.dart';
-import 'package:mowaterApp/Features/signUp/presentation/cubits/googleCubti/google_sign_in_cubit.dart';
-import 'package:mowaterApp/Features/signUp/presentation/cubits/signUp/cubit/sign_up_cubit.dart';
-import 'package:mowaterApp/Features/signUp/presentation/cubits/verifyEmail/verify_email_cubit.dart';
-import 'package:mowaterApp/Features/signUp/presentation/email_verify_code_screen.dart';
-import 'package:mowaterApp/Features/signUp/presentation/sign_up_screen.dart';
-import 'package:mowaterApp/Features/spareParts/presentation/otp/otp_verify_cubit.dart';
-import 'package:mowaterApp/Features/splash.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/cubit/update_user_info_cubit.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/user_information_screen.dart';
-import 'package:mowaterApp/Features/verifyPhoneNumber/presntation/cubit/verify_code_cubit.dart';
-import 'package:mowaterApp/Features/verifyPhoneNumber/presntation/verify_code_screen.dart';
-import 'package:mowaterApp/Features/warranty/presntation/cubit/warranty_companies_cubit.dart';
-import 'package:mowaterApp/Features/warranty/presntation/warranty_screen.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/routing/transition_animation.dart';
-import 'package:mowaterApp/core/services/adsCubit/ads_cubit.dart';
-import 'package:mowaterApp/core/services/company_service.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/services/user_type.dart';
 
 bool isCheckd = false;
 
@@ -146,7 +133,7 @@ class RoutingApp {
         pageBuilder: (BuildContext context, GoRouterState state) {
           return CustomSlideTransition(
             child: BlocProvider(
-              create: (context) => getIt<ProviderServiceAuthCubit>(),
+              create: (context) => getIt<SignUpCubit>(),
               child: const ServiceProviderChoseTypeAccountScreen(),
             ),
           );
@@ -155,10 +142,7 @@ class RoutingApp {
       GoRoute(
         path: RouteName.thankYouForRegister,
         builder: (BuildContext context, GoRouterState state) {
-          String usertype = state.extra as String;
-          return ThankYouScreen(
-            userType: usertype,
-          );
+          return const ThankYouScreen();
         },
       ),
       GoRoute(
@@ -166,8 +150,8 @@ class RoutingApp {
         pageBuilder: (BuildContext context, GoRouterState state) {
           return CustomSlideTransition(
               child: BlocProvider(
-            create: (context) => getIt<SignInCompanyCubit>(),
-            child: LoginServiceProvider(),
+            create: (context) => getIt<SignInCubit>(),
+            child: const LoginServiceProvider(),
           ));
         },
       ),
@@ -177,30 +161,30 @@ class RoutingApp {
           bool isEditMode = state.extra as bool;
           return CustomSlideTransition(
             child: BlocProvider(
-              create: (context) => getIt<UpdateUserInfoCubit>(),
+              create: (context) => getIt<UpdateProfileCubit>(),
               child: UserInformationScreen(isEditMode: isEditMode),
             ),
           );
         },
       ),
-      GoRoute(
-        path: RouteName.forgetPassword,
-        pageBuilder: (BuildContext context, GoRouterState state) {
-          return CustomSlideTransition(
-            child: BlocProvider(
-              create: (context) => getIt<ResetPassworCubit>(),
-              child: const ForgetPasswordScreen(),
-            ),
-          );
-        },
-      ),
+      // GoRoute(
+      //   path: RouteName.forgetPassword,
+      //   pageBuilder: (BuildContext context, GoRouterState state) {
+      //     return CustomSlideTransition(
+      //       child: BlocProvider(
+      //         create: (context) => getIt<ResetPassworCubit>(),
+      //         child: const ForgetPasswordScreen(),
+      //       ),
+      //     );
+      //   },
+      // ),
       GoRoute(
         path: RouteName.resetPasswordScreen,
         pageBuilder: (BuildContext context, GoRouterState state) {
           int id = state.extra as int;
           return CustomSlideTransition(
             child: BlocProvider(
-              create: (context) => getIt<UpdateUserInfoCubit>(),
+              create: (context) => getIt<UpdateProfileCubit>(),
               child: ResetPasswordScreen(id: id),
             ),
           );
@@ -219,7 +203,7 @@ class RoutingApp {
           return MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (context) => getIt<UpdateUserInfoCubit>(),
+                  create: (context) => getIt<UpdateProfileCubit>(),
                 ),
                 BlocProvider(
                   create: (context) => getIt<VerifyEmailCubit>()
@@ -231,19 +215,19 @@ class RoutingApp {
               ));
         },
       ),
-      GoRoute(
-        path: RouteName.verifyResetPasswordCode,
-        builder: (BuildContext context, GoRouterState state) {
-          Map<String, dynamic> data = state.extra as Map<String, dynamic>;
-          return MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (context) => getIt<ResetPassworCubit>())
-              ],
-              child: VerifyResetPasswrodScreen(
-                email: data['email'],
-              ));
-        },
-      ),
+      // GoRoute(
+      //   path: RouteName.verifyResetPasswordCode,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     Map<String, dynamic> data = state.extra as Map<String, dynamic>;
+      //     return MultiBlocProvider(
+      //         providers: [
+      //           BlocProvider(create: (context) => getIt<ResetPassworCubit>())
+      //         ],
+      //         child: VerifyResetPasswrodScreen(
+      //           email: data['email'],
+      //         ));
+      //   },
+      // ),
       GoRoute(
         path: RouteName.onBoardingScreen,
         builder: (BuildContext context, GoRouterState state) {
@@ -255,10 +239,6 @@ class RoutingApp {
         builder: (BuildContext context, GoRouterState state) {
           return MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create: (context) =>
-                    getIt<MainCategorysCubit>()..getAllCategories(),
-              ),
               BlocProvider(
                 create: (context) => getIt<TrendCubit>()..getAllTrending(),
               ),
@@ -311,7 +291,7 @@ class RoutingApp {
         path: RouteName.signInUser,
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
-            create: (context) => getIt<SignInUserCubit>(),
+            create: (context) => getIt<SignInCubit>(),
             child: const SignInUserScreen(),
           );
         },
@@ -737,7 +717,7 @@ class RoutingApp {
                 create: (context) => getIt<AccountNumberCubit>(),
               ),
               BlocProvider(
-                create: (context) => getIt<UpdateUserInfoCubit>(),
+                create: (context) => getIt<UpdateProfileCubit>(),
               ),
             ],
             child: AddAccountNumberScreen(
@@ -833,69 +813,60 @@ class RoutingApp {
           );
         },
       ),
-      GoRoute(
-        path: RouteName.editNormalCompanyProfile,
-        builder: (BuildContext context, GoRouterState state) {
-          return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<EditeNormalCompanyCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => getIt<ProviderServiceAuthCubit>(),
-              ),
-            ],
-            child: const EditNormalCompanyProfile(),
-          );
-        },
-      ),
-      GoRoute(
-        path: RouteName.showRoomMyCars,
-        builder: (BuildContext context, GoRouterState state) {
-          return BlocProvider(
-            create: (context) => getIt<ShowRoomMyCarsCubit>()
-              ..getMyCars(UserServices.getUserInformation().id!),
-            child: const ShowRoomMyCars(),
-          );
-        },
-      ),
+      // GoRoute(
+      //   path: RouteName.editNormalCompanyProfile,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return MultiBlocProvider(
+      //       providers: [
+      //         BlocProvider(
+      //           create: (context) => getIt<EditeNormalCompanyCubit>(),
+      //         ),
+      //         BlocProvider(
+      //           create: (context) => getIt<ProviderServiceAuthCubit>(),
+      //         ),
+      //       ],
+      //       child: const EditNormalCompanyProfile(),
+      //     );
+      //   },
+      // ),
+      // GoRoute(
+      //   path: RouteName.showRoomMyCars,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return BlocProvider(
+      //       create: (context) => getIt<ShowRoomMyCarsCubit>()
+      //         ..getMyCars(UserServices.getUserInformation().id!),
+      //       child: const ShowRoomMyCars(),
+      //     );
+      //   },
+      // ),
 
-      GoRoute(
-        path: RouteName.showRoomAddEditCar,
-        builder: (BuildContext context, GoRouterState state) {
-          CarProduct? car = state.extra as CarProduct;
-          return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<CarModelsBrandsCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => getIt<ShowRoomAddEditCubit>(),
-              ),
-            ],
-            child: ShowRoomMyCarsAddEditScreen(
-              carModelProduct: car,
-            ),
-          );
-        },
-      ),
+      // GoRoute(
+      //   path: RouteName.showRoomAddEditCar,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     CarProduct? car = state.extra as CarProduct;
+      //     return MultiBlocProvider(
+      //       providers: [
+      //         BlocProvider(
+      //           create: (context) => getIt<CarModelsBrandsCubit>(),
+      //         ),
+      //         BlocProvider(
+      //           create: (context) => getIt<ShowRoomAddEditCubit>(),
+      //         ),
+      //       ],
+      //       child: ShowRoomMyCarsAddEditScreen(
+      //         carModelProduct: car,
+      //       ),
+      //     );
+      //   },
+      // ),
     ],
     redirect: (context, state) {
-      if (isCheckd == false &&
-          UserServices.checkToken() &&
-          UserServices.getUserInformation().email != null &&
-          UserServices.getUserInformation().email!.isNotEmpty &&
-          UserServices.getUserInformation().emailState != 0) {
-        isCheckd = true;
-        // return RouteName.home;
-      } else if (isCheckd == false &&
-          NormalCompanyService.getCompanyData().id != null &&
-          NormalCompanyService.getCompanyData().id!.isNotEmpty) {
+      if (isCheckd == false && UserServices.checkToken()) {
         isCheckd = true;
         return RouteName.home;
+      } else {
+        return null;
       }
-
-      return null;
     },
   );
 }

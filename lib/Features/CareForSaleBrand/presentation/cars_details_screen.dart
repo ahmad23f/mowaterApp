@@ -1,19 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
-import 'package:mowaterApp/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/get_post_when.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/Features/CarsForSale/presentation/cubits/cubit/related_car_cubit.dart';
+import 'package:Mowater/Features/mowaterMart/presentation/widget/mowater_mart_ads_product_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/get_post_when.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
 import 'package:photo_view/photo_view.dart';
 
 class CarDetailsScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                 child: SizedBox(
                   height: 270.h,
                   child: Hero(
-                    tag: 'imageHero',
+                    tag: 'imageHero'.tr(),
                     child: Image.network(
                       ApiConstans.imageCars +
                           widget.car.images[selectedImage].imageName,
@@ -109,7 +110,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       ),
                     ),
                     Text(
-                      'Item overview',
+                      'Item overview'.tr(),
                       style: TextStyles.text_16.copyWith(
                           fontSize: 16.sp, fontWeight: FontWeight.bold),
                     ),
@@ -120,27 +121,27 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                         scrollDirection: Axis.horizontal,
                         children: [
                           CarItemOverviewWidget(
-                            title: "Model",
+                            title: "Model".tr(),
                             icon: const Icon(Icons.stars_outlined),
                             value: widget.car.carModel.toString(),
                           ),
                           CarItemOverviewWidget(
-                            title: "YEAR",
+                            title: "YEAR".tr(),
                             icon: const Icon(Icons.date_range_outlined),
                             value: widget.car.year.toString(),
                           ),
                           CarItemOverviewWidget(
-                            title: "KILOMETERS",
+                            title: "KILOMETERS".tr(),
                             icon: const Icon(Icons.speed_rounded),
                             value: widget.car.kilometer.toString(),
                           ),
                           CarItemOverviewWidget(
-                            title: "condition",
+                            title: "condition".tr(),
                             icon: const Icon(Icons.star_rate_outlined),
                             value: widget.car.condition.toString(),
                           ),
                           CarItemOverviewWidget(
-                            title: "Door",
+                            title: "Door".tr(),
                             icon: Padding(
                               padding: const EdgeInsets.all(2.0),
                               child: Image.asset(
@@ -151,7 +152,7 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                             value: widget.car.doors.toString(),
                           ),
                           CarItemOverviewWidget(
-                            title: "REGIONAL SPECS",
+                            title: "REGIONAL SPECS".tr(),
                             icon: const Padding(
                                 padding: EdgeInsets.all(2.0),
                                 child: Icon(Icons.map_outlined)),
@@ -161,37 +162,40 @@ class _CarDetailsScreenState extends State<CarDetailsScreen> {
                       ),
                     ),
                     Text(
-                      'Additional Details',
+                      'Additional Details'.tr(),
                       style: TextStyles.text_16.copyWith(
                           fontSize: 16.sp, fontWeight: FontWeight.bold),
                     ),
                     DetailsRowWidget(
-                        title: 'Fuel Type', value: widget.car.fuelType),
-                    const DetailsRowWidget(
-                        title: 'Seller Type', value: 'seller'),
+                        title: 'Fuel Type'.tr(), value: widget.car.fuelType),
                     DetailsRowWidget(
-                        title: 'Gear Type', value: widget.car.gearBox),
+                        title: 'Seller Type'.tr(), value: 'seller'.tr()),
                     DetailsRowWidget(
-                        title: 'Warranty',
-                        value: widget.car.warranty == 0 ? "without" : "with"),
+                        title: 'Gear Type'.tr(), value: widget.car.gearBox),
                     DetailsRowWidget(
-                        title: 'No. Of Cylinders',
+                        title: 'Warranty'.tr(),
+                        value: widget.car.warranty == 0
+                            ? "without".tr()
+                            : "with".tr()),
+                    DetailsRowWidget(
+                        title: 'No. Of Cylinders'.tr(),
                         value: widget.car.cylinders.toString()),
                     DetailsRowWidget(
-                        title: 'Exterior Color',
+                        title: 'Exterior Color'.tr(),
                         value: widget.car.exteriorColor!),
                     DetailsRowWidget(
-                        title: 'Interior Color',
+                        title: 'Interior Color'.tr(),
                         value: widget.car.interiorColor),
                     DetailsRowWidget(
-                        title: 'Location', value: widget.car.location),
+                        title: 'Location'.tr(), value: widget.car.location),
                     DetailsRowWidget(
-                        title: 'Extra Info', value: widget.car.extraInfo ?? ''),
+                        title: 'Extra Info'.tr(),
+                        value: widget.car.extraInfo ?? ''),
                   ],
                 ),
               ),
               Text(
-                'Similar Cars',
+                'Similar Cars'.tr(),
                 style: TextStyles.text_22.copyWith(),
               ),
               verticalSpace(mainPadding),
@@ -239,7 +243,6 @@ class _FullScreenImageViewState extends State<FullScreenImageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Stack(
         children: [
           PageView.builder(
@@ -294,10 +297,10 @@ class CarItemOverviewWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: ColorApp.categoryColorDark,
+        color: ColorApp.primeryColorDark,
         boxShadow: [
           BoxShadow(
-            color: ColorApp.secunderyColorDark,
+            color: Theme.of(context).colorScheme.secondary,
             blurRadius: 0.5,
             spreadRadius: 0,
           ),
@@ -392,7 +395,7 @@ class SimilarCarListView extends StatelessWidget {
             ),
           ),
           loading: () => const CircularProgressIndicator.adaptive(),
-          faliure: () => const Text('No Similar Cars Yet !'),
+          faliure: () => Text('No Similar Cars Yet !'.tr()),
         );
       },
     );
@@ -412,7 +415,7 @@ class SmallCarWidget extends StatelessWidget {
         width: 200.w,
         margin: const EdgeInsets.symmetric(horizontal: mainPadding),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -431,12 +434,15 @@ class SmallCarWidget extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'AED ',
+                        'AED '.tr(),
                         style: TextStyles.text_10.copyWith(
                             color: ColorApp.primeryColorDark,
                             shadows: [
-                              const BoxShadow(
-                                  color: Colors.black,
+                              BoxShadow(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .color!,
                                   spreadRadius: 20,
                                   blurRadius: 10)
                             ]),
@@ -478,7 +484,7 @@ class SmallCarWidget extends StatelessWidget {
                         style: TextStyles.text_12,
                       ),
                       Text(
-                        " - ${car.carModel}",
+                        " - ${car.carModel}".tr(),
                         style: TextStyles.text_12,
                       ),
                     ],

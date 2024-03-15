@@ -1,5 +1,5 @@
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
 
 class MowaterMartAdsWidget extends StatelessWidget {
   MowaterMartProductModel product;

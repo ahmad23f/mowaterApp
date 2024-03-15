@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class PriceSlider extends StatefulWidget {
   const PriceSlider({super.key});
@@ -21,7 +21,7 @@ class _PriceSliderState extends State<PriceSlider> {
         valueIndicatorTextStyle: TextStyles.text_12,
       ),
       child: RangeSlider(
-        activeColor: ColorApp.secunderyColorDark,
+        activeColor: Theme.of(context).colorScheme.secondary,
         inactiveColor:
             ColorApp.primeryColorDark, // Change inactive line color to blue
         values: currentSliderValue,

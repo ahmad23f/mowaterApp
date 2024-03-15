@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
-import 'package:mowaterApp/Features/rentalCars/models/rental_cars_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/car_image.dart';
+import 'package:Mowater/Features/rentalCars/models/rental_cars_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class AvilableCarWidget extends StatelessWidget {
   RentCarModel car;
@@ -20,7 +20,7 @@ class AvilableCarWidget extends StatelessWidget {
         width: 200.w,
         margin: const EdgeInsets.symmetric(horizontal: mainPadding),
         decoration: BoxDecoration(
-          color: ColorApp.secunderyColorDark,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -43,8 +43,11 @@ class AvilableCarWidget extends StatelessWidget {
                         style: TextStyles.text_10.copyWith(
                             color: ColorApp.primeryColorDark,
                             shadows: [
-                              const BoxShadow(
-                                  color: Colors.black,
+                              BoxShadow(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .color!,
                                   spreadRadius: 20,
                                   blurRadius: 10)
                             ]),

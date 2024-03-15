@@ -1,5 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:Mowater/core/services/user_type.dart';
 
 class ServiceProviderAccountModel {
   final File? image;
@@ -17,27 +20,24 @@ class ServiceProviderAccountModel {
   final String? whatssApp;
   final String? number;
   final String? descreption;
-  final String? carMakes;
   bool? mowaterDiscount;
   int? providerTypeInsurance;
-  ServiceProviderAccountModel({
-    this.image,
-    this.tradeName,
-    this.commercialLicenseNumber,
-    this.selectedSpecialties,
-    this.selectedDays,
-    this.startTime,
-    this.endTime,
-    this.latitude,
-    this.longitude,
-    this.pdfFile,
-    this.password,
-    this.specialtyName,
-    this.whatssApp,
-    this.number,
-    this.descreption,
-    this.carMakes,
-    this.mowaterDiscount,
-    this.providerTypeInsurance,
-  });
+  ServiceProviderAccountModel(
+      {required this.image,
+      required this.specialtyName,
+      required this.mowaterDiscount,
+      required this.tradeName,
+      this.providerTypeInsurance,
+      this.commercialLicenseNumber,
+      this.selectedSpecialties,
+      required this.selectedDays,
+      required this.startTime,
+      required this.endTime,
+      required this.latitude,
+      required this.longitude,
+      this.pdfFile,
+      required this.number,
+      required this.password,
+      required this.whatssApp,
+      required this.descreption});
 }

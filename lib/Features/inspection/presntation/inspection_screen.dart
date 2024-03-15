@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/Features/inspection/presntation/ads/inspection_ads_cubit.dart';
-import 'package:mowaterApp/Features/inspection/presntation/company/inspection_companye_cubit.dart';
-import 'package:mowaterApp/Features/inspection/presntation/widgets/company_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
-import 'package:mowaterApp/core/widgets/search_form_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/filter_icon.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/chip_chose.dart';
+import 'package:Mowater/Features/MaintenanceServices/categoryes/motors/presentation/widgets/company_loading_widget.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/filter_bootm_sheet_country.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/inspection/presntation/ads/inspection_ads_cubit.dart';
+import 'package:Mowater/Features/inspection/presntation/company/inspection_companye_cubit.dart';
+import 'package:Mowater/Features/inspection/presntation/widgets/company_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
+import 'package:Mowater/core/widgets/search_form_widget.dart';
 
 class InspetionScreen extends StatelessWidget {
   InspetionScreen({super.key});
@@ -235,7 +235,7 @@ class _MowaterDiscountCheckBoxState extends State<MowaterDiscountCheckBox> {
           },
         ),
         const Text(
-          'mowaterApp Discount',
+          'Mowater Discount',
           style: TextStyle(color: Colors.grey),
         ),
       ],

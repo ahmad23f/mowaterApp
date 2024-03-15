@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-import 'package:mowaterApp/Features/sparePartCompany/data/add_product_repo.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+import 'package:Mowater/Features/sparePartCompany/data/add_product_repo.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'add_spare_parts_product_state.dart';
 part 'add_spare_parts_product_cubit.freezed.dart';

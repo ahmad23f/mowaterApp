@@ -1,6 +1,6 @@
 {
-    "name": "mowaterApp",
-    "short_name": "mowaterApp",
+    "name": "Mowater",
+    "short_name": "Mowater",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

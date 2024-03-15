@@ -19,7 +19,7 @@ mixin _$MobileServiceCompaneisState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MobileServiceModel> companies) success,
+    required TResult Function(List<CarCareModel> companies) success,
     required TResult Function() loading,
     required TResult Function() faliure,
   }) =>
@@ -27,7 +27,7 @@ mixin _$MobileServiceCompaneisState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MobileServiceModel> companies)? success,
+    TResult? Function(List<CarCareModel> companies)? success,
     TResult? Function()? loading,
     TResult? Function()? faliure,
   }) =>
@@ -35,7 +35,7 @@ mixin _$MobileServiceCompaneisState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MobileServiceModel> companies)? success,
+    TResult Function(List<CarCareModel> companies)? success,
     TResult Function()? loading,
     TResult Function()? faliure,
     required TResult orElse(),
@@ -128,7 +128,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MobileServiceModel> companies) success,
+    required TResult Function(List<CarCareModel> companies) success,
     required TResult Function() loading,
     required TResult Function() faliure,
   }) {
@@ -139,7 +139,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MobileServiceModel> companies)? success,
+    TResult? Function(List<CarCareModel> companies)? success,
     TResult? Function()? loading,
     TResult? Function()? faliure,
   }) {
@@ -150,7 +150,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MobileServiceModel> companies)? success,
+    TResult Function(List<CarCareModel> companies)? success,
     TResult Function()? loading,
     TResult Function()? faliure,
     required TResult orElse(),
@@ -209,7 +209,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<MobileServiceModel> companies});
+  $Res call({List<CarCareModel> companies});
 }
 
 /// @nodoc
@@ -229,7 +229,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == companies
           ? _value._companies
           : companies // ignore: cast_nullable_to_non_nullable
-              as List<MobileServiceModel>,
+              as List<CarCareModel>,
     ));
   }
 }
@@ -237,12 +237,12 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<MobileServiceModel> companies)
+  const _$SuccessImpl(final List<CarCareModel> companies)
       : _companies = companies;
 
-  final List<MobileServiceModel> _companies;
+  final List<CarCareModel> _companies;
   @override
-  List<MobileServiceModel> get companies {
+  List<CarCareModel> get companies {
     if (_companies is EqualUnmodifiableListView) return _companies;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_companies);
@@ -276,7 +276,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MobileServiceModel> companies) success,
+    required TResult Function(List<CarCareModel> companies) success,
     required TResult Function() loading,
     required TResult Function() faliure,
   }) {
@@ -287,7 +287,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MobileServiceModel> companies)? success,
+    TResult? Function(List<CarCareModel> companies)? success,
     TResult? Function()? loading,
     TResult? Function()? faliure,
   }) {
@@ -298,7 +298,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MobileServiceModel> companies)? success,
+    TResult Function(List<CarCareModel> companies)? success,
     TResult Function()? loading,
     TResult Function()? faliure,
     required TResult orElse(),
@@ -348,10 +348,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements MobileServiceCompaneisState {
-  const factory _Success(final List<MobileServiceModel> companies) =
-      _$SuccessImpl;
+  const factory _Success(final List<CarCareModel> companies) = _$SuccessImpl;
 
-  List<MobileServiceModel> get companies;
+  List<CarCareModel> get companies;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -396,7 +395,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MobileServiceModel> companies) success,
+    required TResult Function(List<CarCareModel> companies) success,
     required TResult Function() loading,
     required TResult Function() faliure,
   }) {
@@ -407,7 +406,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MobileServiceModel> companies)? success,
+    TResult? Function(List<CarCareModel> companies)? success,
     TResult? Function()? loading,
     TResult? Function()? faliure,
   }) {
@@ -418,7 +417,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MobileServiceModel> companies)? success,
+    TResult Function(List<CarCareModel> companies)? success,
     TResult Function()? loading,
     TResult Function()? faliure,
     required TResult orElse(),
@@ -510,7 +509,7 @@ class _$FaliureImpl implements _Faliure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<MobileServiceModel> companies) success,
+    required TResult Function(List<CarCareModel> companies) success,
     required TResult Function() loading,
     required TResult Function() faliure,
   }) {
@@ -521,7 +520,7 @@ class _$FaliureImpl implements _Faliure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<MobileServiceModel> companies)? success,
+    TResult? Function(List<CarCareModel> companies)? success,
     TResult? Function()? loading,
     TResult? Function()? faliure,
   }) {
@@ -532,7 +531,7 @@ class _$FaliureImpl implements _Faliure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<MobileServiceModel> companies)? success,
+    TResult Function(List<CarCareModel> companies)? success,
     TResult Function()? loading,
     TResult Function()? faliure,
     required TResult orElse(),

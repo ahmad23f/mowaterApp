@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/repositeory/search_repositeory.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/repositeory/search_repositeory.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'maintenance_state.dart';
 part 'maintenance_cubit.freezed.dart';

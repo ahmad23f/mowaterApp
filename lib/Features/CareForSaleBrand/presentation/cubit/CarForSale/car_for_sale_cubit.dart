@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/data/repositeory/cars_for_sale_repositeory.dart';
-import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/CareForSaleBrand/data/repositeory/cars_for_sale_repositeory.dart';
+import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'car_for_sale_cubit.freezed.dart';
 part 'car_for_sale_state.dart';

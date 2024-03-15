@@ -1,15 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SpecialtyDropDownByMainCategory extends StatefulWidget {
   final String mainCategory;
   final ValueChanged<List<int>> onSpecialtiesChanged;
-  final List<String>? initialSelectedSpecialties; // Changed to List<String>?
 
   const SpecialtyDropDownByMainCategory({
     Key? key,
     required this.mainCategory,
     required this.onSpecialtiesChanged,
-    this.initialSelectedSpecialties,
   }) : super(key: key);
 
   @override
@@ -21,94 +20,84 @@ class _SpecialtyDropDownByMainCategoryState
     extends State<SpecialtyDropDownByMainCategory> {
   // Map of main categories to specialties
   Map<String, List<String>> specialties = {
-    'Maintenance': [
-      'Engines',
-      'Electrical',
-      'Mechanical',
-      'Brake',
-      'Ac',
-      "Gear",
-      'Glass',
-      'Oil',
-      'Tires',
-      'Evaluation',
-      "programing",
-      'Dyeing And Plumbing',
-      'Rediators or Exhaust'
+    'Maintenance'.tr(): [
+      'Engines'.tr(),
+      'Electrical'.tr(),
+      'Mechanical'.tr(),
+      'Brake'.tr(),
+      'Ac'.tr(),
+      "Gear".tr(),
+      'Glass'.tr(),
+      'Oil'.tr(),
+      'Tires'.tr(),
+      'Evaluation'.tr(),
+      "programing".tr(),
+      'Dyeing And Plumbing'.tr(),
+      'Rediators or Exhaust'.tr()
     ],
-    'showRooms': [],
-    'insurance': [
-      'Broker',
-      'Company',
+    'showRooms'.tr(): [],
+    'insurance'.tr(): [
+      'Broker'.tr(),
+      'Company'.tr(),
     ],
-    'Evaluation': [],
-    'rentalCars': [],
-    'warranty': [],
-    'spareParts': [
-      'Steering',
-      'Gera',
-      'Engine',
-      'Suspensio',
-      'Fuel System',
-      'Lighting Or Electrical',
-      'Tires',
-      'Colling Or Heating',
-      'Air System',
-      'Interior Parts',
-      'Oil Or Filters',
-      'Batteries',
-      'Car Glass',
-      'Exhaust',
-      'Chassis Or Body',
+    'Evaluation'.tr(): [],
+    'rentalCars'.tr(): [],
+    'warranty'.tr(): [],
+    'spareParts'.tr(): [
+      'Steering'.tr(),
+      'Gera'.tr(),
+      'Engine'.tr(),
+      'Suspensio'.tr(),
+      'Fuel System'.tr(),
+      'Lighting Or Electrical'.tr(),
+      'Tires'.tr(),
+      'Colling Or Heating'.tr(),
+      'Air System'.tr(),
+      'Interior Parts'.tr(),
+      'Oil Or Filters'.tr(),
+      'Batteries'.tr(),
+      'Car Glass'.tr(),
+      'Exhaust'.tr(),
+      'Chassis Or Body'.tr(),
     ],
-    'inspection': [],
-    'carCare': [
-      'Glass Shading',
-      'Car Polish',
-      'Car Wash',
-      'Accessories',
-      'Car Wraps',
-      'Keys or Remotes',
-      'Interior Washing',
-      'Car Upholstery',
-      'Lights Polishing',
-      'Engine Protection',
-      'Car Body Protections',
-      'Paint Protection',
+    'inspection'.tr(): [],
+    'carCare'.tr(): [
+      'Glass Shading'.tr(),
+      'Car Polish'.tr(),
+      'Car Wash'.tr(),
+      'Accessories'.tr(),
+      'Car Wraps'.tr(),
+      'Keys or Remotes'.tr(),
+      'Interior Washing'.tr(),
+      'Car Upholstery'.tr(),
+      'Lights Polishing'.tr(),
+      'Engine Protection'.tr(),
+      'Car Body Protections'.tr(),
+      'Paint Protection'.tr(),
     ],
-    'mobileService': [
-      'Tiers',
-      'Battery',
-      'Recovery',
-      'Electric Charger',
+    'mobileService'.tr(): [
+      'Tiers'.tr(),
+      'Battery'.tr(),
+      'Recovery'.tr(),
+      'Electric Charger'.tr(),
     ]
   };
 
   late List<String> _specialties;
-  late List<int> _selectedSpecialtyIndices;
+  final List<int> _selectedSpecialtyIndices = [];
 
   @override
   void initState() {
     super.initState();
     _specialties = getSpecialtiesForCategory(widget.mainCategory);
-    _selectedSpecialtyIndices = widget.initialSelectedSpecialties != null
-        ? getSelectedSpecialtyIndices(widget.initialSelectedSpecialties!)
-        : [];
   }
 
   List<String> getSpecialtiesForCategory(String category) {
     return specialties[category] ?? [];
   }
 
-  List<int> getSelectedSpecialtyIndices(List<String> initialSpecialties) {
-    List<int> selectedIndices = [];
-    for (String specialty in initialSpecialties) {
-      int index = _specialties.indexOf(specialty);
-      if (index != -1) {
-        selectedIndices.add(index);
-      }
-    }
-    return selectedIndices;
+  List<int> getSelectedSpecialtyIndices() {
+    return _selectedSpecialtyIndices;
   }
 
   @override
@@ -117,7 +106,7 @@ class _SpecialtyDropDownByMainCategoryState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Specialties for ${widget.mainCategory}:',
+          'Specialties for ${widget.mainCategory}:'.tr(),
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),

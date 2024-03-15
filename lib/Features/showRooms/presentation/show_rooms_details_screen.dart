@@ -1,15 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/showRooms/models/show_room.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/google_map_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cars_details_screen.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/showRooms/models/show_room.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/google_map_widget.dart';
 
 class ShowRoomDetailsScreen extends StatelessWidget {
   ShowroomModel shoowRoom;
@@ -71,7 +72,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                                       ),
                                       Text(
                                         textAlign: TextAlign.center,
-                                        'mowaterApp Discount',
+                                        'Mowater Discount'.tr(),
                                         style: TextStyles.text_12.copyWith(
                                           color: Colors.white,
                                           fontSize: 12.sp,
@@ -102,7 +103,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                "specialty: ",
+                                "specialty: ".tr(),
                                 style: TextStyles.text_12,
                               ),
                             ],
@@ -121,7 +122,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Days:',
+                      'Days:'.tr(),
                       style: TextStyles.text_14,
                     ),
                     Text(
@@ -135,7 +136,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Hours:',
+                      'Hours:'.tr(),
                       style: TextStyles.text_14,
                     ),
                     Text(
@@ -149,7 +150,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Description :",
+                      "Description :".tr(),
                       style: TextStyles.text_14,
                     ),
                     Row(
@@ -186,7 +187,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Avilable Cars",
+              "Avilable Cars".tr(),
               style: TextStyles.text_18.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
@@ -208,7 +209,7 @@ class ShowRoomDetailsScreen extends StatelessWidget {
                     },
                   ),
                 )
-              : const Text('No Cars Yet!'),
+              : Text('No Cars Yet!'.tr()),
           const Divider(),
           GoogleMapWidgetComapny(
               latitude: shoowRoom.latitude!,

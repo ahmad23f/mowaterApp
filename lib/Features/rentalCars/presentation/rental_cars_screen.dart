@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/cubtis/rentalCarsCompany/rental_cars_companys_cubit.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/widgets/ads.dart';
-import 'package:mowaterApp/Features/rentalCars/presentation/widgets/company.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/rentalCars/presentation/cubtis/rentalCarsCompany/rental_cars_companys_cubit.dart';
+import 'package:Mowater/Features/rentalCars/presentation/widgets/ads.dart';
+import 'package:Mowater/Features/rentalCars/presentation/widgets/company.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class RentalCarsScreen extends StatelessWidget {
   const RentalCarsScreen({

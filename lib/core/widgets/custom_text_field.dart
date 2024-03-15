@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class CustomTextField2 extends StatelessWidget {
   void Function(String)? onChanged;

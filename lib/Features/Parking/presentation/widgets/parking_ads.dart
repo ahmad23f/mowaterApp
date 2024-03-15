@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mowaterApp/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/Features/Parking/presentation/parkingAds/parking_ads_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
 
 class ParkingAds extends StatelessWidget {
   const ParkingAds({

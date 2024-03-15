@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/rentalCars/data/repositeory/rental_cars.dart';
-import 'package:mowaterApp/Features/rentalCars/models/company_rental_car.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/rentalCars/data/repositeory/rental_cars.dart';
+import 'package:Mowater/Features/rentalCars/models/company_rental_car.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'rental_cars_companys_state.dart';
 part 'rental_cars_companys_cubit.freezed.dart';

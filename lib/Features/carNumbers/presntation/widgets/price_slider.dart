@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/style/text_style.dart'; // Assuming ColorApp.primeryColorDark is defined in this file
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/style/text_style.dart'; // Assuming ColorApp.primeryColorDark is defined in this file
 
 class PriceSliderPlate extends StatefulWidget {
   final double maxPrice;
@@ -38,8 +38,6 @@ class _PriceSliderPlateState extends State<PriceSliderPlate> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +69,11 @@ class _PriceSliderPlateState extends State<PriceSliderPlate> {
                               hintText: 'Enter Min Price',
                               hintStyle: const TextStyle(color: Colors.grey),
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .color!
+                                  .withOpacity(0.4),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                                 borderSide: BorderSide.none,
@@ -107,7 +109,11 @@ class _PriceSliderPlateState extends State<PriceSliderPlate> {
                               hintText: 'Enter Max Price',
                               hintStyle: const TextStyle(color: Colors.grey),
                               filled: true,
-                              fillColor: Colors.black.withOpacity(0.4),
+                              fillColor: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .color!
+                                  .withOpacity(0.4),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                                 borderSide: BorderSide.none,
@@ -133,7 +139,7 @@ class _PriceSliderPlateState extends State<PriceSliderPlate> {
           const SizedBox(height: 20),
           RangeSlider(
             activeColor: ColorApp.primeryColorDark,
-            inactiveColor: ColorApp.secunderyColorDark,
+            inactiveColor: Theme.of(context).colorScheme.secondary,
             values: _currentRangeValues,
             min: 0,
             max: widget.maxPrice,

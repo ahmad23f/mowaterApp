@@ -1,18 +1,19 @@
+import 'package:Mowater/Features/drawer/data/updateProfile/update_profile_cubit.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/signUp/data/models/user_response.dart';
-import 'package:mowaterApp/Features/updateUserInformation/presntation/cubit/update_user_info_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/validator.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/services/user_type.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/animation_loading_button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/validator.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/services/user_type.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   int id;
@@ -78,16 +79,23 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               verticalSpace(38),
               Center(
                 child: LoadingButton(
-                    isLoading: context.read<UpdateUserInfoCubit>().isLoading,
+                    isLoading: context.read<UpdateProfileCubit>().isLoading,
                     onPressed: () async {
                       setState(() {});
                       if (formKey.currentState!.validate()) {
+                        await context
+                            .read<UpdateProfileCubit>()
+                            .updateProfile(UserModel(
+                              type: UserServices.getUserInformation().type,
+                              id: widget.id,
+                              password: password.text,
+                            ));
                         setState(() {});
                       }
                     },
                     buttonText: 'Reset password'),
               ),
-              BlocBuilder<UpdateUserInfoCubit, UpdateUserInfoState>(
+              BlocBuilder<UpdateProfileCubit, UpdateProfileState>(
                 builder: (context, state) {
                   return state.when(
                       initial: () => const SizedBox(),
@@ -98,7 +106,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         );
                         return const SizedBox();
                       },
-                      faliure: (error) {
+                      failure: (error) {
                         Future.delayed(
                           Duration.zero,
                           () => ShowSnakBar(context,
@@ -106,7 +114,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         );
                         return const SizedBox();
                       },
-                      loading: () => const SizedBox());
+                      Loading: () => const SizedBox());
                 },
               )
             ],

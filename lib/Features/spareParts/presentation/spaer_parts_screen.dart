@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SpearPartsScreen extends StatelessWidget {
@@ -5,10 +6,10 @@ class SpearPartsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Column(
         children: [
-          Text('spaer parts'),
+          Text('spaer parts'.tr()),
         ],
       ),
     );

@@ -1,43 +1,44 @@
 // import 'dart:io';
 // import 'dart:typed_data';
 
+// import 'package:easy_localization/easy_localization.dart';
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
-// import 'package:mowaterApp/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
-// import 'package:mowaterApp/Features/CarsForSale/data/model/car_model.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/cylinders_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/call_form.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/colors_list.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/condition_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/doors_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/extra_text_form.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/fuel_type_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/gear_box_drodown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/kilometer_text_form.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/location_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/specifications_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/warranty_dropdown.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/whatsapp_form.dart';
-// import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
-// import 'package:mowaterApp/Features/carNumbers/presntation/sell_your_plate_screen.dart';
-// import 'package:mowaterApp/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
-// import 'package:mowaterApp/Features/showRoomMyCars/presntation/addEdit/show_room_add_edit_cubit.dart';
-// import 'package:mowaterApp/Features/sparePartCompany/presntation/addProduct/add_spare_parts_product_cubit.dart';
-// import 'package:mowaterApp/Features/sparePartCompany/presntation/add_product_screen.dart';
-// import 'package:mowaterApp/core/constants/color.dart';
-// import 'package:mowaterApp/core/constants/size.dart';
-// import 'package:mowaterApp/core/di/dependency_injection.dart';
-// import 'package:mowaterApp/core/networking/api_constant.dart';
-// import 'package:mowaterApp/core/services/user_state.dart';
-// import 'package:mowaterApp/core/style/text_style.dart';
-// import 'package:mowaterApp/core/widgets/button.dart';
-// import 'package:mowaterApp/test_add_car.dart';
+// import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
+// import 'package:Mowater/Features/CarsForSale/data/model/carModelProduct/car_model_product.dart';
+// import 'package:Mowater/Features/CarsForSale/data/model/car_model.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/cylinders_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/call_form.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/colors_list.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/condition_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/doors_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/extra_text_form.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/fuel_type_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/gear_box_drodown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/kilometer_text_form.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/location_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/price_form_filed.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/specifications_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/warranty_dropdown.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/whatsapp_form.dart';
+// import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
+// import 'package:Mowater/Features/carNumbers/presntation/sell_your_plate_screen.dart';
+// import 'package:Mowater/Features/mowaterMart/data/model/mowater_mart_product_model.dart';
+// import 'package:Mowater/Features/showRoomMyCars/presntation/addEdit/show_room_add_edit_cubit.dart';
+// import 'package:Mowater/Features/sparePartCompany/presntation/addProduct/add_spare_parts_product_cubit.dart';
+// import 'package:Mowater/Features/sparePartCompany/presntation/add_product_screen.dart';
+// import 'package:Mowater/core/constants/color.dart';
+// import 'package:Mowater/core/constants/size.dart';
+// import 'package:Mowater/core/di/dependency_injection.dart';
+// import 'package:Mowater/core/networking/api_constant.dart';
+// import 'package:Mowater/core/services/user_state.dart';
+// import 'package:Mowater/core/style/text_style.dart';
+// import 'package:Mowater/core/widgets/button.dart';
+// import 'package:Mowater/test_add_car.dart';
 // import 'package:multiple_images_picker/multiple_images_picker.dart';
 // import 'package:path_provider/path_provider.dart';
 // import 'package:permission_handler/permission_handler.dart';
@@ -93,7 +94,7 @@
 //     return Scaffold(
 //       appBar: AppBar(
 //         title: Text(
-//           'Edit Car',
+//           'Edit Car'.tr(),
 //           style: TextStyles.text_16,
 //         ),
 //       ),
@@ -112,7 +113,7 @@
 //             children: [
 //               Container(
 //                 decoration: BoxDecoration(
-//                   color: ColorApp.secunderyColorDark.withOpacity(1),
+//                   color: Theme.of(context).colorScheme.secondary.withOpacity(1),
 //                   borderRadius: BorderRadius.circular(8),
 //                 ),
 //                 height: 230.h,
@@ -126,8 +127,8 @@
 //               ),
 //               verticalSpace(20),
 //               selectedImages.isEmpty
-//                   ? const SizedBox(
-//                       child: Text('No Image Yet!'),
+//                   ?  SizedBox(
+//                       child: Text('No Image Yet!'.tr()),
 //                     )
 //                   : SizedBox(
 //                       height: 100.h,
@@ -205,7 +206,7 @@
 //                 color: ColorApp.primeryColorDark,
 //                 padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 10),
 //                 textStyle: TextStyles.text_24.copyWith(color: Colors.white),
-//                 text: 'Send',
+//                 text: 'Send'.tr(),
 //               )
 //             ],
 //           ),
@@ -247,7 +248,7 @@
 //                   padding: const EdgeInsets.all(4),
 //                   decoration: BoxDecoration(
 //                     shape: BoxShape.circle,
-//                     color: Colors.black.withOpacity(0.5),
+//                     color: Theme.of(context).textTheme.titleSmall!.color!.withOpacity(0.5),
 //                   ),
 //                   child: const Icon(
 //                     Icons.close,
@@ -265,11 +266,11 @@
 
 //   bool validateFields() {
 //     if (carMake == 0) {
-//       showSnackBar('Please select car make');
+//       showSnackBar('Please select car make'.tr());
 //       return false;
 //     }
 //     if (carModel == 0) {
-//       showSnackBar('Please select car model');
+//       showSnackBar('Please select car model'.tr());
 //       return false;
 //     }
 //     // Add validation for other fields similarly
@@ -307,12 +308,12 @@
 //         maxImages: 5,
 //         enableCamera: true,
 //         cupertinoOptions: const CupertinoOptions(
-//           takePhotoIcon: "chat",
+//           takePhotoIcon: "chat".tr(),
 //         ),
 //         materialOptions: const MaterialOptions(
 //           actionBarColor: "#abcdef",
-//           actionBarTitle: "Pick images",
-//           allViewTitle: "All photos",
+//           actionBarTitle: "Pick images".tr(),
+//           allViewTitle: "All photos".tr(),
 //           useDetailsView: false,
 //           selectCircleStrokeColor: "#000000",
 //         ),

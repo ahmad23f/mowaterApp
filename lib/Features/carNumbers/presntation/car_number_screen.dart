@@ -1,16 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/category.dart';
-import 'package:mowaterApp/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
-import 'package:mowaterApp/Features/home/presentation/widgets/trending/trending_widget.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/error_ads_widget.dart';
-import 'package:mowaterApp/core/widgets/loading_trending.dart';
+import 'package:Mowater/Features/carNumbers/presntation/category.dart';
+import 'package:Mowater/Features/carNumbers/presntation/plateAds/plate_ads_cubit.dart';
+import 'package:Mowater/Features/home/presentation/widgets/trending/trending_widget.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/error_ads_widget.dart';
+import 'package:Mowater/core/widgets/loading_trending.dart';
 
 class CarNumbersScreen extends StatelessWidget {
   const CarNumbersScreen({super.key});
@@ -20,7 +21,7 @@ class CarNumbersScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Car Numbers',
+          'Car Numbers'.tr(),
           style: TextStyles.text_18
               .copyWith(fontWeight: FontWeight.bold, fontSize: 19.sp),
         ),
@@ -48,11 +49,11 @@ class CarNumbersScreen extends StatelessWidget {
                 crossAxisSpacing: mainPadding,
                 crossAxisCount: crorAxixCount(context)),
             itemBuilder: (context, index) => InkWell(
-                onTap: () =>
-                    carNumberCateogry[index].categoryName == "Sell Your Plate"
-                        ? context.push(RouteName.sellYourPlate)
-                        : context.push(RouteName.platesForSaleScreen,
-                            extra: carNumberCateogry[index]),
+                onTap: () => carNumberCateogry[index].categoryName ==
+                        "Sell Your Plate".tr()
+                    ? context.push(RouteName.sellYourPlate)
+                    : context.push(RouteName.platesForSaleScreen,
+                        extra: carNumberCateogry[index]),
                 child: carNumberCateogry[index]),
           )
         ],

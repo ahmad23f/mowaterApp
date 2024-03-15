@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/networking/api_constant.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/google_map_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/MaintenanceServices/data/model/companys/companyes_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/networking/api_constant.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/google_map_widget.dart';
 
 class MaintenanceDetailsScreen extends StatelessWidget {
   MaintenanceCompanyModel maintenanceCompanyModel;
@@ -71,7 +71,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                                       ),
                                       Text(
                                         textAlign: TextAlign.center,
-                                        'mowaterApp Discount',
+                                        'Mowater Discount',
                                         style: TextStyles.text_12.copyWith(
                                           color: Colors.white,
                                           fontSize: 12.sp,
@@ -181,7 +181,7 @@ class MaintenanceDetailsScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                                 gradient: LinearGradient(colors: [
                                   ColorApp.primeryColorDark,
-                                  ColorApp.secunderyColorDark
+                                  Theme.of(context).colorScheme.secondary
                                 ])),
                             child: maintenanceCompanyModel.carBrands!.isEmpty
                                 ? const Text('')

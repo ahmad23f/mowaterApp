@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/data/repositeory.dart';
-import 'package:mowaterApp/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/data/repositeory.dart';
+import 'package:Mowater/Features/insurance/categorys/Brokers/models/insurance_providers_model.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
 
 part 'insurance_provider_service_state.dart';
 part 'insurance_provider_service_cubit.freezed.dart';

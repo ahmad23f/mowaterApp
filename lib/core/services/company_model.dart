@@ -6,7 +6,7 @@ part 'company_model.g.dart';
 @HiveType(typeId: 3)
 class NormalCompanyModelHive extends HiveObject {
   @HiveField(0)
-  String? id;
+  int? id;
   @HiveField(1)
   String? name;
   @HiveField(2)

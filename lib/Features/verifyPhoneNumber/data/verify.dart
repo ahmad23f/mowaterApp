@@ -1,7 +1,6 @@
-
-import 'package:mowaterApp/core/networking/api/api_result.dart';
-import 'package:mowaterApp/core/networking/api/api_service.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
+import 'package:Mowater/core/networking/api/api_result.dart';
+import 'package:Mowater/core/networking/api/api_service.dart';
+import 'package:Mowater/core/services/user_state.dart';
 
 class VerifyCodeRepositeory {
   final ApiService _apiService;
@@ -25,23 +24,8 @@ class VerifyCodeRepositeory {
       });
       print('===============');
 
-      print(response.user!.phoneNumber);
-      print(response.user!.verified);
       print('===============');
       if (response.status == 'success') {
-        UserServices.updateUserInfo(
-          emailState: response.user!.emailState,
-          verify: response.user?.verified,
-          whatsState: response.user?.whatsappVerified,
-          whatsappNumber: response.user?.whatsappNumber,
-          email: response.user?.email,
-          phoneNumber: response.user?.phoneNumber,
-          image: response.user?.image,
-          nickName: response.user?.nickname,
-          username: response.user?.name,
-          lastUpdatePhoneNumber: response.user?.lastUpdatePhoneNumber,
-          lastUpdateWhatsAppNumber: response.user?.lastUpdateWhatsAppNumber,
-        );
         // return ApiResult.failure(response.message);
 
         return ApiResult.success(response.user);

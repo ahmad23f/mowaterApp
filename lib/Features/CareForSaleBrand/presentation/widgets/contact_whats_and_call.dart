@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_widgtet.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/url_lancher.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_widgtet.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/url_lancher.dart';
 
 class ContactWhatsAndCall extends StatelessWidget {
   String callNumber;

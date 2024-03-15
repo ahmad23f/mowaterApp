@@ -1,15 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/di/dependency_injection.dart';
-import 'package:mowaterApp/core/helper/reqexp.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
-import 'package:mowaterApp/core/widgets/loading/shimmer_widget.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/CarBrands/car_brands_cubit.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/cubit/carModelsBrand/car_models_brands_cubit.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/di/dependency_injection.dart';
+import 'package:Mowater/core/helper/reqexp.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/button.dart';
+import 'package:Mowater/core/widgets/loading/shimmer_widget.dart';
 
 class CarNameDropChipChoseWidget extends StatefulWidget {
   final TextEditingController carNameController;
@@ -66,13 +67,12 @@ class _CarNameDropChipChoseWidgetState
                                 .map((index) => data[index].name)
                                 .join(', ');
                           }
-                          // Call onChanged explicitly
                           widget.onChanged?.call(_selectedIndices);
                         });
                       },
                       text: _selectedIndices.length == data.length
-                          ? 'Deselect All'
-                          : 'Select All',
+                          ? 'Deselect All'.tr()
+                          : 'Select All'.tr(),
                       color: ColorApp.primeryColorDark,
                       textStyle:
                           TextStyles.text_18.copyWith(color: Colors.white),
@@ -103,7 +103,7 @@ class _CarNameDropChipChoseWidgetState
                           label: Text(AppRegex.extractEnglishText(brand.name)),
                           backgroundColor: _selectedIndices.contains(index)
                               ? ColorApp.primeryColorDark
-                              : ColorApp.secunderyColorDark,
+                              : Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                     );

@@ -4,20 +4,20 @@ import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/condition_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/extra_text_form.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/kilometer_text_form.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/specifications_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/warranty_dropdown.dart';
-import 'package:mowaterApp/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/services/user_state.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/annymous_block.dart';
-import 'package:mowaterApp/core/widgets/button.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_model_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/car_name_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/condition_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/extra_text_form.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/kilometer_text_form.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/specifications_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/warranty_dropdown.dart';
+import 'package:Mowater/Features/SellYourCar/presentation/widgets/formWidget/years_dropdown.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/annymous_block.dart';
+import 'package:Mowater/core/widgets/button.dart';
 import 'package:multiple_images_picker/multiple_images_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -231,7 +231,11 @@ class _EvaluationScreenState extends State<EvaluationScreen> {
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.black.withOpacity(0.5),
+                    color: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .color!
+                        .withOpacity(0.5),
                   ),
                   child: const Icon(
                     Icons.close,

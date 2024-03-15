@@ -1,21 +1,26 @@
 import 'dart:io';
-
+import 'package:Mowater/Features/signUp/data/models/sign_up_request.dart';
+import 'package:Mowater/Features/signUp/presentation/cubits/signUp/cubit/sign_up_cubit.dart';
+import 'package:Mowater/core/models/user_model.dart';
+import 'package:Mowater/core/services/user_state.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/model/service_account.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/providerServicesAuth/provider_service_auth_cubit.dart';
-import 'package:mowaterApp/Features/ServiceProvider%20%20Company/presntation/widgets/day_week_dialgo.dart';
-import 'package:mowaterApp/Features/serviceProverAuth/presnation/widgets/specialty_drop_down.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/routing/routing_name.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
-import 'package:mowaterApp/core/widgets/animation_loading_button.dart';
-import 'package:mowaterApp/core/widgets/snak_bar.dart';
-import 'package:mowaterApp/core/widgets/text_form_fiedl.dart';
+import 'package:Mowater/Features/ServiceProvider%20%20Company/model/service_account.dart';
+import 'package:Mowater/Features/ServiceProvider%20%20Company/presntation/providerServicesAuth/provider_service_auth_cubit.dart';
+import 'package:Mowater/Features/ServiceProvider%20%20Company/presntation/widgets/day_week_dialgo.dart';
+import 'package:Mowater/Features/serviceProverAuth/presnation/widgets/specialty_drop_down.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/routing/routing_name.dart';
+import 'package:Mowater/core/style/text_style.dart';
+import 'package:Mowater/core/widgets/animation_loading_button.dart';
+import 'package:Mowater/core/widgets/snak_bar.dart';
+import 'package:Mowater/core/widgets/text_form_fiedl.dart';
 
 class ServiceProviderChoseTypeAccountScreen extends StatefulWidget {
   const ServiceProviderChoseTypeAccountScreen({
@@ -66,9 +71,9 @@ class _ServiceProviderChoseTypeAccountScreenState
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text(
-          'Company Information',
-          style: TextStyle(
+        title: Text(
+          'Company Information'.tr(),
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -127,7 +132,8 @@ class _ServiceProviderChoseTypeAccountScreenState
                                   padding: EdgeInsets.all(5.dg),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
-                                    color: ColorApp.secunderyColorDark,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
                                   child: const Icon(
                                     Icons.add,
@@ -143,7 +149,7 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             SizedBox(height: 12.h), // Add spacing
             Text(
-              'Trade Name',
+              'Trade Name'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -151,17 +157,17 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             CustomTextFormField(
               controller: tradeNameController,
-              hintText: 'Trade Name',
+              hintText: 'Trade Name'.tr(),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Trade Name is required';
+                  return 'Trade Name is required'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'Commercial License Number',
+              'Commercial License Number'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -169,17 +175,17 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             CustomTextFormField(
               controller: commercialLicenseNumberController,
-              hintText: 'Commercial license number',
+              hintText: 'Commercial license number'.tr(),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Commercial license number is required';
+                  return 'Commercial license number is required'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'Password',
+              'Password'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -187,17 +193,17 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             CustomTextFormField(
               controller: passwordController,
-              hintText: 'Password',
+              hintText: 'Password'.tr(),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Password is required';
+                  return 'Password is required'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'Confirm Password',
+              'Confirm Password'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -205,37 +211,37 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             CustomTextFormField(
               controller: confirmPasswordController,
-              hintText: 'Confirm Password',
+              hintText: 'Confirm Password'.tr(),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please confirm your password';
+                  return 'Please confirm your password'.tr();
                 } else if (value != passwordController.text) {
-                  return 'Passwords do not match';
+                  return 'Passwords do not match'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'Number',
+              'Number'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
             CustomTextFormField(
-              hintText: 'number phone',
+              hintText: 'number phone'.tr(),
               controller: numberController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Number is required';
+                  return 'Number is required'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'WhatsApp Number',
+              'WhatsApp Number'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -243,17 +249,17 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             CustomTextFormField(
               controller: whatsappNumberController,
-              hintText: 'whatsapp number',
+              hintText: 'whatsapp number'.tr(),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'WhatsApp Number is required';
+                  return 'WhatsApp Number is required'.tr();
                 }
                 return null;
               },
             ),
             SizedBox(height: 12.h),
             Text(
-              'Description', // New field
+              'Description'.tr(), // New field
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -264,21 +270,23 @@ class _ServiceProviderChoseTypeAccountScreenState
               maxLine: 7,
               controller: descriptionController,
               inputType: TextInputType.multiline,
-              hintText: 'Description',
+              hintText: 'Description'.tr(),
             ),
             SizedBox(height: 12.h),
-            const Text(
-              'Mowater Discount',
-              style: TextStyle(color: Colors.white), // Black text color
+            Text(
+              'Mowater Discount'.tr(),
+              style: const TextStyle(color: Colors.white), // Black text color
             ),
             Container(
               decoration: BoxDecoration(
-                color: ColorApp.secunderyColorDark, // Grey background color
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary, // Grey background color
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: CheckboxListTile(
                 title: Text(
-                  'Enable Mowater Discount',
+                  'Enable Mowater Discount'.tr(),
                   style: TextStyle(
                       color: Colors.white.withOpacity(0.6)), // Black text color
                 ),
@@ -297,7 +305,7 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             SizedBox(height: 12.h),
             Text(
-              'Service Specialty',
+              'Service Specialty'.tr(),
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w500,
@@ -305,7 +313,7 @@ class _ServiceProviderChoseTypeAccountScreenState
             ),
             SpecialtyDropDown(
               onCategoryChanged: (value) {
-                selectedSpecialties = value;
+                selectedSpecialties = value.toString();
               },
               onSpecialtiesChanged: (specialty) {
                 print(specialty.first);
@@ -318,7 +326,7 @@ class _ServiceProviderChoseTypeAccountScreenState
             Row(
               children: [
                 Text(
-                  'work days',
+                  'work days'.tr(),
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w500,
@@ -333,8 +341,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                     onTap: () async {
                       List<String>? result = await showDialog(
                         context: context,
-                        builder: (context) =>
-                            const DayWeekDialog(initialSelectedDays: []),
+                        builder: (context) => const DayWeekDialog(),
                       );
                       if (result != null) {
                         setState(() {
@@ -347,11 +354,11 @@ class _ServiceProviderChoseTypeAccountScreenState
                           vertical: 15.0.dg, horizontal: 5.dg),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: ColorApp.secunderyColorDark,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                       child: Text(
                         selectedDays.isEmpty
-                            ? 'Days work'
+                            ? 'Days work'.tr()
                             : selectedDays.join(', '),
                         textAlign: TextAlign.center,
                         style: const TextStyle(fontSize: 16.0),
@@ -369,7 +376,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Start Time',
+                        'Start Time'.tr(),
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
@@ -392,7 +399,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                               vertical: 15.h, horizontal: 10.w),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: ColorApp.secunderyColorDark,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -400,7 +407,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                               Text(
                                 endTime != null
                                     ? _formatTime(endTime!)
-                                    : 'Select',
+                                    : 'Select'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16.sp),
                               ),
@@ -421,7 +428,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                 ),
                 SizedBox(width: 10.w),
                 Text(
-                  'To',
+                  'To'.tr(),
                   style: TextStyle(
                     fontSize: 18.sp,
                   ),
@@ -432,7 +439,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'End Time',
+                        'End Time'.tr(),
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
@@ -455,7 +462,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                               vertical: 15.h, horizontal: 10.w),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: ColorApp.secunderyColorDark,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -463,7 +470,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                               Text(
                                 startTime != null
                                     ? _formatTime(startTime!)
-                                    : 'Select',
+                                    : 'Select'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16.sp),
                               ),
@@ -503,7 +510,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                     child: Container(
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
-                          color: ColorApp.secunderyColorDark,
+                          color: Theme.of(context).colorScheme.secondary,
                           borderRadius: BorderRadius.circular(12.dg)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -511,8 +518,8 @@ class _ServiceProviderChoseTypeAccountScreenState
                           const Icon(Icons.map_outlined),
                           Text(
                             latitude != null && longitude != null
-                                ? 'Location Selected'
-                                : 'Select Location on Map',
+                                ? 'Location Selected'.tr()
+                                : 'Select Location on Map'.tr(),
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 16.0.sp),
                           ),
@@ -542,12 +549,12 @@ class _ServiceProviderChoseTypeAccountScreenState
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                     _selectFile(FileType.custom,
-                                        allowedExtensions: ['pdf']);
+                                        allowedExtensions: ['pdf'.tr()]);
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      'Upload pdf',
+                                      'Upload pdf'.tr(),
                                       style: TextStyle(
                                           fontSize: 16.sp, color: Colors.white),
                                     ),
@@ -561,7 +568,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      'Choose from Gallery',
+                                      'Choose from Gallery'.tr(),
                                       style: TextStyle(
                                           fontSize: 16.sp, color: Colors.white),
                                     ),
@@ -581,7 +588,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                           padding: EdgeInsets.all(10.0.dg),
                           child: _pdfFile != null
                               ? Text(
-                                  'Attachment Selected',
+                                  'Attachment Selected'.tr(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 16.0.sp),
                                 )
@@ -589,12 +596,12 @@ class _ServiceProviderChoseTypeAccountScreenState
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Upload  a ',
+                                      'Upload  a '.tr(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 16.sp),
                                     ),
                                     Text(
-                                      'Attachment',
+                                      'Attachment'.tr(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 16.sp,
@@ -613,9 +620,8 @@ class _ServiceProviderChoseTypeAccountScreenState
               children: [
                 Expanded(
                   child: LoadingButton(
-                    buttonText: 'Create Account',
-                    isLoading:
-                        context.read<ProviderServiceAuthCubit>().isLoading,
+                    buttonText: 'Create Account'.tr(),
+                    isLoading: context.read<SignUpCubit>().isLoading,
                     onPressed: () async {
                       if (_validateInputs()) {
                         setState(() {});
@@ -637,7 +643,7 @@ class _ServiceProviderChoseTypeAccountScreenState
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Already have an account? ",
+                  "Already have an account? ".tr(),
                   style: TextStyles.text_16,
                 ),
                 InkWell(
@@ -645,7 +651,7 @@ class _ServiceProviderChoseTypeAccountScreenState
                     context.push(RouteName.loginServiceProvider);
                   },
                   child: Text(
-                    "Login Now!",
+                    "Login Now!".tr(),
                     style: TextStyles.text_16.copyWith(
                         color: ColorApp.primeryColorDark,
                         fontWeight: FontWeight.bold),
@@ -654,26 +660,29 @@ class _ServiceProviderChoseTypeAccountScreenState
               ],
             ),
 
-            BlocBuilder<ProviderServiceAuthCubit, ProviderServiceAuthState>(
+            BlocBuilder<SignUpCubit, SignUpState>(
               builder: (context, state) {
                 return state.when(
                     initial: () => const SizedBox(),
                     success: (statusApiResponse) {
+                      UserServices.saveLoginState(statusApiResponse.user);
+
                       Future.delayed(
                           Duration.zero,
-                          () => context.go(RouteName.thankYouForRegister,
-                              extra: selectedSpecialties));
+                          () => context.go(
+                                RouteName.thankYouForRegister,
+                              ));
 
                       return const SizedBox();
                     },
-                    failure: (errorMessage) {
+                    faliure: (errorMessage) {
                       Future.delayed(
                           Duration.zero,
                           () => ShowSnakBar(
                                 duration: 7,
                                 context,
                                 content: errorMessage,
-                                title: 'Failure',
+                                title: 'Failure'.tr(),
                                 backGroundColor:
                                     const Color.fromARGB(255, 98, 22, 18),
                               ));
@@ -689,19 +698,19 @@ class _ServiceProviderChoseTypeAccountScreenState
   }
 
   bool _validateInputs() {
-    // if (_image == null) {
-    //   ShowSnakBar(
-    //     context,
-    //     content: 'Please select an image',
-    //     title: 'Failure',
-    //     backGroundColor: const Color.fromARGB(255, 98, 22, 18),
-    //   );
-    //   return false;
-    // }
+    if (_image == null) {
+      ShowSnakBar(
+        context,
+        content: 'Please select an image',
+        title: 'Failure',
+        backGroundColor: const Color.fromARGB(255, 98, 22, 18),
+      );
+      return false;
+    }
     if (tradeNameController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Trade name cannot be empty',
+        content: 'Trade name cannot be empty'.tr(),
         title: 'Failure',
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
@@ -710,8 +719,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (commercialLicenseNumberController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Commercial license number cannot be empty',
-        title: 'Failure',
+        content: 'Commercial license number cannot be empty'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -719,8 +728,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (passwordController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Password cannot be empty',
-        title: 'Failure',
+        content: 'Password cannot be empty'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -728,16 +737,16 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (confirmPasswordController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Please confirm your password',
-        title: 'Failure',
+        content: 'Please confirm your password'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
     } else if (confirmPasswordController.text != passwordController.text) {
       ShowSnakBar(
         context,
-        content: 'Passwords do not match',
-        title: 'Failure',
+        content: 'Passwords do not match'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -745,8 +754,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (numberController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Phone number cannot be empty',
-        title: 'Failure',
+        content: 'Phone number cannot be empty'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -754,8 +763,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (whatsappNumberController.text.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'WhatsApp number cannot be empty',
-        title: 'Failure',
+        content: 'WhatsApp number cannot be empty'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -763,8 +772,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (selectedSpecialties == null) {
       ShowSnakBar(
         context,
-        content: 'Please select a service specialty',
-        title: 'Failure',
+        content: 'Please select a service specialty'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -772,8 +781,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (selectedDays.isEmpty) {
       ShowSnakBar(
         context,
-        content: 'Please select work days',
-        title: 'Failure',
+        content: 'Please select work days'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -781,8 +790,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (startTime == null || endTime == null) {
       ShowSnakBar(
         context,
-        content: 'Please select working hours',
-        title: 'Failure',
+        content: 'Please select working hours'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -790,8 +799,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (latitude == null || longitude == null) {
       ShowSnakBar(
         context,
-        content: 'Please select your location on map',
-        title: 'Failure',
+        content: 'Please select your location on map'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -799,8 +808,8 @@ class _ServiceProviderChoseTypeAccountScreenState
     if (_pdfFile == null) {
       ShowSnakBar(
         context,
-        content: 'Please upload a document',
-        title: 'Failure',
+        content: 'Please upload a document'.tr(),
+        title: 'Failure'.tr(),
         backGroundColor: const Color.fromARGB(255, 98, 22, 18),
       );
       return false;
@@ -850,24 +859,24 @@ class _ServiceProviderChoseTypeAccountScreenState
     print('End Time: $endTimeFormatted');
     print('Latitude: $latitudeValue');
     print('Longitude: $longitudeValue');
-    await context.read<ProviderServiceAuthCubit>().addProviderService(
-          providerAccount: ServiceProviderAccountModel(
-              tradeName: tradeName,
-              commercialLicenseNumber: commercialLicenseNumber,
+    await context.read<SignUpCubit>().signUp(
+          attachment: _pdfFile,
+          image: _image,
+          user: UserModel(
+              name: tradeName,
+              commercialLicenesNumber: commercialLicenseNumber,
               password: password,
-              number: number,
-              whatssApp: whatsappNumber,
-              descreption: description,
-              image: _image,
-              pdfFile: _pdfFile,
-              specialtyName: selectedSpecialties,
-              selectedSpecialties: selectedServices,
-              selectedDays: workDays,
+              phoneNumber: number,
+              whatsAppNumber: whatsappNumber,
+              description: description,
+              type: selectedSpecialties,
+              specialtyCategorys: selectedServices,
+              workDays: workDays,
               startTime: startTimeFormatted,
               endTime: endTimeFormatted,
-              latitude: latitudeValue,
-              longitude: longitudeValue,
-              mowaterDiscount: mowaterDiscount),
+              latitude: latitudeValue.toString(),
+              longitude: longitudeValue.toString(),
+              mowaterDiscount: mowaterDiscount == true ? 1 : 0),
         );
   }
 
@@ -908,49 +917,99 @@ class MapPickerDialog extends StatefulWidget {
 
 class _MapPickerDialogState extends State<MapPickerDialog> {
   late GoogleMapController _mapController;
-  LatLng? _pickedLocation;
+  late LatLng _currentPosition;
+  bool _isLoading = true;
+  final Set<Marker> _markers = {}; // Set to hold the markers
 
-  void _selectLocation(LatLng position) {
+  @override
+  void initState() {
+    super.initState();
+    _getUserLocation();
+  }
+
+  void _getUserLocation() async {
+    LocationPermission permission;
+    permission = await Geolocator.requestPermission();
+
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    double lat = position.latitude;
+    double long = position.longitude;
+
+    LatLng location = LatLng(lat, long);
+
     setState(() {
-      _pickedLocation = position;
+      _currentPosition = location;
+      _isLoading = false;
+      _markers.add(
+        Marker(
+          markerId: const MarkerId("current_location"),
+          position: _currentPosition,
+          icon: BitmapDescriptor.defaultMarker,
+        ),
+      );
     });
-    widget.onSelected(position);
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    _mapController = controller;
+  }
+
+  // Method to handle tap on the map
+  void _onMapTap(LatLng tappedPoint) {
+    setState(() {
+      // Remove all existing markers
+      _markers.clear();
+
+      // Add a new marker at the tapped location
+      _markers.add(
+        Marker(
+          markerId: MarkerId(tappedPoint.toString()),
+          position: tappedPoint,
+        ),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Map'),
+      ),
       body: Stack(
         children: [
-          GoogleMap(
-            initialCameraPosition: const CameraPosition(
-              target: LatLng(37.7749, -122.4194),
-              zoom: 16,
-            ),
-            onTap: _selectLocation,
-            onMapCreated: (GoogleMapController controller) {
-              _mapController = controller;
-            },
-            markers: _pickedLocation != null
-                ? {
-                    Marker(
-                      markerId: const MarkerId('m1'),
-                      position: _pickedLocation!,
-                    ),
-                  }
-                : {},
-          ),
+          _isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  onTap: _onMapTap, // Handle tap on the map
+                  initialCameraPosition: CameraPosition(
+                    target: _currentPosition,
+                    zoom: 16.0,
+                  ),
+                  markers: _markers, // Show markers on the map
+                ),
           Positioned(
             bottom: 20.0,
-            left: 16.0,
-            right: 16.0,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'Save',
-                style: TextStyles.text_16.copyWith(color: Colors.white),
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Assuming here that _currentPosition should be updated
+                  // when the user taps on the map and not just when the widget is initialized
+                  widget.onSelected(_markers.isNotEmpty
+                      ? _markers.first.position
+                      : _currentPosition);
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Save',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
             ),
           ),

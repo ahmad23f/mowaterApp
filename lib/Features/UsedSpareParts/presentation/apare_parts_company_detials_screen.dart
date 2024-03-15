@@ -1,11 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/models/spare_part_company.dart';
-import 'package:mowaterApp/Features/UsedSpareParts/presentation/widgets/avilable_product_widget.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/UsedSpareParts/models/spare_part_company.dart';
+import 'package:Mowater/Features/UsedSpareParts/presentation/widgets/avilable_product_widget.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class SparePartCompanyDetailsScreen extends StatelessWidget {
   final SpatepartsCompanyModel company;
@@ -70,7 +71,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                                     size: 20.dg,
                                   ),
                                   Text(
-                                    'mowaterApp Discount',
+                                    'Mowater Discount'.tr(),
                                     style: TextStyles.text_12.copyWith(
                                       color: Colors.white,
                                       fontSize: 12.sp,
@@ -103,7 +104,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                       ),
                       horizontalSpace(mainPadding),
                       Text(
-                        'Details',
+                        'Details'.tr(),
                         style: TextStyles.text_14,
                       )
                     ],
@@ -123,7 +124,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  "Number of Product available: ",
+                                  "Number of Product available: ".tr(),
                                   style: TextStyles.text_12,
                                 ),
                               ],
@@ -142,19 +143,11 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Days:',
+                        'Days:'.tr(),
                         style: TextStyles.text_14,
                       ),
                       Text(
-                        company.daysWeek.first,
-                        style: TextStyles.text_12,
-                      ),
-                      Text(
-                        ' - ',
-                        style: TextStyles.text_12,
-                      ),
-                      Text(
-                        company.daysWeek.last,
+                        '${company.daysWeek.first} - ${company.daysWeek.last}',
                         style: TextStyles.text_12,
                       )
                     ],
@@ -164,7 +157,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Hours:',
+                        'Hours:'.tr(),
                         style: TextStyles.text_14,
                       ),
                       Text(
@@ -178,7 +171,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Description :",
+                        "Description :".tr(),
                         style: TextStyles.text_14,
                       ),
                       Row(
@@ -209,7 +202,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Avilable Products",
+                "Avilable Products".tr(),
                 style: TextStyles.text_18.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
@@ -238,7 +231,7 @@ class SparePartCompanyDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Map View :',
+                    'Map View :'.tr(),
                     style: TextStyles.text_18,
                   ),
                   verticalSpace(mainPadding),

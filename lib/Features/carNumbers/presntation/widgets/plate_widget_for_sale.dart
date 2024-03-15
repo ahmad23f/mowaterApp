@@ -1,12 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mowaterApp/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
-import 'package:mowaterApp/Features/Parking/data/image_principality.dart';
-import 'package:mowaterApp/Features/carNumbers/models/plate_model.dart';
-import 'package:mowaterApp/core/constants/color.dart';
-import 'package:mowaterApp/core/constants/size.dart';
-import 'package:mowaterApp/core/helper/get_post_when.dart';
-import 'package:mowaterApp/core/style/text_style.dart';
+import 'package:Mowater/Features/CareForSaleBrand/presentation/widgets/contact_whats_and_call.dart';
+import 'package:Mowater/Features/Parking/data/image_principality.dart';
+import 'package:Mowater/Features/carNumbers/models/plate_model.dart';
+import 'package:Mowater/core/constants/color.dart';
+import 'package:Mowater/core/constants/size.dart';
+import 'package:Mowater/core/helper/get_post_when.dart';
+import 'package:Mowater/core/style/text_style.dart';
 
 class PlateForSaleWidget extends StatelessWidget {
   final PlateModelForSale plate;
@@ -22,7 +23,7 @@ class PlateForSaleWidget extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: ColorApp.secunderyColorDark,
+            color: Theme.of(context).colorScheme.secondary,
             boxShadow: const [
               BoxShadow(
                 color: Color.fromARGB(255, 33, 33, 33),
@@ -42,7 +43,7 @@ class PlateForSaleWidget extends StatelessWidget {
                   padding: EdgeInsets.all(20.dg),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Colors.black, width: 5),
+                    border: Border.all(width: 5),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -50,7 +51,6 @@ class PlateForSaleWidget extends StatelessWidget {
                       Text(
                         plate.code,
                         style: TextStyles.text_28.copyWith(
-                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -63,7 +63,6 @@ class PlateForSaleWidget extends StatelessWidget {
                       Text(
                         plate.plateNumber,
                         style: TextStyles.text_28.copyWith(
-                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       )
@@ -86,7 +85,7 @@ class PlateForSaleWidget extends StatelessWidget {
                                   TextStyles.text_18.copyWith(fontSize: 22.sp),
                             ),
                             Text(
-                              'AED',
+                              'AED'.tr(),
                               style: TextStyles.text_14.copyWith(
                                   color: ColorApp.primeryColorDark,
                                   fontSize: 14.sp),
